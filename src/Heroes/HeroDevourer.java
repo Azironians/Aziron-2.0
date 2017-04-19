@@ -1,3 +1,7 @@
+package Heroes;
+
+import Skills.Skill;
+
 import java.util.List;
 
 public class HeroDevourer extends Hero {
