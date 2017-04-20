@@ -26,29 +26,29 @@ public class WindowMatchMaking1 {
         imageBattleGround.setFitWidth(1280.0);
 
         if (player1.getHero().getClass() == HeroDevourer.class) {
-            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\ger1.png").toURI().toString()));
+            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
         } else if (player1.getHero().getClass() == HeroLordVamp.class) {
-            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\ger2.png").toURI().toString()));
+            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString()));
         } else {
-            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\ger3.png").toURI().toString()));
+            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
         }
 
-        heroOne.setFitHeight(400.0);
+        heroOne.setFitHeight(300.0);
         heroOne.setFitWidth(300.0);
         heroOne.setTranslateX(50);
-        heroOne.setTranslateY(100);
+        heroOne.setTranslateY(200);
 
         if (player2.getHero().getClass() == HeroDevourer.class) {
-            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\ger1.png").toURI().toString()));
+            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
         } else if (player2.getHero().getClass() == HeroLordVamp.class) {
-            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\ger2.png").toURI().toString()));
+            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString()));
         } else {
-            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\ger3.png").toURI().toString()));
+            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
         }
-        heroTwo.setFitHeight(400.0);
+        heroTwo.setFitHeight(300.0);
         heroTwo.setFitWidth(300.0);
         heroTwo.setTranslateX(930);
-        heroTwo.setTranslateY(100);
+        heroTwo.setTranslateY(200);
 
         ImageView buttonTreatment = new ImageView(new Image(new File("src\\Picture\\Buttons\\Health_Moused.png").toURI().toString(), 1280.0, 720.0, true, true));
 

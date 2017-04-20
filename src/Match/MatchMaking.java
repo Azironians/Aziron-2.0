@@ -23,7 +23,6 @@ public void damage(Player thisPlayer,Player otherPlayer) {
         treatmentVisual();
     }
 
-
     public static void battleProcess(Stage stage, Player player1, Player player2){
         launch(stage, player1, player2);
         boolean inBattle = true;
@@ -31,22 +30,7 @@ public void damage(Player thisPlayer,Player otherPlayer) {
 Player thisPlayer = player1;
 Player otherPlayer = player2;
 
-
-
 inBattle=false;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         }
     }
