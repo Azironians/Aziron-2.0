@@ -18,9 +18,7 @@ import java.util.List;
         //Разыграть способность:
         public void castSkill(Skill skill){}
 
-        public void levelUp(){
-
-        }
+        public void levelUp(){}
 
         //Getters and Setters:
         public String getName() {

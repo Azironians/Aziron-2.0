@@ -29,7 +29,7 @@ public class ConsoleMenu {
         while ( -1 != (code = System.in.read ()) ){
             ch = (char) code ;
             if ( '1' == ch ) {
-                paneTrigger = 1;
+                windowLocMch();
             }
             if ( '2' == ch ) {
                 System.exit(1);

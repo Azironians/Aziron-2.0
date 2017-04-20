@@ -12,7 +12,7 @@ public class AzironLauncher implements AzironGameLauncher {
     public static void main(String[] args) throws IOException {
         windowInitialization();
             windowMenu();
-            windowLocMch();
+            
         }
 
 
