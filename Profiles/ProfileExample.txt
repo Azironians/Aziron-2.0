@@ -1,7 +1,0 @@
-Name: StarKRE
-Raiting: 20 /2453
-Wins: 12859
-Loses: 10314
-WinsDev: 11302
-WinsLV2: 1423
-WinsBHR: 134

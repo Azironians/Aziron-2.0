@@ -10,7 +10,7 @@ public class AzironLauncher implements AzironGameLauncher {
     public static byte paneTrigger = 0; //0 - menu; 1 - locMch;
     //14 методов:
     public static void main(String[] args) throws IOException {
-        windowInitialization();
+
             windowMenu();
             
         }
