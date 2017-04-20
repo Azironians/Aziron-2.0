@@ -20,14 +20,14 @@ public class Initialization {
         imageBattleGround.setFitHeight(720.0);
         imageBattleGround.setFitWidth(1280.0);
 
-        ImageView imageDevourer = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\ger1g.png").toURI().toString(),1280.0,720.0,true,true));
-        imageDevourer.setFitHeight(400.0);
+        ImageView imageDevourer = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString(),1280.0,720.0,true,true));
+        imageDevourer.setFitHeight(300.0);
         imageDevourer.setFitWidth(300.0);
         imageDevourer.setTranslateX(50);
         imageDevourer.setTranslateY(100);
 
-        ImageView imageLordVampire = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\ger2g.png").toURI().toString(),1280.0,720.0,true,true));
-        imageLordVampire.setFitHeight(400.0);
+        ImageView imageLordVampire = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString(),1280.0,720.0,true,true));
+        imageLordVampire.setFitHeight(300.0);
         imageLordVampire.setFitWidth(300.0);
         imageLordVampire.setTranslateX(930);
         imageLordVampire.setTranslateY(100);
