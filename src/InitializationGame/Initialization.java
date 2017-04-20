@@ -16,31 +16,31 @@ public class Initialization {
     public static Stage windowInitialization(Stage AzironStage) {
         Pane root = new Pane();
 
-        File file = new File("src\\Picture\\Windows\\WindowBattleField.bmp");
-        Image image = new Image(file.toURI().toString(),1280.0,720.0,true,true);
-        ImageView imageView = new ImageView(image);
-        imageView.setFitHeight(720.0);
-        imageView.setFitWidth(1280.0);
-        file= new File("src\\Picture\\Heroes\\Devourer\\ger1g.png");
-        Image image2 = new Image(file.toURI().toString(),1280.0,720.0,true,true);
-        ImageView imageView2 = new ImageView(image2);
-        imageView2.setFitHeight(400.0);
-        imageView2.setFitWidth(300.0);
-        imageView2.setTranslateX(50);
-        imageView2.setTranslateY(100);
-        ImageView imageView3 = new ImageView(image2);
-        imageView3.setFitHeight(400.0);
-        imageView3.setFitWidth(300.0);
-        imageView3.setTranslateX(800);
-        imageView3.setTranslateY(100);
-        file= new File("src\\Picture\\Buttons\\Health_Moused.png");
-        Image treatmentPict = new Image(file.toURI().toString(),50,50,true,true);
-        ImageView treatmentVievPict = new ImageView(treatmentPict);
-        treatmentVievPict.setFitHeight(50.0);
-        treatmentVievPict.setFitWidth(50.0);
-        treatmentVievPict.setTranslateY(670);
-        treatmentVievPict.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> System.out.println("sdfsdf"));
-        root.getChildren().addAll(imageView,imageView2,imageView3,treatmentVievPict);
+        ImageView imageBattleGround = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowBattleField.bmp").toURI().toString(),1280.0,720.0,true,true));
+        imageBattleGround.setFitHeight(720.0);
+        imageBattleGround.setFitWidth(1280.0);
+
+        ImageView imageDevourer = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\ger1g.png").toURI().toString(),1280.0,720.0,true,true));
+        imageDevourer.setFitHeight(400.0);
+        imageDevourer.setFitWidth(300.0);
+        imageDevourer.setTranslateX(50);
+        imageDevourer.setTranslateY(100);
+
+        ImageView imageLordVampire = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\ger2g.png").toURI().toString(),1280.0,720.0,true,true));
+        imageLordVampire.setFitHeight(400.0);
+        imageLordVampire.setFitWidth(300.0);
+        imageLordVampire.setTranslateX(930);
+        imageLordVampire.setTranslateY(100);
+
+        ImageView buttonTreatment = new ImageView(new Image(new File("src\\Picture\\Buttons\\Health_Moused.png").toURI().toString(),1280.0,720.0,true,true));
+
+
+        buttonTreatment.setFitHeight(50.0);
+        buttonTreatment.setFitWidth(50.0);
+        buttonTreatment.setTranslateY(670);
+        buttonTreatment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> System.out.println("sdfsdf"));
+
+        root.getChildren().addAll( imageBattleGround, imageDevourer,imageLordVampire, buttonTreatment);
         Scene scene = new Scene(root, 1280, 720);
         AzironStage.setScene(scene);
 
