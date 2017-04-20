@@ -9,6 +9,7 @@ public class AzironGame extends Application {
     public void start(Stage AzironStage) throws Exception {
         AzironStage.setTitle("Heroes of Azironian");
         AzironStage.show();
+        AzironStage.setResizable(false);
         Initialization.windowInitialization(AzironStage);
     }
 
