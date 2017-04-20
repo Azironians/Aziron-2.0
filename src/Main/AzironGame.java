@@ -1,8 +1,12 @@
 package Main;
-import WindowMatch.MatchMaking;
+
+import Heroes.HeroDevourer;
+import Heroes.HeroLordVamp;
+import Match.Player;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+
+import static Match.MatchMaking.battleProcess;
 
 public class AzironGame extends Application {
 
@@ -11,10 +15,8 @@ public class AzironGame extends Application {
         AzironStage.setTitle("Heroes of Azironian");
         AzironStage.show();
         AzironStage.setResizable(false);
-        WindowMatch.MatchMaking.launch(AzironStage);
+        battleProcess(AzironStage, new Player("I am Groot", new HeroLordVamp(), null), new Player("I am not Groot", new HeroDevourer(), null));
     }
-
-
 
     public static void main(String[] args) {
         launch(args);

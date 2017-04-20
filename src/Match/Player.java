@@ -5,13 +5,14 @@ import Heroes.Hero;
 public class Player {
     private String profileName;
     private Hero hero;
-    private boolean yourTurn;
+    private Boolean yourTurn;
 
-    public Player(String profileName, Hero hero, boolean yourTurn) {
+    public Player(String profileName, Hero hero, Boolean yourTurn) {
         this.profileName = profileName;
         this.hero = hero;
         this.yourTurn = yourTurn;
     }
+
 
     public String getProfileName() {
         return profileName;
