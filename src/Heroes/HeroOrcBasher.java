@@ -1,7 +1,10 @@
 package Heroes;
 
 import Skills.Skill;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.util.List;
 
 public class HeroOrcBasher implements Hero {
@@ -12,6 +15,8 @@ public class HeroOrcBasher implements Hero {
     private Double supplyHealth;
     private Double levelHero;
     private List<Skill> skills;
+    private ImageView imageView;
+
 
     public HeroOrcBasher() {
         this.attack = 30.0;
@@ -19,9 +24,15 @@ public class HeroOrcBasher implements Hero {
         this.treatment = 125.0;
         this.levelHero = 1.0;
         this.hitPoints=500.0;
+        this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
+
     }
 
 
+    @Override
+    public ImageView getImage(){
+        return imageView;
+    }
     @Override
     public void levelUp() {
         levelHero++;

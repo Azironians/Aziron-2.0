@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.File;
 
 import static Match.MatchMaking.damage;
+import static Match.MatchMaking.treatment;
 
 public class WindowMatchMaking1 {
     public static void launch(Pane root, Player player1, Player player2) {
@@ -23,26 +24,14 @@ public class WindowMatchMaking1 {
         imageBattleGround.setFitHeight(720.0);
         imageBattleGround.setFitWidth(1280.0);
 
-        if (player1.getHero().getClass() == HeroDevourer.class) {
-            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
-        } else if (player1.getHero().getClass() == HeroLordVamp.class) {
-            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString()));
-        } else {
-            heroOne = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
-        }
+        heroOne = player1.getHero().getImage();
 
         heroOne.setFitHeight(300.0);
         heroOne.setFitWidth(300.0);
         heroOne.setLayoutX(50);
         heroOne.setLayoutY(200);
 
-        if (player2.getHero().getClass() == HeroDevourer.class) {
-            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
-        } else if (player2.getHero().getClass() == HeroLordVamp.class) {
-            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString()));
-        } else {
-            heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
-        }
+        heroTwo = player2.getHero().getImage();
         heroTwo.setFitHeight(300.0);
         heroTwo.setFitWidth(300.0);
         heroTwo.setLayoutX(930);
@@ -54,15 +43,28 @@ public class WindowMatchMaking1 {
         buttonTreatment.setFitHeight(50.0);
         buttonTreatment.setFitWidth(50.0);
         buttonTreatment.setLayoutY(670);
-        buttonTreatment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> damage(player1,player2,root));
+        buttonTreatment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> damage(player1, player2, root));
+        ImageView buttonTreatment2 = new ImageView(new Image(new File("src\\Picture\\Buttons\\Health_Moused.png").toURI().toString(), 1280.0, 720.0, true, true));
 
-        ImageView levelBlue = new ImageView(new Image(new File("src\\Picture\\Triggers\\Level_Blue.png").toURI().toString(),1280.0,720.0,true,true));
+
+        buttonTreatment2.setFitHeight(50.0);
+        buttonTreatment2.setFitWidth(50.0);
+        buttonTreatment2.setLayoutY(600);
+        buttonTreatment2.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
+            try {
+                treatment(player1, player2, root);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        ImageView levelBlue = new ImageView(new Image(new File("src\\Picture\\Triggers\\Level_Blue.png").toURI().toString(), 1280.0, 720.0, true, true));
         levelBlue.setFitHeight(100.0);
         levelBlue.setFitWidth(300.0);
         levelBlue.setLayoutX(10);
         levelBlue.setLayoutY(10);
 
 
-        root.getChildren().addAll( imageBattleGround, heroOne,heroTwo, buttonTreatment, levelBlue);
+        root.getChildren().addAll(imageBattleGround, heroOne, heroTwo, buttonTreatment, levelBlue,buttonTreatment2);
     }
 }

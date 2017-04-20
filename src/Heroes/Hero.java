@@ -1,6 +1,7 @@
 package Heroes;
 
 import Skills.Skill;
+import javafx.scene.image.ImageView;
 
 import java.util.List;
 
@@ -9,32 +10,34 @@ import java.util.List;
 
         //Разыграть способность:
 
-        public void levelUp();
+       void levelUp();
+
+        ImageView getImage();
 
         //Getters and Setters:
-        public Double getAttack();
+        Double getAttack();
 
-        public void setAttack(Double attack);
+        void setAttack(Double attack);
 
-        public Double getTreatment();
+        Double getTreatment();
 
-        public void setTreatment(Double treatment);
+        void setTreatment(Double treatment);
 
-        public Double getHitPoints();
+        Double getHitPoints();
 
-        public void setHitPoints(Double hitPoints);
+        void setHitPoints(Double hitPoints);
 
-        public Double getSupplyHealth();
+        Double getSupplyHealth();
 
-        public void setSupplyHealth(Double supplyHealth);
+        void setSupplyHealth(Double supplyHealth);
 
-        public Double getLevelHero();
+        Double getLevelHero();
 
-        public void setLevelHero(Double levelHero);
+        void setLevelHero(Double levelHero);
 
-        public List<Skill> getSkills();
+        List<Skill> getSkills();
 
-        public void setSkills(List<Skill> skills);
+        void setSkills(List<Skill> skills);
 
 
     }
