@@ -2,100 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/10.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/11.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/12.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/13.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/14.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/15.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/7.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/8.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Bonuses/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonExitOffWindowLocMatchOnTwo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonExitOnWindowLocMatchOnTwo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonMenuExitProgrammOff.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonMenuExitProgrammOn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOffMenuLocMatch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOffWindowLocMatchOnTwo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOnMenuLocMatch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOnWindowLocMatchOnTwo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/Health_Moused.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/Health_Moused1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Basher/BHR_Spotlight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Basher/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Basher/Ults/DmgSkillBHR.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Basher/Ults/HealthBHRSkill.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Basher/ger3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Basher/ger3g.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Devourer3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Devourer_3_V_2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Ults/DmgSkillDev.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Ults/HealthDevSkill.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Ults/ultDev1.PNG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Ults/ultDev2.PNG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/Ults/ultDev3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/ger1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Devourer/ger1g.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/GeneralSkills/dpsHero.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/LordWamp/Ults/DmgSkillLV.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/LordWamp/Ults/HealthLVSkill.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/LordWamp/ger2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/LordWamp/ger2g.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Heroes/Meditator/ger4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Mouse/Mouse.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Mouse/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/Blue_1st_Turn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/Blue_StartXP.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/TriggerHeadline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/TriggerLoadFrag.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/TriggerLocMchHeadline.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/LocMchWindow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/NotUsed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowAutorization.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowBattleField.bmp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowChampion.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowDeepLoading.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowInit.bmp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowInitRemaked.bmp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowInitialization.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowMenu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Main/AzironGame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerAutorization.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerChoiceHero.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerInitialization.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerMenu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowAutorization.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowInitialization.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowMenu.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Anton.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Anton.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Bogdan.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Bogdan.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Dzen.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Dzen.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Igor.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Igor.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Lesha.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Lesha.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Ninja.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Ninja.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/ProfileExample.txt" afterPath="$PROJECT_DIR$/src/Profiles/ProfileExample.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/StarKRE.hoa" afterPath="$PROJECT_DIR$/src/Profiles/StarKRE.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Vitya.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Vitya.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/Zhenya.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Zhenya.hoa" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Profiles/hfbfkjsnV,lmvf;k.hoa" afterPath="$PROJECT_DIR$/src/Profiles/hfbfkjsnV,lmvf;k.hoa" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InitializationGame/Initialization.java" afterPath="$PROJECT_DIR$/src/InitializationGame/Initialization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/AzironLauncher.java" afterPath="$PROJECT_DIR$/src/Main/AzironLauncher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Match/MatchMaking.java" afterPath="$PROJECT_DIR$/src/Match/MatchMaking.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Match/Player.java" afterPath="$PROJECT_DIR$/src/Match/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/AzironGame.java" afterPath="$PROJECT_DIR$/src/Main/AzironGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -113,21 +22,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AzironLauncher.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main/AzironLauncher.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="AzironGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/AzironGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Initialization.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Initialization.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/InitializationGame/Initialization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="43" />
+            <state relative-caret-position="408">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -150,8 +49,8 @@
       <file leaf-file-name="MatchMaking.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Match/MatchMaking.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="206">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -212,9 +111,9 @@
         <option value="$PROJECT_DIR$/controller/ControllerInitialization.java" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/WindowInitialization.fxml" />
         <option value="$PROJECT_DIR$/src/controller/ControllerInitialization.java" />
-        <option value="$PROJECT_DIR$/src/InitializationGame/Initialization.java" />
-        <option value="$PROJECT_DIR$/src/Main/AzironGame.java" />
         <option value="$PROJECT_DIR$/src/Main/AzironLauncher.java" />
+        <option value="$PROJECT_DIR$/src/Main/AzironGame.java" />
+        <option value="$PROJECT_DIR$/src/InitializationGame/Initialization.java" />
       </list>
     </option>
   </component>
@@ -268,78 +167,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InitializationGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fxmlFiles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AzironConsole" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -627,7 +454,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492682467937</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="первый опыт">
+      <created>1492697859409</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1492697859409</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -641,7 +475,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2889785" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1651671" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -696,12 +530,39 @@
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="AzironConsoleTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="AzironConsoleTest" />
+    <MESSAGE value="первый опыт" />
+    <option name="LAST_COMMIT_MESSAGE" value="первый опыт" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -722,24 +583,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/PaneLocalMatch/ConsoleLocMatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="29" column="15" lean-forward="true" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/AzironLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Menu/ConsoleMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1062,11 +905,11 @@
         <state relative-caret-position="442">
           <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#541#542#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#792#793#0" expanded="true" />
-            <element signature="e#852#853#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#541#542#0" expanded="false" />
+            <element signature="e#582#583#0" expanded="false" />
+            <element signature="e#792#793#0" expanded="false" />
+            <element signature="e#852#853#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1084,37 +927,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Match/MatchMaking.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="206">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/InitializationGame/Initialization.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/AzironGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main/AzironLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowAutorization.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/AzironGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/InitializationGame/Initialization.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

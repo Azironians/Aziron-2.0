@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 import java.io.File;
 
 public class Initialization {
-    public static void windowInitialization(Stage AzironStage) {
+    public static Stage windowInitialization(Stage AzironStage) {
         Pane root = new Pane();
-        AzironStage.setTitle("Heroes of Azironian");
+
         File file = new File("src\\Picture\\Windows\\WindowBattleField.bmp");
         Image image = new Image(file.toURI().toString(),1280.0,720.0,true,true);
         ImageView imageView = new ImageView(image);
@@ -36,14 +36,14 @@ public class Initialization {
         file= new File("src\\Picture\\Buttons\\Health_Moused.png");
         Image treatmentPict = new Image(file.toURI().toString(),50,50,true,true);
         ImageView treatmentVievPict = new ImageView(treatmentPict);
-        imageView2.setFitHeight(50.0);
-        imageView2.setFitWidth(50.0);
-        Button treatment = new Button("",treatmentVievPict);
-        treatment.setTranslateY(670);
-        treatment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> System.out.println("sdfsdf"));
-        root.getChildren().addAll(imageView,imageView2,imageView3,treatment);
+        treatmentVievPict.setFitHeight(50.0);
+        treatmentVievPict.setFitWidth(50.0);
+        treatmentVievPict.setTranslateY(670);
+        treatmentVievPict.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> System.out.println("sdfsdf"));
+        root.getChildren().addAll(imageView,imageView2,imageView3,treatmentVievPict);
         Scene scene = new Scene(root, 1280, 720);
         AzironStage.setScene(scene);
-        AzironStage.show();
+
+        return AzironStage;
     }
 }
