@@ -1,12 +1,9 @@
 package InitializationGame;
 
-
 import Heroes.HeroDevourer;
 import Heroes.HeroLordVamp;
 import Match.Player;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -15,13 +12,14 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
+import static Match.MatchMaking.damage;
+
 public class WindowMatchMaking1 {
-    public static Stage launch(Stage AzironStage, Player player1, Player player2) {
-        Pane root = new Pane();
+    public static void launch(Pane root, Player player1, Player player2) {
         ImageView heroOne;
         ImageView heroTwo;
 
-        ImageView imageBattleGround = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowBattleField.bmp").toURI().toString(),1280.0,720.0,true,true));
+        ImageView imageBattleGround = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowBattleField.bmp").toURI().toString(), 1280.0, 720.0, true, true));
         imageBattleGround.setFitHeight(720.0);
         imageBattleGround.setFitWidth(1280.0);
 
@@ -35,8 +33,8 @@ public class WindowMatchMaking1 {
 
         heroOne.setFitHeight(300.0);
         heroOne.setFitWidth(300.0);
-        heroOne.setTranslateX(50);
-        heroOne.setTranslateY(200);
+        heroOne.setLayoutX(50);
+        heroOne.setLayoutY(200);
 
         if (player2.getHero().getClass() == HeroDevourer.class) {
             heroTwo = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
@@ -47,28 +45,24 @@ public class WindowMatchMaking1 {
         }
         heroTwo.setFitHeight(300.0);
         heroTwo.setFitWidth(300.0);
-        heroTwo.setTranslateX(930);
-        heroTwo.setTranslateY(200);
+        heroTwo.setLayoutX(930);
+        heroTwo.setLayoutY(200);
 
         ImageView buttonTreatment = new ImageView(new Image(new File("src\\Picture\\Buttons\\Health_Moused.png").toURI().toString(), 1280.0, 720.0, true, true));
 
 
         buttonTreatment.setFitHeight(50.0);
         buttonTreatment.setFitWidth(50.0);
-        buttonTreatment.setTranslateY(670);
-        buttonTreatment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> System.out.println("sdfsdf"));
+        buttonTreatment.setLayoutY(670);
+        buttonTreatment.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> damage(player1,player2,root));
 
         ImageView levelBlue = new ImageView(new Image(new File("src\\Picture\\Triggers\\Level_Blue.png").toURI().toString(),1280.0,720.0,true,true));
         levelBlue.setFitHeight(100.0);
         levelBlue.setFitWidth(300.0);
-        levelBlue.setTranslateX(10);
-        levelBlue.setTranslateY(10);
+        levelBlue.setLayoutX(10);
+        levelBlue.setLayoutY(10);
 
 
         root.getChildren().addAll( imageBattleGround, heroOne,heroTwo, buttonTreatment, levelBlue);
-        Scene scene = new Scene(root, 1280, 720);
-        AzironStage.setScene(scene);
-
-        return AzironStage;
     }
 }

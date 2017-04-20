@@ -18,6 +18,7 @@ public class HeroDevourer implements Hero {
         this.supplyHealth = 400.0;
         this.treatment = 100.0;
         this.levelHero = 1.0;
+        this.hitPoints=400.0;
     }
 
 

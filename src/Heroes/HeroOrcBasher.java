@@ -18,6 +18,7 @@ public class HeroOrcBasher implements Hero {
         this.supplyHealth = 500.0;
         this.treatment = 125.0;
         this.levelHero = 1.0;
+        this.hitPoints=500.0;
     }
 
 

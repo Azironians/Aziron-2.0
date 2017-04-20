@@ -18,6 +18,7 @@ public class HeroLordVamp implements Hero {
         this.supplyHealth = 300.0;
         this.treatment = 75.0;
         this.levelHero = 1.0;
+        this.hitPoints=300.0;
     }
 
 
