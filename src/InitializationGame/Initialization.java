@@ -24,13 +24,13 @@ public class Initialization {
         imageDevourer.setFitHeight(300.0);
         imageDevourer.setFitWidth(300.0);
         imageDevourer.setTranslateX(50);
-        imageDevourer.setTranslateY(100);
+        imageDevourer.setTranslateY(200);
 
         ImageView imageLordVampire = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString(),1280.0,720.0,true,true));
         imageLordVampire.setFitHeight(300.0);
         imageLordVampire.setFitWidth(300.0);
         imageLordVampire.setTranslateX(930);
-        imageLordVampire.setTranslateY(100);
+        imageLordVampire.setTranslateY(200);
 
         ImageView buttonTreatment = new ImageView(new Image(new File("src\\Picture\\Buttons\\Health_Moused.png").toURI().toString(),1280.0,720.0,true,true));
 
