@@ -1,7 +1,8 @@
 package Main;
-import InitializationGame.Initialization;
+import WindowMatch.MatchMaking;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import javafx.stage.Window;
 
 public class AzironGame extends Application {
 
@@ -10,7 +11,7 @@ public class AzironGame extends Application {
         AzironStage.setTitle("Heroes of Azironian");
         AzironStage.show();
         AzironStage.setResizable(false);
-        Initialization.windowInitialization(AzironStage);
+        WindowMatch.MatchMaking.launch(AzironStage);
     }
 
 

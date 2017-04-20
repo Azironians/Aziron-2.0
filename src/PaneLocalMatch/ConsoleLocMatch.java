@@ -27,7 +27,7 @@ public class ConsoleLocMatch {
         while (-1 != (code = System.in.read())) {
             ch = (char) code;
             if ('1' == ch) {
-                //MatchMaking
+                //WindowMatch
             }
             if ('2' == ch) {
                 windowMenu();

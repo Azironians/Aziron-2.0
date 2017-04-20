@@ -1,9 +1,7 @@
-package InitializationGame;
+package WindowMatch;
 
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -12,8 +10,8 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class Initialization {
-    public static Stage windowInitialization(Stage AzironStage) {
+public class MatchMaking {
+    public static Stage launch(Stage AzironStage) {
         Pane root = new Pane();
 
         ImageView imageBattleGround = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowBattleField.bmp").toURI().toString(),1280.0,720.0,true,true));
