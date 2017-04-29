@@ -7,33 +7,47 @@ import javafx.scene.image.ImageView;
 import java.io.File;
 import java.util.List;
 
+import static Heroes.LevelLordVamp.LevelUpLordVamp;
+
 public class HeroLordVamp implements Hero {
 
     private Double attack;
     private Double treatment;
     private Double hitPoints;
     private Double supplyHealth;
-    private Double levelHero;
-    private List<Skill> skills;
+    private int levelHero;
+    private Skill skills;
     private ImageView imageView;
+    private Double experience = 0.0;
+
 
     public HeroLordVamp() {
         this.attack = 50.0;
         this.supplyHealth = 300.0;
         this.treatment = 75.0;
-        this.levelHero = 1.0;
-        this.hitPoints=300.0;
+        this.levelHero = 1;
+        this.hitPoints = 300.0;
+
         this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString()));
     }
 
-@Override
-public ImageView getImage(){
+    @Override
+    public Double getExperience() {
+        return experience;
+    }
+
+    public void setExperience(Double experience) {
+        this.experience = experience;
+    }
+
+    @Override
+    public ImageView getImage() {
         return imageView;
-}
+    }
 
     @Override
     public void levelUp() {
-        levelHero++;
+        LevelUpLordVamp(this);
     }
 
 
@@ -78,22 +92,22 @@ public ImageView getImage(){
     }
 
     @Override
-    public Double getLevelHero() {
+    public int getLevelHero() {
         return levelHero;
     }
 
     @Override
-    public void setLevelHero(Double levelHero) {
+    public void setLevelHero(int levelHero) {
         this.levelHero = levelHero;
     }
 
     @Override
-    public List<Skill> getSkills() {
+    public Skill getSkills() {
         return skills;
     }
 
     @Override
-    public void setSkills(List<Skill> skills) {
+    public void setSkills(Skill skills) {
         this.skills = skills;
     }
 }

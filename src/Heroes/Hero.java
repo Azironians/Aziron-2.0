@@ -5,42 +5,46 @@ import javafx.scene.image.ImageView;
 
 import java.util.List;
 
-    public interface Hero {
+public interface Hero {
 
 
-        //Разыграть способность:
+    //Разыграть способность:
 
-       void levelUp();
+    void levelUp();
 
-        ImageView getImage();
+    Double getExperience();
 
-        //Getters and Setters:
-        Double getAttack();
+    void setExperience(Double experience);
 
-        void setAttack(Double attack);
+    ImageView getImage();
 
-        Double getTreatment();
+    //Getters and Setters:
+    Double getAttack();
 
-        void setTreatment(Double treatment);
+    void setAttack(Double attack);
 
-        Double getHitPoints();
+    Double getTreatment();
 
-        void setHitPoints(Double hitPoints);
+    void setTreatment(Double treatment);
 
-        Double getSupplyHealth();
+    Double getHitPoints();
 
-        void setSupplyHealth(Double supplyHealth);
+    void setHitPoints(Double hitPoints);
 
-        Double getLevelHero();
+    Double getSupplyHealth();
 
-        void setLevelHero(Double levelHero);
+    void setSupplyHealth(Double supplyHealth);
 
-        List<Skill> getSkills();
+    int getLevelHero();
 
-        void setSkills(List<Skill> skills);
+    void setLevelHero(int levelHero);
+
+    Skill getSkills();
+
+    void setSkills(Skill skills);
 
 
-    }
+}
 
 
 

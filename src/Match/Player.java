@@ -5,14 +5,20 @@ import Heroes.Hero;
 public class Player {
     private String profileName;
     private Hero hero;
-    private Boolean yourTurn;
+    private Boolean location;
 
-    public Player(String profileName, Hero hero, Boolean yourTurn) {
+    public Player(String profileName, Hero hero) {
         this.profileName = profileName;
         this.hero = hero;
-        this.yourTurn = yourTurn;
     }
 
+    public Boolean getLocation() {
+        return location;
+    }
+
+    public void setLocation(Boolean location) {
+        this.location = location;
+    }
 
     public String getProfileName() {
         return profileName;
@@ -30,13 +36,6 @@ public class Player {
         this.hero = hero;
     }
 
-    public boolean isYourTurn() {
-        return yourTurn;
-    }
-
-    public void setYourTurn(boolean yourTurn) {
-        this.yourTurn = yourTurn;
-    }
 }
 
 
