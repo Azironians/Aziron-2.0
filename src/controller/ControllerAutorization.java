@@ -117,30 +117,6 @@ public class ControllerAutorization implements Initializable {
                     } catch (Exception e) {
                         textSignInMessage.setText("Неверное имя пользователя или пароль");
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    });
+            });
     }
 }
