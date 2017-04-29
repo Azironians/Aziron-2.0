@@ -24,7 +24,6 @@ public class AzironGame extends Application {
         azironStage.setTitle("Build 1.0.0.0.0.0.0");
         azironStage.setScene(sceneInit);
         azironStage.show();
-
         //Прогрузка:
         Parent rootMenu = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowMenu.fxml"));
         Scene sceneMenu = new Scene(rootMenu, 1280, 720);
