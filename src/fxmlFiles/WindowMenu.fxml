@@ -9,63 +9,67 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMenu">
    <children>
-      <ImageView fx:id="WindowMenu" fitHeight="834.0" fitWidth="1391.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="windowMenu" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Picture/Windows/WindowMenu.png" />
+            <Image url="@../Picture/Windows/WindowMenu.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="ButtonOnExitProgramm" fitHeight="83.0" fitWidth="173.0" layoutX="1093.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Picture/Buttons/ButtonMenuExitProgrammOn.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ButtonOffExitProgramm" fitHeight="83.0" fitWidth="173.0" layoutX="1093.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Picture/Buttons/ButtonMenuExitProgrammOff.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ButttonOffLocMch" fitHeight="72.0" fitWidth="342.0" layoutX="821.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Picture/Buttons/ButtonOffMenuLocMatch.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="ButtonOnLocMch" fitHeight="72.0" fitWidth="327.0" layoutX="821.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Picture/Buttons/ButtonOnMenuLocMatch.png" />
-         </image>
-      </ImageView>
-      <Pane layoutX="303.0" layoutY="210.0" prefHeight="501.0" prefWidth="742.0">
+      <Pane fx:id="panelLocMch" disable="true" layoutX="303.0" layoutY="210.0" prefHeight="501.0" prefWidth="742.0" visible="false">
          <children>
-            <ImageView fitHeight="356.0" fitWidth="726.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="panel" fitHeight="356.0" fitWidth="726.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Triggers/Pane.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="116.0" fitWidth="421.0" layoutX="161.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="headline" fitHeight="116.0" fitWidth="421.0" layoutX="161.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Triggers/TriggerLocMchHeadline.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="412.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonOffGameTwo" fitHeight="150.0" fitWidth="200.0" layoutX="412.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Buttons/ButtonOffWindowLocMatchOnTwo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="412.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonOnGameTwo" fitHeight="150.0" fitWidth="200.0" layoutX="412.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../Picture/Buttons/ButtonOnWindowLocMatchOnTwo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="80.0" layoutX="601.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonOffBack" fitHeight="47.0" fitWidth="80.0" layoutX="601.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Buttons/ButtonExitOffWindowLocMatchOnTwo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="47.0" fitWidth="80.0" layoutX="601.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonOnBack" fitHeight="47.0" fitWidth="80.0" layoutX="601.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../Picture/Buttons/ButtonExitOnWindowLocMatchOnTwo.png" />
                </image>
             </ImageView>
          </children></Pane>
+      <Pane fx:id="paneButtons" layoutY="-6.0">
+         <children>
+            <ImageView fx:id="buttonOffExitProgramm" fitHeight="83.0" fitWidth="173.0" layoutX="1093.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonMenuExitProgrammOff.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOnExitProgramm" fitHeight="83.0" fitWidth="173.0" layoutX="1093.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonMenuExitProgrammOn.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOffLocMch" fitHeight="72.0" fitWidth="342.0" layoutX="821.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonOffMenuLocMatch.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOnLocMch" fitHeight="72.0" fitWidth="342.0" layoutX="821.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonOnMenuLocMatch.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

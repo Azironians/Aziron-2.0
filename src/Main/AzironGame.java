@@ -1,36 +1,31 @@
 package Main;
 
-import Heroes.HeroDevourer;
-import Heroes.HeroLordVamp;
-import Match.Player;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.File;
+import static Main.BuildStage.azironStage;
 
-import static Match.MatchMaking.battleProcess;
 
 public class AzironGame extends Application {
 
     @Override
-    public void start(Stage AzironStage) throws Exception {
-        AzironStage.setTitle("Heroes of Azironian");
-        AzironStage.show();
-        AzironStage.setResizable(false);
-        Pane pane = new Pane();
-        ImageView imageBattleGround = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowInitialization.jpg").toURI().toString(), 1280.0, 720.0, true, true));
-        imageBattleGround.setFitHeight(720.0);
-        imageBattleGround.setFitWidth(1280.0);
-        pane.getChildren().addAll(imageBattleGround);
-        Scene scene = new Scene(pane, 1280, 720);
-        AzironStage.setScene(scene);
-        AzironStage.show();
-        battleProcess(pane, new Player("I am Groot", new HeroLordVamp(), null), new Player("I am not Groot", new HeroDevourer(), null));
-    }
+    public void start(Stage virtualStage) throws Exception {
+        //1. Создание окна загрузки:
+        Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowInitialization.fxml"));
+        Scene sceneInit = new Scene(rootInit, 1280, 720);
+        azironStage.setResizable(false);
+        azironStage.setTitle("Build 1.0.0.0.0.0.0");
+        azironStage.setScene(sceneInit);
+        azironStage.show();
+        //Прогрузка:
+        Parent rootMenu = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowMenu.fxml"));
+        Scene sceneMenu = new Scene(rootMenu, 1280, 720);
+        //2. Окно меню:
+        azironStage.setScene(sceneMenu);
+}
 
     public static void main(String[] args) {
         launch(args);

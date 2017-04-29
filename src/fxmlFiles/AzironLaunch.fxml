@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerLauncher">
+   <children>
+      <ImageView fitHeight="445.0" fitWidth="605.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/Windows/Background-2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fone" fitHeight="326.0" fitWidth="604.0" layoutX="1.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/Triggers/Pane.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="109.0" fitWidth="552.0" layoutX="32.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/Triggers/TriggerHeadline.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="paneButton" layoutX="322.0" layoutY="351.0" prefHeight="94.0" prefWidth="268.0">
+         <children>
+            <ImageView fx:id="buttonOffGame" fitHeight="55.0" fitWidth="286.0" layoutX="17.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonOffPlayInTheGame.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOnGame" fitHeight="55.0" fitWidth="286.0" layoutX="17.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonOnPlayInTheGame.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="109.0" fitWidth="114.0" layoutX="474.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Picture/Triggers/Icon.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="textLaunched" fill="#37ffeb" layoutX="22.0" layoutY="422.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Игра запущена..." visible="false" wrappingWidth="268.0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

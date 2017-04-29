@@ -12,7 +12,7 @@
    <children>
       <ImageView fitHeight="836.0" fitWidth="1340.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../Picture/Windows/WindowInitRemaked.bmp" />
+            <Image url="@../Picture/Windows/WinChoiceHero.png" />
          </image>
       </ImageView>
       <Pane layoutX="978.0" layoutY="38.0" prefHeight="299.0" prefWidth="304.0">
@@ -20,9 +20,28 @@
             <TextFlow prefHeight="299.0" prefWidth="304.0" />
          </children>
       </Pane>
-      <Text fill="WHITE" layoutX="1049.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статистика профиля:" textAlignment="CENTER" wrappingWidth="233.0">
-         <font>
-            <Font size="18.0" />
-         </font></Text>
+      <Pane layoutX="236.0" layoutY="188.0" prefHeight="483.0" prefWidth="810.0">
+         <children>
+            <ImageView fitHeight="216.0" fitWidth="164.0" layoutX="625.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/Button_Right.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="216.0" fitWidth="160.0" layoutX="61.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/Button_Left.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="-238.0" prefHeight="489.0" prefWidth="1283.0">
+               <children>
+                  <ImageView fx:id="devourer" fitHeight="429.0" fitWidth="564.0" layoutX="440.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Picture/Heroes/Devourer/Devourer.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

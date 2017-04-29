@@ -1,4 +1,5 @@
 Name: StarKRE
+Password: 1111
 Raiting: 20 /2453
 Wins: 12859
 Loses: 10314
