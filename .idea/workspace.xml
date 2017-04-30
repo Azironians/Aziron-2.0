@@ -1,51 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="Работа с интерфейсом">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOffChoiceHero.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOffLogOut.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOffStatistics.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOnChoiceHero.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOnLogOut.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Buttons/ButtonOnStatistics.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/Button_Left_Moused.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/Button_Right_Moused.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/BHR_Spotlight.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/BHR_Spotlight2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/ChoiceWindowBeta.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/ChoiseWindowBeta.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/DEV_Spotlight.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/DEV_Spotlight2.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/LV_Spotlight.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowChoiceHero.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Main/Profile.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Profiles/MasterK.hoa" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerProfile.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GulkinInterface/Profile.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GulkinInterface/WindowInitialization.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/GulkinInterface/WindowMenu.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Menu/Menu.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PaneLocalMatch/ConsoleLocMatch.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Profiles/Bogdan.hoa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Profiles/Lesha.hoa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Profiles/Ninja.hoa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Profiles/hfbfkjsnV,lmvf;k.hoa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/controller/ControllerInitialization.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/fxmlFiles/AzironLaunch.fxml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowInitialization.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Picture/Windows/WindowDeepLoading.jpg" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowDeepLoading.jpg" />
+    <list default="true" id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/AzironGame.java" afterPath="$PROJECT_DIR$/src/Main/AzironGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/BuildStage.java" afterPath="$PROJECT_DIR$/src/Main/BuildStage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Profiles/Anton.hoa" afterPath="$PROJECT_DIR$/src/Profiles/Anton.hoa" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Profiles/StarKRE.hoa" afterPath="$PROJECT_DIR$/src/Profiles/StarKRE.hoa" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerAutorization.java" afterPath="$PROJECT_DIR$/src/controller/ControllerAutorization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerChoiceHero.java" afterPath="$PROJECT_DIR$/src/controller/ControllerChoiceHero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerMenu.java" afterPath="$PROJECT_DIR$/src/controller/ControllerMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowAutorization.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowAutorization.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Profiles/Dzen.hoa" afterPath="$PROJECT_DIR$/src/Profiles/2.hoa" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,7 +28,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="183">
               <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <marker date="1493570130116" expanded="true" signature="8624:8630" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,10 +67,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="3.png" pinned="false" current-in-tab="true">
+      <file leaf-file-name="3.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Picture/Bonuses/3.png">
           <provider selected="true" editor-type-id="images">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="misc.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -118,7 +88,7 @@
         <entry file="file://$PROJECT_DIR$/src/Main/BuildStage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -132,16 +102,6 @@
               <folding>
                 <element signature="e#266#267#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Match/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -928,7 +888,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493467734580</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Контроллеры готовы...70%">
+      <created>1493570059092</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1493570059093</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1041,7 +1008,8 @@
     <MESSAGE value="классы героев" />
     <MESSAGE value="И. добавлены картинки уровней" />
     <MESSAGE value="Работа с интерфейсом" />
-    <option name="LAST_COMMIT_MESSAGE" value="Работа с интерфейсом" />
+    <MESSAGE value="Контроллеры готовы...70%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Контроллеры готовы...70%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1062,13 +1030,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jrt://C:/Program Files/Java/jdk-9!/javafx.graphics/javafx/scene/input/InputEvent.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="32" lean-forward="false" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9/src.zip!/java.desktop/java/awt/event/ActionEvent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-187">
@@ -1229,8 +1190,8 @@
         <state relative-caret-position="289">
           <caret line="18" column="64" lean-forward="true" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
           <folding>
-            <marker date="1493566138828" expanded="true" signature="3150:4147" ph="..." />
-            <marker date="1493566138828" expanded="true" signature="3150:4161" ph="..." />
+            <marker date="1493570095896" expanded="true" signature="3150:4147" ph="..." />
+            <marker date="1493570095896" expanded="true" signature="3150:4161" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1292,7 +1253,7 @@
         <state relative-caret-position="272">
           <caret line="73" column="42" lean-forward="false" selection-start-line="73" selection-start-column="42" selection-end-line="73" selection-end-column="73" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1355,8 +1316,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Match/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        <state relative-caret-position="204">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1364,7 +1325,7 @@
     <entry file="file://$PROJECT_DIR$/src/Main/BuildStage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1393,7 +1354,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <marker date="1493570130116" expanded="true" signature="8624:8630" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1423,6 +1387,14 @@
     <entry file="file://$PROJECT_DIR$/src/Picture/Bonuses/3.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/misc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
