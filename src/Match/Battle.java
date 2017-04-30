@@ -11,8 +11,9 @@ import javafx.scene.text.*;
 import java.util.TimerTask;
 
 import static InitializationGame.WindowMatchMaking1.launch;
-import static Main.AzironGame.player1;
-import static Main.AzironGame.player2;
+
+import static controller.ControllerChoiceHero.player1;
+import static controller.ControllerChoiceHero.player2;
 import static javafx.application.Platform.exit;
 
 public class Battle {
@@ -21,44 +22,46 @@ public class Battle {
     private static ImageView dpsHero = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\dpsHero.png"));
     private static ImageView health = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));
     private static Text anyText = new Text(0, 0, "");
-//нигде не используется еще... для скилов!
+    private static ImageView imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\dpsHero.png"));//damage
+    private static ImageView imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));//hill
+
     public static void damageOrHilForSkills(Double damage, Double hil, int indexUlt) {
-        ImageView imageView1 = null;//damage
-        ImageView imageView2 = null;//hill
 
         if (indexUlt == 11) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
         }
         if (indexUlt == 12) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
-            imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\HealthDevSkill.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
+            imageView2.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\HealthDevSkill.png"));
         }
         if (indexUlt == 13) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
-            imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\HealthDevSkill.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
+            imageView2.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\HealthDevSkill.png"));
         }
         if (indexUlt == 21) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\DmgSkillLV.png"));
-            imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\HealthLVSkill.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\DmgSkillLV.png"));
+            imageView2.setImage(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\HealthLVSkill.png"));
         }
         if (indexUlt == 22) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\DmgSkillLV.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\DmgSkillLV.png"));
         }
         if (indexUlt == 23) {
-            imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\HealthLVSkill.png"));
+            imageView2.setImage(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\HealthLVSkill.png"));
         }
         if (indexUlt == 31) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\Basher\\Ults\\DmgSkillBHR.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Basher\\Ults\\DmgSkillBHR.png"));
         }
         if (indexUlt == 32) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\Basher\\Ults\\DmgSkillBHR.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Basher\\Ults\\DmgSkillBHR.png"));
         }
         if (indexUlt == 33) {
-            imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\Basher\\Ults\\DmgSkillBHR.png"));
+            imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Basher\\Ults\\DmgSkillBHR.png"));
         }
-        if (imageView1 != null) {
+        if (damage != null) {
+            imageView1.toFront();
+            imageView1.setOpacity(1);
             ImageView imageView;
-            if (turn == 1) imageView = player1.getHero().getImage();
+            if (turn == -1) imageView = player1.getHero().getImage();
             else imageView = player2.getHero().getImage();
             ImageView finalImageView1 = imageView1;
             AnimationTimer gameLoop = new AnimationTimer() {
@@ -69,16 +72,18 @@ public class Battle {
                     if (turn == -1) {
                         imageView.setLayoutX(imageView.getLayoutX() + 30 * k);
                         if (imageView.getLayoutX() > 640) {
+                            finalImageView1.setFitWidth(300);
+                            finalImageView1.setFitHeight(300);
                             finalImageView1.setLayoutY(140);
-                            finalImageView1.setLayoutX(940);
-                            finalImageView1.toFront();
+                            finalImageView1.setLayoutX(930);
+
 
                             anyText.setText(damage.intValue() + "");
                             anyText.setLayoutY(350);
                             anyText.setLayoutX(1000);
                             anyText.toFront();
                             k *= -1;
-                            finalImageView1.setLayoutX(imageView.getLayoutX() - 40);
+                            imageView.setLayoutX(imageView.getLayoutX() - 40);
                         }
                         if (imageView.getLayoutX() < 50) {
                             imageView.setLayoutX(50);
@@ -87,7 +92,7 @@ public class Battle {
                             fadeTransition.setFromValue(1);
                             fadeTransition.setToValue(0);
                             fadeTransition.setCycleCount(1);
-                            fadeTransition.setOnFinished(event -> finalImageView1.toBack());
+                            fadeTransition.setOnFinished(event -> imageView1.setLayoutY(-10000));
 
                             ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), anyText);
                             scaleTransition.setFromX(1);
@@ -100,14 +105,18 @@ public class Battle {
 
                             scaleTransition.play();
                             fadeTransition.play();
+
                             stop();
                         }
                     } else {
                         imageView.setLayoutX(imageView.getLayoutX() - 30 * k);
                         if (imageView.getLayoutX() < 330) {
                             finalImageView1.toFront();
+                            finalImageView1.setFitWidth(300);
+                            finalImageView1.setFitHeight(300);
                             finalImageView1.setLayoutY(140);
                             finalImageView1.setLayoutX(50);
+
                             anyText.setText(damage.intValue() + "");
                             anyText.setLayoutY(350);
                             anyText.setLayoutX(100);
@@ -121,7 +130,7 @@ public class Battle {
                             fadeTransition.setFromValue(1);
                             fadeTransition.setToValue(0);
                             fadeTransition.setCycleCount(1);
-                            fadeTransition.setOnFinished(event -> finalImageView1.toBack());
+                            fadeTransition.setOnFinished(event -> imageView1.setLayoutY(-10000));
                             ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), anyText);
                             scaleTransition.setFromX(1);
                             scaleTransition.setFromY(1);
@@ -133,6 +142,7 @@ public class Battle {
 
                             scaleTransition.play();
                             fadeTransition.play();
+
                             stop();
                         }
                     }
@@ -140,49 +150,58 @@ public class Battle {
             };
             gameLoop.start();
         }
-        if (imageView2!=null) {ImageView finalImageView = imageView2;
+        if (hil != null) {
+            imageView2.toFront();
+            imageView2.setOpacity(1);
+            ImageView finalImageView = imageView2;
             AnimationTimer gameLoop = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
+                @Override
+                public void handle(long now) {
 
-                if (turn == -1) {
+                    if (turn == -1) {
+                        finalImageView.setFitWidth(300);
+                        finalImageView.setFitHeight(300);
+                        finalImageView.setLayoutX(50);
+                        finalImageView.setLayoutY(140);
 
-                    finalImageView.setLayoutX(50);
-                    finalImageView.setLayoutY(140);
-                    anyText.setText(hil.intValue() + "");
-                    anyText.setLayoutY(350);
-                    anyText.setLayoutX(100);
-                    anyText.toFront();
+                        anyText.setText(hil.intValue() + "");
+                        anyText.setLayoutY(350);
+                        anyText.setLayoutX(100);
+                        anyText.toFront();
 
-                } else {
-                    finalImageView.setLayoutX(940);
-                    finalImageView.setLayoutY(140);
-                    anyText.setText(hil.intValue() + "");
-                    anyText.setLayoutY(350);
-                    anyText.setLayoutX(1000);
-                    anyText.toFront();
+                    } else {
+                        finalImageView.setLayoutX(940);
+                        finalImageView.setLayoutY(140);
+                        finalImageView.setFitWidth(300);
+                        finalImageView.setFitHeight(300);
+
+                        anyText.setText(hil.intValue() + "");
+                        anyText.setLayoutY(350);
+                        anyText.setLayoutX(1000);
+                        anyText.toFront();
+                    }
+                    FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), finalImageView);
+                    fadeTransition.setFromValue(1);
+                    fadeTransition.setToValue(0);
+                    fadeTransition.setCycleCount(1);
+                    fadeTransition.setOnFinished(event -> imageView2.setLayoutY(-10000));
+                    ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), anyText);
+                    scaleTransition.setFromX(1);
+                    scaleTransition.setFromY(1);
+                    scaleTransition.setToX(1.2);
+                    scaleTransition.setToY(1.2);
+
+                    scaleTransition.setCycleCount(1);
+                    scaleTransition.setOnFinished(event -> anyText.toBack());
+                    scaleTransition.play();
+                    fadeTransition.play();
+
+                    stop();
                 }
-                FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), finalImageView);
-                fadeTransition.setFromValue(1);
-                fadeTransition.setToValue(0);
-                fadeTransition.setCycleCount(1);
-                ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(0.5), anyText);
-                scaleTransition.setFromX(1);
-                scaleTransition.setFromY(1);
-                scaleTransition.setToX(1.2);
-                scaleTransition.setToY(1.2);
-
-                scaleTransition.setCycleCount(1);
-                scaleTransition.setOnFinished(event -> anyText.toBack());
-                scaleTransition.play();
-                fadeTransition.play();
-                stop();
-            }
-        };
-        gameLoop.start();
+            };
+            gameLoop.start();
+        }
     }
-    }
-
 
     private static void damageVisual(Player player1, Player player2) {
         ImageView imageView;
@@ -336,6 +355,9 @@ public class Battle {
 
 
     public static void battleProcess(Pane pane, Player player1, Player player2, Boolean first) {
+        imageView1.setLayoutY(-10000);
+        imageView2.setLayoutY(-10000);
+
         anyText.setFill(Color.LIGHTGREY);
         anyText.setFont(new Font("Times New Roman", 150));
         Text label1 = new Text(536, 80, "480");
@@ -426,7 +448,7 @@ public class Battle {
         health.setFitHeight(300);
 
         pane.getChildren().addAll(label1, label2, name1, name2, hitPoints1, hitPoints2, attack1, attack2,
-                level1, level2, treatment1, treatment2, experience1, experience2, dpsHero, health, anyText);
+                level1, level2, treatment1, treatment2, experience1, experience2, dpsHero, health, imageView1, imageView2, anyText);
         java.util.Timer timer = new java.util.Timer();
         TimerTask timerTask = new TimerTask() {
             @Override

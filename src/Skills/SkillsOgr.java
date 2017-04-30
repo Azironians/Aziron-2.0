@@ -7,10 +7,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-import static Main.AzironGame.player1;
-import static Main.AzironGame.player2;
+
+import static Match.Battle.damageOrHilForSkills;
 import static Match.Battle.turn;
 import static Match.Battle.turns;
+import static controller.ControllerChoiceHero.player1;
+import static controller.ControllerChoiceHero.player2;
 
 
 public class SkillsOgr implements Skill {
@@ -84,36 +86,38 @@ public class SkillsOgr implements Skill {
     @Override
     public void firstUlt() {
         firstOpen = false;
-        if (turn==1){
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints()-player1.getHero().getAttack()*5);
-           turn*=-1;
+        if (turn == -1) {
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 5);
+            turn *= -1;
         } else {
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints()-player2.getHero().getAttack()*5);
-            turn*=-1;
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 5);
+            turn *= -1;
         }
+        damageOrHilForSkills(player2.getHero().getAttack() * 5, null, 31);
     }
 
     @Override
     public void twoUlt() {
         twoOpen = false;
-        if (turn==1){
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints()-player1.getHero().getAttack()*2.5);
-            player2.getHero().setSupplyHealth( player2.getHero().getSupplyHealth()-player1.getHero().getAttack()*2.5);
+        if (turn == -1) {
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 2.5);
+            player2.getHero().setSupplyHealth(player2.getHero().getSupplyHealth() - player1.getHero().getAttack() * 2.5);
         } else {
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints()-player2.getHero().getAttack()*2.5);
-            player1.getHero().setSupplyHealth( player1.getHero().getSupplyHealth()-player2.getHero().getAttack()*2.5);
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 2.5);
+            player1.getHero().setSupplyHealth(player1.getHero().getSupplyHealth() - player2.getHero().getAttack() * 2.5);
         }
-
+        damageOrHilForSkills(player2.getHero().getAttack() * 2.5, null, 32);
     }
 
     @Override
     public void threeUlt() {
         threeOpen = false;
-        if (turn==1){
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints()-player1.getHero().getSupplyHealth());
+        if (turn == -1) {
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getSupplyHealth());
         } else {
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints()-player2.getHero().getSupplyHealth());
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getSupplyHealth());
         }
+        damageOrHilForSkills(player1.getHero().getSupplyHealth(), null, 33);
     }
 
     @Override

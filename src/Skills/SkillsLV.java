@@ -7,10 +7,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-import static Main.AzironGame.player1;
-import static Main.AzironGame.player2;
+
+import static Match.Battle.damageOrHilForSkills;
 import static Match.Battle.turn;
 import static Match.Battle.turns;
+import static controller.ControllerChoiceHero.player1;
+import static controller.ControllerChoiceHero.player2;
 
 
 public class SkillsLV implements Skill {
@@ -91,7 +93,7 @@ public class SkillsLV implements Skill {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 3.5);
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getAttack() * 1.5);
         }
-
+        damageOrHilForSkills(player2.getHero().getAttack() * 3.5,player2.getHero().getAttack() * 1.5,21);
     }
 
     @Override
@@ -102,7 +104,7 @@ public class SkillsLV implements Skill {
         } else {
             player2.getHero().setAttack(player2.getHero().getAttack() + player2.getHero().getAttack() * 0.2);
         }
-
+        damageOrHilForSkills(null,player2.getHero().getAttack() * 0.2,22);
     }
 
     @Override
@@ -113,6 +115,7 @@ public class SkillsLV implements Skill {
         } else {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() * -1);
         }
+        damageOrHilForSkills(null,player2.getHero().getHitPoints() * 2,23);
     }
 
     @Override

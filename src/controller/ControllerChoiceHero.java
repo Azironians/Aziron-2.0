@@ -1,5 +1,8 @@
 package controller;
 
+import Heroes.HeroDevourer;
+import Heroes.HeroLordVamp;
+import Match.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,8 +14,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import static Main.BuildStage.*;
+import static Match.Battle.battleProcess;
+
 
 public class ControllerChoiceHero implements Initializable{
+    public static Player player1;
+    public static Player player2;
 
     @FXML ImageView spotLightDev;
     @FXML ImageView spotLightLV;
@@ -117,6 +124,14 @@ public class ControllerChoiceHero implements Initializable{
                 btnChoiceHero.setVisible(false);
                 btnBackToProfile.setVisible(false);
                 paneMessage.setVisible(true);
+                player1= new Player("Лена, я", new HeroDevourer(true));
+                player2= new Player("люблю тебя", new HeroLordVamp(false));
+                Pane pane = new Pane();
+                Scene sceneMenu = new Scene(pane, 1280, 720);
+                //2. Окно меню:
+                azironStage.setScene(sceneMenu);
+                azironStage.show();
+                battleProcess(pane, player1, player2, true);
                 //Запуск матча... (используется сцена Кости)
             }
         });
