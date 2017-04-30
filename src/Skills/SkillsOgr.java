@@ -11,7 +11,7 @@ import static Match.Battle.turn;
 import static Match.Battle.turns;
 
 
-public class SkillsDev implements Skill {
+public class SkillsOgr implements Skill {
     private static Double experience;
     private static Double attack;
     private static Double treatment;
@@ -23,13 +23,13 @@ public class SkillsDev implements Skill {
     private static int levelHero;
     private ImageView imageView;
     private static ImageView[] imageViewList = {
-            new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev1.png")),
-            new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev2.png")),
-            new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev3.png"))};
+            new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR1.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR2.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR3.png"))};
     private static int turnOpen2 = 0;
     private static int turnOpen3 = 0;
 
-    public SkillsDev(Hero hero) {
+    public SkillsOgr(Hero hero) {
         imageViewList[0].addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             if (firstOpen && ((turn == 1 && hero.getLocation()) || (turn == -1 && !hero.getLocation()))) {
                 turns++;
@@ -109,7 +109,7 @@ public class SkillsDev implements Skill {
 
     @Override
     public void setFirstOpen(boolean firstOpen) {
-        SkillsDev.firstOpen = firstOpen;
+        SkillsOgr.firstOpen = firstOpen;
     }
 
     @Override
@@ -119,7 +119,7 @@ public class SkillsDev implements Skill {
 
     @Override
     public void setTwoOpen(boolean twoOpen) {
-        SkillsDev.twoOpen = twoOpen;
+        SkillsOgr.twoOpen = twoOpen;
     }
 
     @Override
@@ -129,7 +129,7 @@ public class SkillsDev implements Skill {
 
     @Override
     public void setThreeOpen(boolean threeOpen) {
-        SkillsDev.threeOpen = threeOpen;
+        SkillsOgr.threeOpen = threeOpen;
     }
 
     public void updateSkills(Hero hero) {

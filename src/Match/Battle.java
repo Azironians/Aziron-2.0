@@ -16,6 +16,7 @@ import static javafx.application.Platform.exit;
 
 public class Battle {
     public static int turn = 0;
+    public static int turns = 0;
 
     private static void damageVisual(Pane pane, Player player1, Player player2) {
         ImageView imageView;
@@ -93,18 +94,16 @@ public class Battle {
 
     public static void damage(Player player1, Player player2, Pane pane) {
         damageVisual(pane, player1, player2);
-
-        if (turn == 1) {
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack());
-            player1.getHero().setExperience(player1.getHero().getExperience()+player1.getHero().getAttack());
-        }
-        else {player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack());
-        player2.getHero().setExperience(player2.getHero().getExperience()+player2.getHero().getAttack());
-    }
-        turn *= -1;
-
         if ((player1.getHero().getHitPoints() < 0) || (player2.getHero().getHitPoints() < 0))
             exit();//другое окно
+        if (turn == 1) {
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack());
+            player1.getHero().setExperience(player1.getHero().getExperience() + player1.getHero().getAttack());
+        } else {
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack());
+            player2.getHero().setExperience(player2.getHero().getExperience() + player2.getHero().getAttack());
+        }
+        turn *= -1;
     }
 
 
@@ -116,7 +115,14 @@ public class Battle {
         turn *= -1;
     }
 
-    public static void battleProcess(Pane pane, Player player1, Player player2, int turnFirst) {
+    public static void battleProcess(Pane pane, Player player1, Player player2, Boolean first) {
+        Text name1 = new Text(486, 44, player1.getProfileName());
+        name1.setFont(new Font("Times New Roman",30));
+        name1.setFill(Color.LIGHTBLUE);
+        Text name2 = new Text(666, 44, player2.getProfileName());
+        name2.setFont(new Font("Times New Roman",30));
+        name2.setFill(Color.RED);
+
         Text hitPoints1 = new Text(8, 104, player1.getHero().getHitPoints().intValue() + "/" + player1.getHero().getSupplyHealth().intValue());
         hitPoints1.setFont(new Font(30));
         hitPoints1.setFill(Color.LIGHTGREY);
@@ -148,8 +154,8 @@ public class Battle {
         experience2.setFont(new Font(50));
         experience2.setFill(Color.LIGHTGREY);
 
-
-        turn = turnFirst;
+        if (first) turn = 1;
+        else turn = -1;
         launch(pane, player1, player2);
         ImageView imageView1 = new ImageView(new Image(new File("src\\Picture\\Heroes\\GeneralSkills\\dpsHero.png").toURI().toString()));
         imageView1.setLayoutX(950);
@@ -162,7 +168,7 @@ public class Battle {
         imageView2.setFitWidth(300);
         imageView2.setFitHeight(300);
 
-        pane.getChildren().addAll(hitPoints1, hitPoints2, attack1, attack2, level1, level2, treatment1, treatment2, experience1, experience2, imageView1, imageView2);
+        pane.getChildren().addAll(name1, name2, hitPoints1, hitPoints2, attack1, attack2, level1, level2, treatment1, treatment2, experience1, experience2, imageView1, imageView2);
 
         AnimationTimer data = new AnimationTimer() {
             @Override
@@ -179,6 +185,8 @@ public class Battle {
                 experience2.setText(player2.getHero().getExperience().intValue() + "");
                 player1.getHero().levelUp();
                 player2.getHero().levelUp();
+                player1.getHero().getSkills().updateSkills(player1.getHero());
+                player2.getHero().getSkills().updateSkills(player2.getHero());
             }
         };
         data.start();

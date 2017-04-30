@@ -20,14 +20,17 @@ public class HeroDevourer implements Hero {
     private Skill skills;
     private ImageView imageView;
     private Double experience = 0.0;
+    private Boolean location;
 
-    public HeroDevourer() {
+    public HeroDevourer(Boolean location) {
+        this.location=location;
         this.attack = 40.0;
         this.supplyHealth = 400.0;
         this.treatment = 100.0;
         this.levelHero = 1;
         this.hitPoints = 400.0;
         this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
+        this.skills = new SkillsDev(this);
     }
 
     @Override
@@ -109,4 +112,14 @@ public class HeroDevourer implements Hero {
     public void setSkills(Skill skills) {
         this.skills = skills;
     }
+    @Override
+    public void setLocation(Boolean location) {
+        this.location=location;
+    }
+
+    @Override
+    public Boolean getLocation() {
+        return location;
+    }
+
 }

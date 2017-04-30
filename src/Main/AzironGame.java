@@ -22,8 +22,8 @@ public class AzironGame extends Application {
         Scene sceneInit = new Scene(rootInit, 1280, 720);
         azironStage.setScene(sceneInit);
         azironStage.show();
-
-        battleProcess(rootInit, new Player("KosTeT", new HeroDevourer()), new Player("StarKRE", new HeroOrcBasher()), 1);
+Boolean turn = Math.random()<0.5;
+        battleProcess(rootInit, new Player("KosTeT", new HeroDevourer(true)), new Player("StarKRE", new HeroOrcBasher(false)),turn);
 //
 //        Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowInitialization.fxml"));
 //        Scene sceneInit = new Scene(rootInit, 1280, 720);

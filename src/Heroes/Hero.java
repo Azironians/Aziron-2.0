@@ -37,6 +37,10 @@ public interface Hero {
 
     int getLevelHero();
 
+    Boolean getLocation();
+
+    void setLocation(Boolean location);
+
     void setLevelHero(int levelHero);
 
     Skill getSkills();

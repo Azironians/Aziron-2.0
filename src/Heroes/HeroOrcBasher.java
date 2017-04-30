@@ -1,11 +1,11 @@
 package Heroes;
 
 import Skills.Skill;
+import Skills.SkillsOgr;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
-import java.util.List;
 
 import static Heroes.LevelOrg.LevelUpOgr;
 
@@ -19,16 +19,17 @@ public class HeroOrcBasher implements Hero {
     private Skill skills;
     private ImageView imageView;
     private Double experience = 0.0;
+    private Boolean location;
 
-
-    public HeroOrcBasher() {
+    public HeroOrcBasher(Boolean location) {
+        this.location=location;
         this.attack = 30.0;
         this.supplyHealth = 500.0;
         this.treatment = 125.0;
         this.levelHero = 1;
         this.hitPoints = 500.0;
         this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
-
+        this.skills = new SkillsOgr(this);
     }
 
     @Override
@@ -110,4 +111,15 @@ public class HeroOrcBasher implements Hero {
     public void setSkills(Skill skills) {
         this.skills = skills;
     }
+
+    @Override
+    public void setLocation(Boolean location) {
+        this.location=location;
+    }
+
+    @Override
+    public Boolean getLocation() {
+        return location;
+    }
+
 }

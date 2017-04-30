@@ -1,11 +1,11 @@
 package Heroes;
 
 import Skills.Skill;
+import Skills.SkillsLV;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.io.File;
-import java.util.List;
 
 import static Heroes.LevelLordVamp.LevelUpLordVamp;
 
@@ -19,15 +19,16 @@ public class HeroLordVamp implements Hero {
     private Skill skills;
     private ImageView imageView;
     private Double experience = 0.0;
+    private Boolean location;
 
-
-    public HeroLordVamp() {
+    public HeroLordVamp(Boolean location) {
+        this.location=location;
         this.attack = 50.0;
         this.supplyHealth = 300.0;
         this.treatment = 75.0;
         this.levelHero = 1;
         this.hitPoints = 300.0;
-
+        this.skills = new SkillsLV(this);
         this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\LordWamp\\LV.png").toURI().toString()));
     }
 
@@ -110,4 +111,16 @@ public class HeroLordVamp implements Hero {
     public void setSkills(Skill skills) {
         this.skills = skills;
     }
+
+    @Override
+    public void setLocation(Boolean location) {
+        this.location=location;
+    }
+
+    @Override
+    public Boolean getLocation() {
+        return location;
+    }
+
+
 }
