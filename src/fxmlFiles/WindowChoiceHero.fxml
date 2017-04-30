@@ -1,46 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerChoiceHero">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerChoiceHero">
    <children>
-      <ImageView fitHeight="836.0" fitWidth="1340.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="currentBackground" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="spotLightDev" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
-            <Image url="@../Picture/Windows/WinChoiceHero.png" />
+            <Image url="@../Picture/Windows/DEV_Spotlight2.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="978.0" layoutY="38.0" prefHeight="299.0" prefWidth="304.0">
+      <ImageView fx:id="spotLightLV" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Picture/Windows/LV_Spotlight.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="spotLightBHR" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Picture/Windows/BHR_Spotlight2.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="paneControls" layoutX="340.0" layoutY="210.0">
          <children>
-            <TextFlow prefHeight="299.0" prefWidth="304.0" />
-         </children>
-      </Pane>
-      <Pane layoutX="236.0" layoutY="188.0" prefHeight="483.0" prefWidth="810.0">
-         <children>
-            <ImageView fitHeight="216.0" fitWidth="164.0" layoutX="625.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnOnLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
-                  <Image url="@../Picture/Triggers/Button_Right.png" />
+                  <Image url="@../Picture/Triggers/Button_Left_Moused.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="216.0" fitWidth="160.0" layoutX="61.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="btnOnRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../Picture/Triggers/Button_Right_Moused.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="btnOffLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Triggers/Button_Left.png" />
                </image>
             </ImageView>
-            <Pane layoutX="-238.0" prefHeight="489.0" prefWidth="1283.0">
-               <children>
-                  <ImageView fx:id="devourer" fitHeight="429.0" fitWidth="564.0" layoutX="440.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Picture/Heroes/Devourer/Devourer.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
+            <ImageView fx:id="btnOffRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/Button_Right.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btnChoiceHero" defaultButton="true" layoutX="672.0" layoutY="411.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="231.0" text="Выбрать героя">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnBackToProfile" cancelButton="true" layoutX="516.0" layoutY="411.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="142.0" text="Назад">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="paneMessage" layoutX="256.0" layoutY="153.0" prefHeight="396.0" prefWidth="739.0" visible="false">
+         <children>
+            <ImageView fx:id="panelMessage" fitHeight="396.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/Pane.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="208.0" fitWidth="219.0" layoutX="268.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/Icon.png" />
+               </image>
+            </ImageView>
+            <Text fill="#6cccee" layoutX="11.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Герой выбран" textAlignment="CENTER" wrappingWidth="732.9764404296875">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>

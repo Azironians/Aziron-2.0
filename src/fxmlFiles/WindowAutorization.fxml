@@ -26,10 +26,10 @@
                   <Image url="@../Picture/Triggers/Pane.png" />
                </image>
             </ImageView>
-            <PasswordField layoutX="348.0" layoutY="135.0" prefHeight="25.0" prefWidth="267.0" />
-            <TextField layoutX="348.0" layoutY="51.0" prefHeight="25.0" prefWidth="267.0" />
-            <TextField layoutX="348.0" layoutY="93.0" prefHeight="25.0" prefWidth="267.0" />
-            <PasswordField layoutX="348.0" layoutY="177.0" prefHeight="25.0" prefWidth="267.0" />
+            <PasswordField fx:id="passwordFieldNewPassword" layoutX="348.0" layoutY="135.0" prefHeight="25.0" prefWidth="267.0" />
+            <TextField fx:id="textFieldNewName" layoutX="348.0" layoutY="51.0" prefHeight="25.0" prefWidth="267.0" />
+            <TextField fx:id="textFieldNewNameRepeat" layoutX="348.0" layoutY="93.0" prefHeight="25.0" prefWidth="267.0" />
+            <PasswordField fx:id="passwordFieldNewPasswordRepeat" layoutX="348.0" layoutY="177.0" prefHeight="25.0" prefWidth="267.0" />
             <Text layoutX="72.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Введите новое имя пользователя:" textAlignment="CENTER" wrappingWidth="267.0">
                <font>
                   <Font size="14.0" />
@@ -55,8 +55,13 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <Button layoutX="501.0" layoutY="312.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="OK" />
+            <Button fx:id="buttonSignUpOK" layoutX="501.0" layoutY="312.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="OK" />
             <Button fx:id="buttonSignUpToSignIn" layoutX="96.0" layoutY="312.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" text="Отмена" />
+            <Text fx:id="textErrorSignUp" fill="RED" layoutX="200.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="267.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
       <Pane fx:id="luckSignIn" layoutX="256.0" layoutY="153.0" prefHeight="396.0" prefWidth="739.0" visible="false">
@@ -79,6 +84,11 @@
       </Pane>
       <Pane fx:id="luckSignUp" layoutX="257.0" layoutY="152.0" prefHeight="396.0" prefWidth="739.0" visible="false">
          <children>
+            <ImageView fx:id="panelLuckSignUp" fitHeight="396.0" fitWidth="750.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/Pane.png" />
+               </image>
+            </ImageView>
             <ImageView fitHeight="208.0" fitWidth="234.0" layoutX="267.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Triggers/Icon.png" />
@@ -102,7 +112,7 @@
                <font>
                   <Font size="14.0" />
                </font></Text>
-            <Button fx:id="buttonSignIn" defaultButton="true" layoutX="438.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Войти" />
+            <Button fx:id="buttonSignIn" layoutX="438.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="Войти" />
             <ImageView fx:id="buttonOffBackToMenu" fitHeight="42.0" fitWidth="46.0" layoutX="690.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Buttons/ButtonExitOffWindowLocMatchOnTwo.png" />
@@ -114,6 +124,11 @@
                </image>
             </ImageView>
             <Button fx:id="buttonSignUp" layoutX="242.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Регистрация" />
+            <Text fx:id="textErrorSignIn" fill="RED" layoutX="250.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="267.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
          </children>
       </Pane>
    </children>
