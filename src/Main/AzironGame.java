@@ -1,6 +1,7 @@
 package Main;
 
 import Heroes.HeroDevourer;
+import Heroes.HeroLordVamp;
 import Heroes.HeroOrcBasher;
 import Match.Player;
 import javafx.application.Application;
@@ -13,6 +14,8 @@ import static Match.Battle.battleProcess;
 
 
 public class AzironGame extends Application {
+    public static Player player1;
+    public static Player player2;
 
     @Override
     public void start(Stage virtualStage) throws Exception {
@@ -22,8 +25,10 @@ public class AzironGame extends Application {
         Scene sceneInit = new Scene(rootInit, 1280, 720);
         azironStage.setScene(sceneInit);
         azironStage.show();
-Boolean turn = Math.random()<0.5;
-        battleProcess(rootInit, new Player("KosTeT", new HeroDevourer(true)), new Player("StarKRE", new HeroOrcBasher(false)),turn);
+        Boolean turn = Math.random() < 0.5;
+        player1 = new Player("StarKRE", new HeroLordVamp(true));
+        player2 = new Player("StarKRE2", new HeroLordVamp(false));
+        battleProcess(rootInit, player1, player2, turn);
 //
 //        Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowInitialization.fxml"));
 //        Scene sceneInit = new Scene(rootInit, 1280, 720);

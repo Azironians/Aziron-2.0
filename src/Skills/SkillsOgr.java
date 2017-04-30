@@ -7,27 +7,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+import static Main.AzironGame.player1;
+import static Main.AzironGame.player2;
 import static Match.Battle.turn;
 import static Match.Battle.turns;
 
 
 public class SkillsOgr implements Skill {
-    private static Double experience;
-    private static Double attack;
-    private static Double treatment;
-    private static Double hitPoints;
-    private static Double supplyHealth;
-    private static boolean firstOpen = false;
-    private static boolean twoOpen = false;
-    private static boolean threeOpen = false;
-    private static int levelHero;
-    private ImageView imageView;
-    private static ImageView[] imageViewList = {
+
+    private boolean firstOpen = false;
+    private boolean twoOpen = false;
+    private boolean threeOpen = false;
+    private ImageView[] imageViewList = {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR2.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR3.png"))};
-    private static int turnOpen2 = 0;
-    private static int turnOpen3 = 0;
+    private int turnOpen1 = 0;
+    private int turnOpen2 = 0;
+    private int turnOpen3 = 0;
 
     public SkillsOgr(Hero hero) {
         imageViewList[0].addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -87,19 +84,36 @@ public class SkillsOgr implements Skill {
     @Override
     public void firstUlt() {
         firstOpen = false;
-        System.out.println("11111");
+        if (turn==1){
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints()-player1.getHero().getAttack()*5);
+           turn*=-1;
+        } else {
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints()-player2.getHero().getAttack()*5);
+            turn*=-1;
+        }
     }
 
     @Override
     public void twoUlt() {
         twoOpen = false;
-        System.out.println("22222");
+        if (turn==1){
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints()-player1.getHero().getAttack()*2.5);
+            player2.getHero().setSupplyHealth( player2.getHero().getSupplyHealth()-player1.getHero().getAttack()*2.5);
+        } else {
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints()-player2.getHero().getAttack()*2.5);
+            player1.getHero().setSupplyHealth( player1.getHero().getSupplyHealth()-player2.getHero().getAttack()*2.5);
+        }
+
     }
 
     @Override
     public void threeUlt() {
         threeOpen = false;
-        System.out.println("33333");
+        if (turn==1){
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints()-player1.getHero().getSupplyHealth());
+        } else {
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints()-player2.getHero().getSupplyHealth());
+        }
     }
 
     @Override
@@ -109,7 +123,7 @@ public class SkillsOgr implements Skill {
 
     @Override
     public void setFirstOpen(boolean firstOpen) {
-        SkillsOgr.firstOpen = firstOpen;
+        this.firstOpen = firstOpen;
     }
 
     @Override
@@ -119,7 +133,7 @@ public class SkillsOgr implements Skill {
 
     @Override
     public void setTwoOpen(boolean twoOpen) {
-        SkillsOgr.twoOpen = twoOpen;
+        this.twoOpen = twoOpen;
     }
 
     @Override
@@ -129,23 +143,24 @@ public class SkillsOgr implements Skill {
 
     @Override
     public void setThreeOpen(boolean threeOpen) {
-        SkillsOgr.threeOpen = threeOpen;
+        this.threeOpen = threeOpen;
     }
 
     public void updateSkills(Hero hero) {
-        if (turnOpen2 == 0 && hero.getLevelHero() >= 3) turnOpen2 = turns;
-        if (turnOpen3 == 0 && hero.getLevelHero() >= 5) turnOpen3 = turns;
+        if (turnOpen1 == 0 && hero.getLevelHero() >= 3) turnOpen1 = turns;
+        if (turnOpen2 == 0 && hero.getLevelHero() >= 5) turnOpen2 = turns;
+        if (turnOpen3 == 0 && hero.getLevelHero() >= 9) turnOpen3 = turns;
 
-        if (turns % 10 == 0 && turns > 0) {
-            firstOpen = true;
+        if ((turns - turnOpen1) % 14 == 0 && hero.getLevelHero() >= 3) {
             FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), imageViewList[0]);
             fadeTransition.setFromValue(0.3);
             fadeTransition.setToValue(1);
             fadeTransition.setCycleCount(1);
             fadeTransition.play();
+            firstOpen = true;
         }
 
-        if ((turns - turnOpen2) % 12 == 0 && hero.getLevelHero() >= 3) {
+        if ((turns - turnOpen2) % 16 == 0 && hero.getLevelHero() >= 5) {
             FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), imageViewList[1]);
             fadeTransition.setFromValue(0.3);
             fadeTransition.setToValue(1);
@@ -154,7 +169,7 @@ public class SkillsOgr implements Skill {
             twoOpen = true;
         }
 
-        if ((turns - turnOpen3) % 14 == 0 && hero.getLevelHero() >= 5) {
+        if ((turns - turnOpen3) % 20 == 0 && hero.getLevelHero() >= 9) {
             FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), imageViewList[2]);
             fadeTransition.setFromValue(0.3);
             fadeTransition.setToValue(1);

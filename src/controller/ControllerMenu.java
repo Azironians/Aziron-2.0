@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,30 +15,40 @@ import java.util.ResourceBundle;
 import static Main.BuildStage.azironStage;
 
 public class ControllerMenu implements Initializable {
-    @FXML ImageView windowMenu;
+    @FXML
+    ImageView windowMenu;
     //1. Кнопки:
-    @FXML ImageView buttonOnLocMch;
-    @FXML ImageView buttonOffLocMch;
-    @FXML ImageView buttonOffExitProgramm;
-    @FXML ImageView buttonOnExitProgramm;
+    @FXML
+    ImageView buttonOnLocMch;
+    @FXML
+    ImageView buttonOffLocMch;
+    @FXML
+    ImageView buttonOffExitProgramm;
+    @FXML
+    ImageView buttonOnExitProgramm;
 
-    @FXML ImageView panel;
-    @FXML ImageView buttonOffGameTwo;
+    @FXML
+    ImageView panel;
+    @FXML
+    ImageView buttonOffGameTwo;
 
-    @FXML ImageView buttonOnGameTwo;
-    @FXML ImageView buttonOffBack;
-    @FXML ImageView buttonOnBack;
+    @FXML
+    ImageView buttonOnGameTwo;
+    @FXML
+    ImageView buttonOffBack;
+    @FXML
+    ImageView buttonOnBack;
     //2. Панели:
-    @FXML Pane panelLocMch;
-    @FXML Pane paneButtons;
+    @FXML
+    Pane panelLocMch;
+    @FXML
+    Pane paneButtons;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
             Parent rootAutorization = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml"));
             Scene sceneAutorize = new Scene(rootAutorization, 1280, 720);
-
-
 
 
             //1. Фон:
@@ -75,10 +86,6 @@ public class ControllerMenu implements Initializable {
             });
 
 
-
-
-
-
             //4. Панель:
             panel.setOnMouseMoved(event -> {
                 buttonOnBack.setVisible(false);
@@ -86,10 +93,6 @@ public class ControllerMenu implements Initializable {
                 buttonOnGameTwo.setVisible(false);
                 buttonOffGameTwo.setVisible(true);
             });
-
-
-
-
 
 
             //5. Кнопка "Назад":
@@ -103,10 +106,6 @@ public class ControllerMenu implements Initializable {
                 panelLocMch.setVisible(false);
                 panelLocMch.setDisable(true);
             });
-
-
-
-
 
 
             //6. Кнопка "Игра на двоих":
@@ -125,12 +124,11 @@ public class ControllerMenu implements Initializable {
             });
 
 
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 }
-
 
 
 //if (!buttonOffLocMch.isHover()){

@@ -9,8 +9,8 @@ public class Player {
     public Player(String profileName, Hero hero) {
         this.profileName = profileName;
         this.hero = hero;
+        hero.setPlayer(this);
     }
-
 
 
     public String getProfileName() {

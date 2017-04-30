@@ -13,7 +13,7 @@ public class WindowInitialization {
     public static Stage launch(Stage AzironStage) {
         Pane root = new Pane();
 
-        ImageView imageInit = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowInitialization.jpg").toURI().toString(),1280.0,720.0,true,true));
+        ImageView imageInit = new ImageView(new Image(new File("src\\Picture\\Windows\\WindowInitialization.jpg").toURI().toString(), 1280.0, 720.0, true, true));
 
         root.getChildren().addAll(imageInit);
         Scene scene = new Scene(root, 1280, 720);
@@ -21,12 +21,6 @@ public class WindowInitialization {
 
         return AzironStage;
     }
-
-
-
-
-
-
 
 
 }

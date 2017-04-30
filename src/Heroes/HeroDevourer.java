@@ -1,12 +1,11 @@
 package Heroes;
 
+import Match.Player;
 import Skills.Skill;
 import Skills.SkillsDev;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
-import java.util.List;
 
 import static Heroes.LevelDevourer.LevelUpDevourer;
 
@@ -21,15 +20,16 @@ public class HeroDevourer implements Hero {
     private ImageView imageView;
     private Double experience = 0.0;
     private Boolean location;
+    private Player player;
 
     public HeroDevourer(Boolean location) {
-        this.location=location;
+        this.location = location;
         this.attack = 40.0;
         this.supplyHealth = 400.0;
         this.treatment = 100.0;
         this.levelHero = 1;
         this.hitPoints = 400.0;
-        this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\Devourer\\Devourer.png").toURI().toString()));
+        this.imageView = new ImageView(new Image("file:src\\Picture\\Heroes\\Devourer\\Devourer.png"));
         this.skills = new SkillsDev(this);
     }
 
@@ -52,6 +52,15 @@ public class HeroDevourer implements Hero {
         LevelUpDevourer(this);
     }
 
+    @Override
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    @Override
+    public Player getPlayer() {
+        return player;
+    }
 
     @Override
     public Double getAttack() {
@@ -112,9 +121,10 @@ public class HeroDevourer implements Hero {
     public void setSkills(Skill skills) {
         this.skills = skills;
     }
+
     @Override
     public void setLocation(Boolean location) {
-        this.location=location;
+        this.location = location;
     }
 
     @Override

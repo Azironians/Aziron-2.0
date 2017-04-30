@@ -13,13 +13,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerInitialization implements Initializable{
-    @FXML ProgressBar progressBar;
+public class ControllerInitialization implements Initializable {
+    @FXML
+    ProgressBar progressBar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

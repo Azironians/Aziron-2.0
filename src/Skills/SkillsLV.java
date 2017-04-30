@@ -7,27 +7,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+import static Main.AzironGame.player1;
+import static Main.AzironGame.player2;
 import static Match.Battle.turn;
 import static Match.Battle.turns;
 
 
 public class SkillsLV implements Skill {
-    private static Double experience;
-    private static Double attack;
-    private static Double treatment;
-    private static Double hitPoints;
-    private static Double supplyHealth;
-    private static boolean firstOpen = false;
-    private static boolean twoOpen = false;
-    private static boolean threeOpen = false;
-    private static int levelHero;
-    private ImageView imageView;
-    private static ImageView[] imageViewList = {
+
+    private boolean firstOpen = false;
+    private boolean twoOpen = false;
+    private boolean threeOpen = false;
+
+    private ImageView[] imageViewList = {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV2.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV3.png"))};
-    private static int turnOpen2 = 0;
-    private static int turnOpen3 = 0;
+    private int turnOpen2 = 0;
+    private int turnOpen3 = 0;
 
     public SkillsLV(Hero hero) {
         imageViewList[0].addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
@@ -87,19 +84,35 @@ public class SkillsLV implements Skill {
     @Override
     public void firstUlt() {
         firstOpen = false;
-        System.out.println("11111");
+        if (turn == -1) {
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 3.5);
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getAttack() * 1.5);
+        } else {
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 3.5);
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getAttack() * 1.5);
+        }
+
     }
 
     @Override
     public void twoUlt() {
         twoOpen = false;
-        System.out.println("22222");
+        if (turn == -1) {
+            player1.getHero().setAttack(player1.getHero().getAttack() + player1.getHero().getAttack() * 0.2);
+        } else {
+            player2.getHero().setAttack(player2.getHero().getAttack() + player2.getHero().getAttack() * 0.2);
+        }
+
     }
 
     @Override
     public void threeUlt() {
         threeOpen = false;
-        System.out.println("33333");
+        if (turn == -1) {
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() * -1);
+        } else {
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() * -1);
+        }
     }
 
     @Override
@@ -109,7 +122,7 @@ public class SkillsLV implements Skill {
 
     @Override
     public void setFirstOpen(boolean firstOpen) {
-        SkillsLV.firstOpen = firstOpen;
+        this.firstOpen = firstOpen;
     }
 
     @Override
@@ -119,7 +132,7 @@ public class SkillsLV implements Skill {
 
     @Override
     public void setTwoOpen(boolean twoOpen) {
-        SkillsLV.twoOpen = twoOpen;
+        this.twoOpen = twoOpen;
     }
 
     @Override
@@ -129,7 +142,7 @@ public class SkillsLV implements Skill {
 
     @Override
     public void setThreeOpen(boolean threeOpen) {
-        SkillsLV.threeOpen = threeOpen;
+        this.threeOpen = threeOpen;
     }
 
     public void updateSkills(Hero hero) {
@@ -138,15 +151,15 @@ public class SkillsLV implements Skill {
 
         if (turns % 10 == 0 && turns > 0) {
             firstOpen = true;
-            FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), imageViewList[0]);
+            FadeTransition fadeTransition = new FadeTransition(Duration.millis(200), imageViewList[0]);
             fadeTransition.setFromValue(0.3);
             fadeTransition.setToValue(1);
             fadeTransition.setCycleCount(1);
             fadeTransition.play();
         }
 
-        if ((turns - turnOpen2) % 12 == 0 && hero.getLevelHero() >= 3) {
-            FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), imageViewList[1]);
+        if ((turns - turnOpen2) % 14 == 0 && hero.getLevelHero() >= 3) {
+            FadeTransition fadeTransition = new FadeTransition(Duration.millis(200), imageViewList[1]);
             fadeTransition.setFromValue(0.3);
             fadeTransition.setToValue(1);
             fadeTransition.setCycleCount(1);
@@ -154,8 +167,8 @@ public class SkillsLV implements Skill {
             twoOpen = true;
         }
 
-        if ((turns - turnOpen3) % 14 == 0 && hero.getLevelHero() >= 5) {
-            FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), imageViewList[2]);
+        if ((turns - turnOpen3) % 18 == 0 && hero.getLevelHero() >= 5) {
+            FadeTransition fadeTransition = new FadeTransition(Duration.millis(200), imageViewList[2]);
             fadeTransition.setFromValue(0.3);
             fadeTransition.setToValue(1);
             fadeTransition.setCycleCount(1);

@@ -13,41 +13,96 @@ import java.io.File;
 import static Match.Battle.*;
 
 public class WindowMatchMaking1 {
-    private static ImageView Dam = new ImageView(new Image("file:src\\Picture\\Triggers\\Arrowleftred_clip_art_hight.png"));
-   // private static ImageView Hil = new ImageView(new Image("file:src\\Picture\\Triggers\\Arrowleftred_clip_art_hight.png"));
+    private static ImageView Dam1 = new ImageView(new Image("file:src\\Picture\\Triggers\\Arrowleftred_clip_art_hight.png"));
+    private static ImageView Hil1 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));
+    private static ImageView Dam2 = new ImageView(new Image("file:src\\Picture\\Triggers\\Arrowleftred_clip_art_hight.png"));
+    private static ImageView Hil2 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));
 
-    private static void openDam() {
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(3000), Dam);
+    private static void openDam1() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Dam1);
         fadeTransition.setToValue(1);
         fadeTransition.setCycleCount(1);
         fadeTransition.play();
     }
 
-    private static void closeDam() {
-        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Dam);
+    private static void closeDam1() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Dam1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.play();
+    }
+
+    private static void openDam2() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Dam2);
+        fadeTransition.setToValue(1);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.play();
+    }
+
+    private static void closeDam2() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Dam2);
+        fadeTransition.setToValue(0);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.play();
+    }
+
+    private static void openHil1() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Hil1);
+        fadeTransition.setToValue(1);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.play();
+    }
+
+    private static void closeHil1() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Hil1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.play();
+    }
+
+    private static void openHil2() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Hil2);
+        fadeTransition.setToValue(1);
+        fadeTransition.setCycleCount(1);
+        fadeTransition.play();
+    }
+
+    private static void closeHil2() {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), Hil2);
         fadeTransition.setToValue(0);
         fadeTransition.setCycleCount(1);
         fadeTransition.play();
     }
 
     public static void launch(Pane root, Player player1, Player player2) {
-        Dam.setFitHeight(300);
-        Dam.setFitWidth(600);
-        Dam.setLayoutX(1280 / 2 - 300);
-        Dam.setLayoutY(720 / 2 - 150);
-Dam.setOpacity(0);
-
+        Dam1.setFitHeight(300);
+        Dam1.setFitWidth(600);
+        Dam1.setLayoutX(1280 / 2 - 300);
+        Dam1.setLayoutY(720 / 2 - 150);
+        Dam1.setOpacity(0);
+        Hil1.setFitHeight(300);
+        Hil1.setFitWidth(300);
+        Hil1.setLayoutX(50);
+        Hil1.setLayoutY(140);
+        Hil1.setOpacity(0);
+        Dam2.setFitHeight(300);
+        Dam2.setFitWidth(600);
+        Dam2.setLayoutX(1280 / 2 - 300);
+        Dam2.setLayoutY(720 / 2 - 150);
+        Dam2.setOpacity(0);
+        Hil2.setFitHeight(300);
+        Hil2.setFitWidth(300);
+        Hil2.setLayoutX(930);
+        Hil2.setLayoutY(140);
+        Hil2.setOpacity(0);
+        Dam1.setScaleX(-1);
+        Hil2.setScaleX(-1);
         ImageView heroOne;
         ImageView heroTwo;
 
         ImageView imageBattleGround = new ImageView(new Image(new File("src\\Picture\\Windows\\battleProcess.jpg").toURI().toString(), 1280.0, 720.0, true, true));
         imageBattleGround.setFitHeight(720.0);
         imageBattleGround.setFitWidth(1280.0);
-        if (!player1.getHero().getLocation()) {
-            Player player = player1;
-            player1 = player2;
-            player2 = player;
-        }
         heroOne = player1.getHero().getImage();
         heroOne.setFitHeight(300.0);
         heroOne.setFitWidth(300.0);
@@ -58,49 +113,78 @@ Dam.setOpacity(0);
         heroTwo.setFitWidth(300.0);
         heroTwo.setLayoutX(930);
         heroTwo.setLayoutY(140);
-
-        Player finalPlayer1 = player1;
-        Player finalPlayer2 = player2;
+        heroTwo.setScaleX(-1);
         heroTwo.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             turns++;
-            if (turn == 1) damage(finalPlayer1, finalPlayer2, root);
+            if (turn == 1) damage(player1, player2);
             else try {
-                treatment(finalPlayer1, finalPlayer2, root);
+                treatment(player1, player2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
         heroOne.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             turns++;
-            if (turn == -1) damage(finalPlayer1, finalPlayer2, root);
+            if (turn == -1) damage(player1, player2);
             else try {
-                treatment(finalPlayer1, finalPlayer2, root);
+                treatment(player1, player2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
 
         heroTwo.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
-            if (turn == 1) openDam();
-            else {};
+            if (turn == 1) {
+                closeHil1();
+                closeHil2();
+                closeDam2();
+                openDam1();
+            } else {
+                closeDam1();
+                closeDam2();
+                closeHil1();
+                openHil2();
+            }
         });
 
-        heroTwo.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {if (turn == 1) closeDam();
-        else {};
+        heroTwo.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
+            closeDam1();
+            closeDam2();
+            closeHil1();
+            closeHil2();
         });
 
         heroOne.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+            if (turn == -1) {
+                closeHil1();
+                closeHil2();
+                closeDam1();
+                openDam2();
+            } else {
+                closeDam1();
+                closeDam2();
+                closeHil2();
+                openHil1();
+            }
         });
 
+
         heroOne.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
+            closeDam1();
+            closeDam2();
+            closeHil1();
+            closeHil2();
         });
-        root.getChildren().addAll(imageBattleGround, heroOne, heroTwo,Dam,
+
+        root.getChildren().addAll(imageBattleGround, heroOne, Dam1, Hil1,
                 player1.getHero().getSkills().getImageViewList()[0],
                 player1.getHero().getSkills().getImageViewList()[1],
-                player1.getHero().getSkills().getImageViewList()[2],
+                player1.getHero().getSkills().getImageViewList()[2]);
+
+        root.getChildren().addAll(heroTwo, Dam2, Hil2,
                 player2.getHero().getSkills().getImageViewList()[0],
                 player2.getHero().getSkills().getImageViewList()[1],
                 player2.getHero().getSkills().getImageViewList()[2]);
-
     }
+
 }
