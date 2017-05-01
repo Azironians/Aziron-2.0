@@ -135,14 +135,8 @@ public class WindowMatchMaking1 {
 
         heroTwo.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
             if (turn == 1) {
-                closeHil1();
-                closeHil2();
-                closeDam2();
                 openDam1();
             } else {
-                closeDam1();
-                closeDam2();
-                closeHil1();
                 openHil2();
             }
         });
@@ -156,14 +150,8 @@ public class WindowMatchMaking1 {
 
         heroOne.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
             if (turn == -1) {
-                closeHil1();
-                closeHil2();
-                closeDam1();
                 openDam2();
             } else {
-                closeDam1();
-                closeDam2();
-                closeHil2();
                 openHil1();
             }
         });
@@ -179,12 +167,10 @@ public class WindowMatchMaking1 {
         root.getChildren().addAll(imageBattleGround, heroOne, Dam1, Hil1,
                 player1.getHero().getSkills().getImageViewList()[0],
                 player1.getHero().getSkills().getImageViewList()[1],
-                player1.getHero().getSkills().getImageViewList()[2]);
-
-        root.getChildren().addAll(heroTwo, Dam2, Hil2,
+                player1.getHero().getSkills().getImageViewList()[2],
+                heroTwo, Dam2, Hil2,
                 player2.getHero().getSkills().getImageViewList()[0],
                 player2.getHero().getSkills().getImageViewList()[1],
                 player2.getHero().getSkills().getImageViewList()[2]);
     }
-
 }
