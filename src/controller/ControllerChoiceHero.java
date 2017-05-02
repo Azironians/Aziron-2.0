@@ -60,25 +60,32 @@ public class ControllerChoiceHero implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         System.out.println(favouriteHero);
-        switch (favouriteHero) {
-            case "Любимый герой: Пожиратель":
-                currentBackground.setImage(spotLightDev.getImage());
-                break;
-            case "Любимый герой: Лорд Вампир":
-                currentBackground.setImage(spotLightDev.getImage());
-                break;
-            case "Любимый герой: Орк-Оглушитель":
-                currentBackground.setImage(spotLightBHR.getImage());
-                break;
-            default:
-                currentBackground.setImage(spotLightDev.getImage());
-                break;
-        }
         spotLightLV.setVisible(true);
         spotLightLV.setOpacity(0);
         spotLightBHR.setVisible(true);
         spotLightBHR.setOpacity(0);
         spotLightDev.setVisible(true);
+        spotLightDev.setOpacity(0);
+
+        switch (favouriteHero) {
+            case "Любимый герой: Пожиратель":
+                currentBackground.setImage(spotLightDev.getImage());
+                spotLightDev.setOpacity(1);
+                break;
+            case "Любимый герой: Лорд Вампир":
+                currentBackground.setImage(spotLightLV.getImage());
+                spotLightLV.setOpacity(1);
+                break;
+            case "Любимый герой: Орк-Оглушитель":
+                currentBackground.setImage(spotLightBHR.getImage());
+                spotLightBHR.setOpacity(1);
+                break;
+            default:
+                currentBackground.setImage(spotLightDev.getImage());
+                spotLightDev.setOpacity(1);
+                break;
+        }
+
 
         //Фон:
         currentBackground.setOnMouseMoved(event -> {

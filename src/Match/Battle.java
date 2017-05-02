@@ -1,5 +1,6 @@
 package Match;
 
+import Main.Profile;
 import javafx.animation.*;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -16,6 +17,9 @@ import java.util.TimerTask;
 import static InitializationGame.WindowMatchMaking1.launch;
 
 import static Main.BuildStage.azironStage;
+import static Main.BuildStage.profile1;
+import static Main.BuildStage.profile2;
+import static Match.winnerScene.winInfoUpdate;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
 import static javafx.application.Platform.exit;
@@ -51,8 +55,8 @@ public class Battle {
         rotateTransition.setByAngle(360 * 5);
         rotateTransition.setCycleCount(1);
         rotateTransition.setOnFinished(event -> {
-            if (player2.getHero().getHitPoints() > 0) System.out.println(player2.getProfileName());
-            else System.out.println(player1.getProfileName());
+            if (player2.getHero().getHitPoints() > 0) winInfoUpdate(profile1,profile2,false);
+            else winInfoUpdate(profile1,profile2,true);
             try {
                 Thread.sleep(10000);
                 exit();

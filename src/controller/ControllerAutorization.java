@@ -85,21 +85,21 @@ public class ControllerAutorization implements Initializable {
                         System.out.println(textFieldSignIn.getText() + ".hoa");
                         BufferedReader bufferedReader = new BufferedReader(new FileReader( new File("src\\Profiles\\" + textFieldSignIn.getText() + ".hoa")));
                         List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-                        if (lines.size() != 8) {
-                            throw new IllegalArgumentException();
+                        if (lines.size() < 8) {
+                            throw new IllegalArgumentException("");
                         }
                         System.out.println("size");
                         if (!textFieldSignIn.getText().equals(lines.get(0))){
-                            throw new IllegalArgumentException();
+                            throw new IllegalArgumentException("");
                         }
                         System.out.println("login");
                         if (!passwordFieldSignIn.getText().equals(lines.get(1))){
-                            throw new IllegalArgumentException();
+                            throw new IllegalArgumentException("");
                         }
                         System.out.println(passwordFieldSignIn.getText());
                         String[] parts = lines.get(2).split("/");
                         if (Byte.parseByte(parts[0]) > 20 || Byte.parseByte(parts[0]) < 1 || Integer.parseInt(parts[1]) < 0 || Integer.parseInt(parts[1]) > 5000){
-                            throw new IllegalArgumentException();
+                            throw new IllegalArgumentException("");
                         }
                         System.out.println("rank");
 
@@ -107,7 +107,7 @@ public class ControllerAutorization implements Initializable {
                                 Integer.parseInt(lines.get(5)) < 0 || Integer.parseInt(lines.get(6)) < 0 ||
                                 Integer.parseInt(lines.get(7)) < 0 ||
                         Integer.parseInt(lines.get(3)) != Integer.parseInt(lines.get(5)) + Integer.parseInt(lines.get(6)) + Integer.parseInt(lines.get(7))){
-                            throw new IllegalArgumentException();
+                            throw new IllegalArgumentException("");
                         }
                         System.out.println("wins");
                         profile = new Profile(lines.get(0), Byte.parseByte(parts[0]), Integer.parseInt(parts[1]),
@@ -169,6 +169,7 @@ public class ControllerAutorization implements Initializable {
                     System.out.println("Готово+");
                     paneSignUp.setVisible(false);
                     luckSignUp.setVisible(true);
+                    Thread.sleep(1000);
                     //Пауза...
                     luckSignUp.setVisible(false);
                     paneSignIn.setVisible(true);
