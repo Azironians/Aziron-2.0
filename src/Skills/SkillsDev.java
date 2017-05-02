@@ -16,11 +16,14 @@ import static controller.ControllerChoiceHero.player2;
 
 
 public class SkillsDev implements Skill {
-
     private boolean firstOpen = false;
     private boolean twoOpen = false;
     private boolean threeOpen = false;
-
+    private ImageView[] imageViewsText = {
+            new ImageView(new Image("file:src\\Picture\\Skills\\11.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\12.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\13.png"))
+    };
     private ImageView[] imageViewList = {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev2.png")),
@@ -38,6 +41,8 @@ public class SkillsDev implements Skill {
                 firstUlt();
             }
         });
+
+
         imageViewList[1].addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
             if (twoOpen && ((turn == 1 && hero.getLocation()) || (turn == -1 && !hero.getLocation()))) {
                 turns++;
@@ -53,18 +58,13 @@ public class SkillsDev implements Skill {
             }
         });
 
-        imageViewList[0].setOpacity(0.3);
-        imageViewList[1].setOpacity(0.3);
-        imageViewList[2].setOpacity(0.3);
-
 
         for (int i = 0; i < 3; i++) {
+            imageViewList[i].setOpacity(0.3);
             imageViewList[i].setFitHeight(112);
             imageViewList[i].setFitWidth(112);
+            imageViewList[i].setLayoutY(547);
         }
-        imageViewList[0].setLayoutY(547);
-        imageViewList[1].setLayoutY(547);
-        imageViewList[2].setLayoutY(547);
 
         if (hero.getLocation()) {
             imageViewList[0].setLayoutX(29);
@@ -78,6 +78,37 @@ public class SkillsDev implements Skill {
             imageViewList[1].setLayoutX(1058);
             imageViewList[2].setLayoutX(1131);
         }
+        for (int i = 0; i < 3; i++) {
+            imageViewsText[i].setOpacity(0);
+            imageViewsText[i].setFitHeight(75);
+            imageViewsText[i].setFitWidth(100);
+            imageViewsText[i].setLayoutY(472);
+            imageViewsText[i].setLayoutX(imageViewList[i].getLayoutX());
+            int finalI = i;
+            imageViewsText[i].addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), imageViewsText[finalI]);
+                        fadeTransition.setToValue(0.8);
+                        fadeTransition.setCycleCount(1);
+                        FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(1000), imageViewsText[finalI]);
+                        fadeTransition2.setToValue(0);
+                        fadeTransition2.setCycleCount(1);
+                        fadeTransition2.delayProperty().setValue(Duration.seconds(1));
+                        fadeTransition.setOnFinished(event -> fadeTransition2.play());
+                        fadeTransition.play();
+                    }
+            );
+
+        }
+    }
+
+    @Override
+    public ImageView[] getImageViewsText() {
+        return imageViewsText;
+    }
+
+    @Override
+    public void setImageViewsText(ImageView[] imageViewsText) {
+        this.imageViewsText = imageViewsText;
     }
 
     @Override
@@ -107,20 +138,18 @@ public class SkillsDev implements Skill {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getTreatment() * 1.4);
             effect2 = turns;
         }
-        damageOrHilForSkills( null,player2.getHero().getTreatment() * 1.4, 12);
+        damageOrHilForSkills(null, player2.getHero().getTreatment() * 1.4, 12);
     }
 
     @Override
     public void threeUlt() {
         threeOpen = false;
         if (turn == -1) {
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player2.getHero().getHitPoints() / 2);
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() / 2);
         } else {
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player1.getHero().getHitPoints() / 2);
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() / 2);
         }
-        damageOrHilForSkills( player1.getHero().getHitPoints() / 2,player1.getHero().getHitPoints() / 2, 12);
+        damageOrHilForSkills(player1.getHero().getHitPoints() / 2, null, 12);
     }
 
     @Override

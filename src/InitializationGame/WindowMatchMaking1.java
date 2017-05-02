@@ -168,7 +168,15 @@ public class WindowMatchMaking1 {
                 player1.getHero().getSkills().getImageViewList()[0],
                 player1.getHero().getSkills().getImageViewList()[1],
                 player1.getHero().getSkills().getImageViewList()[2],
+                player1.getHero().getSkills().getImageViewsText()[0],
+                player1.getHero().getSkills().getImageViewsText()[1],
+                player1.getHero().getSkills().getImageViewsText()[2],
+
+
                 heroTwo, Dam2, Hil2,
+                player2.getHero().getSkills().getImageViewsText()[0],
+                player2.getHero().getSkills().getImageViewsText()[1],
+                player2.getHero().getSkills().getImageViewsText()[2],
                 player2.getHero().getSkills().getImageViewList()[0],
                 player2.getHero().getSkills().getImageViewList()[1],
                 player2.getHero().getSkills().getImageViewList()[2]);

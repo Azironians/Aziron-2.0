@@ -123,7 +123,7 @@ public class ControllerAutorization implements Initializable {
 
                     } catch (Exception e) {
                         if (e.getMessage().equals("Такой пользователь уже авторизован")){
-                            textErrorSignIn.setText(e.getMessage());
+                            textErrorSignIn.setText("Такой пользователь уже авторизован");
                         }else {
                             textErrorSignIn.setText("Неверное имя пользователя или пароль");
                         }

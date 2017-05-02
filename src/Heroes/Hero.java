@@ -12,6 +12,7 @@ public interface Hero {
 
     Player getPlayer();
 
+
     void levelUp();
 
     Double getExperience();

@@ -1,5 +1,7 @@
 package Main;
 
+import Match.Player;
+
 public class Profile {
     String name;
     Byte rank;
@@ -9,6 +11,7 @@ public class Profile {
     Integer winForDevourer;
     Integer winForLV;
     Integer winForOrcBacher;
+    Player player;
 
     public Profile(String name) {
         this.name = name;
@@ -24,7 +27,27 @@ public class Profile {
         this.winForLV = winForLV;
         this.winForOrcBacher = winForOrcBacher;
     }
+
+    public Profile(String name, Byte rank, Integer MMR, Integer win, Integer lose, Integer winForDevourer, Integer winForLV, Integer winForOrcBacher, Player player) {
+        this.name = name;
+        this.rank = rank;
+        this.MMR = MMR;
+        this.win = win;
+        this.lose = lose;
+        this.winForDevourer = winForDevourer;
+        this.winForLV = winForLV;
+        this.winForOrcBacher = winForOrcBacher;
+        this.player = player;
+    }
     //Getters and Setters:
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     public String getName() {
         return name;

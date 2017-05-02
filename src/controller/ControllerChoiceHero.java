@@ -2,7 +2,9 @@ package controller;
 
 import Heroes.HeroDevourer;
 import Heroes.HeroLordVamp;
+import Heroes.HeroOrcBasher;
 import Match.Player;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,7 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,6 +58,7 @@ public class ControllerChoiceHero implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         System.out.println(favouriteHero);
         switch (favouriteHero) {
             case "Любимый герой: Пожиратель":
@@ -66,6 +74,12 @@ public class ControllerChoiceHero implements Initializable {
                 currentBackground.setImage(spotLightDev.getImage());
                 break;
         }
+        spotLightLV.setVisible(true);
+        spotLightLV.setOpacity(0);
+        spotLightBHR.setVisible(true);
+        spotLightBHR.setOpacity(0);
+        spotLightDev.setVisible(true);
+
         //Фон:
         currentBackground.setOnMouseMoved(event -> {
             btnOnRight.setVisible(false);
@@ -73,47 +87,121 @@ public class ControllerChoiceHero implements Initializable {
             btnOnLeft.setVisible(false);
             btnOffLeft.setVisible(true);
         });
+
         //Влево:
-        btnOffLeft.setOnMouseMoved(event -> {
+        btnOffLeft.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
             btnOffLeft.setVisible(false);
             btnOnLeft.setVisible(true);
         });
 
         btnOnLeft.setOnMouseClicked(event -> {
             if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
+                FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightBHR);
+                fadeTransition.setFromValue(1);
+                fadeTransition.setToValue(0);
+                fadeTransition.setCycleCount(1);
+                spotLightDev.setOpacity(0);
                 currentBackground.setImage(spotLightDev.getImage());
+                FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightDev);
+                fadeTransition2.setFromValue(0);
+                fadeTransition2.setToValue(1);
+                fadeTransition2.setCycleCount(1);
+                fadeTransition2.play();
+                fadeTransition.play();
             } else {
                 if (currentBackground.getImage().equals(spotLightLV.getImage())) {
+                    FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightLV);
+                    fadeTransition.setFromValue(1);
+                    fadeTransition.setToValue(0);
+                    fadeTransition.setCycleCount(1);
+                    spotLightBHR.setOpacity(0);
                     currentBackground.setImage(spotLightBHR.getImage());
+                    FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightBHR);
+                    fadeTransition2.setFromValue(0);
+                    fadeTransition2.setToValue(1);
+                    fadeTransition2.setCycleCount(1);
+                    fadeTransition2.play();
+                    fadeTransition.play();
                 } else {
                     if (currentBackground.getImage().equals(spotLightDev.getImage())) {
+                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
+                        fadeTransition.setFromValue(1);
+                        fadeTransition.setToValue(0);
+                        fadeTransition.setCycleCount(1);
+                        spotLightLV.setOpacity(0);
                         currentBackground.setImage(spotLightLV.getImage());
+                        FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightLV);
+                        fadeTransition2.setFromValue(0);
+                        fadeTransition2.setToValue(1);
+                        fadeTransition2.setCycleCount(1);
+                        fadeTransition2.play();
+                        fadeTransition.play();
                     }
                 }
             }
         });
+        btnOnLeft.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
+            btnOffLeft.setVisible(true);
+            btnOnLeft.setVisible(false);
+        });
 
 
         //Вправо:
-        btnOffRight.setOnMouseMoved(event -> {
+        btnOffRight.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
             btnOffRight.setVisible(false);
             btnOnRight.setVisible(true);
         });
 
         btnOnRight.setOnMouseClicked(event -> {
             if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
+                FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightBHR);
+                fadeTransition.setFromValue(1);
+                fadeTransition.setToValue(0);
+                fadeTransition.setCycleCount(1);
+                spotLightLV.setOpacity(0);
                 currentBackground.setImage(spotLightLV.getImage());
+                FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightLV);
+                fadeTransition2.setFromValue(0);
+                fadeTransition2.setToValue(1);
+                fadeTransition2.setCycleCount(1);
+                fadeTransition2.play();
+                fadeTransition.play();
             } else {
                 if (currentBackground.getImage().equals(spotLightLV.getImage())) {
+                    FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightLV);
+                    fadeTransition.setFromValue(1);
+                    fadeTransition.setToValue(0);
+                    fadeTransition.setCycleCount(1);
+                    spotLightDev.setOpacity(0);
                     currentBackground.setImage(spotLightDev.getImage());
+                    FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightDev);
+                    fadeTransition2.setFromValue(0);
+                    fadeTransition2.setToValue(1);
+                    fadeTransition2.setCycleCount(1);
+                    fadeTransition2.play();
+                    fadeTransition.play();
                 } else {
                     if (currentBackground.getImage().equals(spotLightDev.getImage())) {
+                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
+                        fadeTransition.setFromValue(1);
+                        fadeTransition.setToValue(0);
+                        fadeTransition.setCycleCount(1);
+                        spotLightBHR.setOpacity(0);
                         currentBackground.setImage(spotLightBHR.getImage());
+                        FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightBHR);
+                        fadeTransition2.setFromValue(0);
+                        fadeTransition2.setToValue(1);
+                        fadeTransition2.setCycleCount(1);
+                        fadeTransition2.play();
+                        fadeTransition.play();
                     }
                 }
             }
         });
-
+        btnOnRight.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
+            btnOffRight.setVisible(true);
+            btnOnRight.setVisible(false);
+        });
         btnBackToProfile.setOnMouseClicked(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
@@ -131,7 +219,31 @@ public class ControllerChoiceHero implements Initializable {
                     e.printStackTrace();
                 }
                 azironStage.show();
+                if (currentBackground.getImage().equals(spotLightDev.getImage())) {
+                    profile.setPlayer(new Player(profile.getName(), new HeroDevourer(true)));
+                }
+                if (currentBackground.getImage().equals(spotLightLV.getImage())) {
+                    profile.setPlayer(new Player(profile.getName(), new HeroLordVamp(true)));
+                }
+                if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
+                    profile.setPlayer(new Player(profile.getName(), new HeroOrcBasher(true)));
+                }
+                profile1 = profile;
+
+
             } else {
+                if (currentBackground.getImage().equals(spotLightDev.getImage())) {
+                    profile.setPlayer(new Player(profile.getName(), new HeroDevourer(false)));
+                }
+                if (currentBackground.getImage().equals(spotLightLV.getImage())) {
+                    profile.setPlayer(new Player(profile.getName(), new HeroLordVamp(false)));
+                }
+                if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
+                    profile.setPlayer(new Player(profile.getName(), new HeroOrcBasher(false)));
+                }
+                profile2 = profile;
+
+
                 btnOffLeft.setVisible(false);
                 btnOnLeft.setVisible(false);
                 btnOnRight.setVisible(false);
@@ -139,7 +251,7 @@ public class ControllerChoiceHero implements Initializable {
                 btnChoiceHero.setVisible(false);
                 btnBackToProfile.setVisible(false);
                 paneMessage.setVisible(true);
-                 ImageView fon = new ImageView(new Image("file:src\\Picture\\Windows\\WindowInitialization.jpg"));
+                ImageView fon = new ImageView(new Image("file:src\\Picture\\Windows\\WindowInitialization.jpg"));
                 ImageView load = new ImageView(new Image("file:src\\Picture\\Windows\\load.gif"));
                 fon.setFitHeight(720);
                 fon.setFitWidth(1280);
@@ -148,19 +260,15 @@ public class ControllerChoiceHero implements Initializable {
                 load.setLayoutX(640 - 75);
                 load.setLayoutY(570);
 
-
-                Pane pane = new Pane(fon,load);
+                Pane pane = new Pane(fon, load);
                 Scene sceneMenu = new Scene(pane, 1280, 720);
                 //2. Окно меню:
                 azironStage.setScene(sceneMenu);
+                player1 = profile1.getPlayer();
+                player2 = profile2.getPlayer();
 
-                player1 = new Player("first", new HeroDevourer(true));
-                player2 = new Player("second", new HeroLordVamp(false));
-
-                battleProcess( player1, player2);
-
-
-                //Запуск матча... (используется сцена Кости)
+                battleProcess(player1, player2);
+                //Запуск матча...
             }
         });
     }

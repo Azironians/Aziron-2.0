@@ -20,6 +20,11 @@ public class SkillsOgr implements Skill {
     private boolean firstOpen = false;
     private boolean twoOpen = false;
     private boolean threeOpen = false;
+    private ImageView[] imageViewsText = {
+            new ImageView(new Image("file:src\\Picture\\Skills\\31.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\32.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\33.png"))
+    };
     private ImageView[] imageViewList = {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillBHR2.png")),
@@ -76,6 +81,26 @@ public class SkillsOgr implements Skill {
             imageViewList[1].setLayoutX(1058);
             imageViewList[2].setLayoutX(1131);
         }
+        for (int i = 0; i < 3; i++) {
+            imageViewsText[i].setOpacity(0);
+            imageViewsText[i].setFitHeight(75);
+            imageViewsText[i].setFitWidth(100);
+            imageViewsText[i].setLayoutY(472);
+            imageViewsText[i].setLayoutX(imageViewList[i].getLayoutX());
+            int finalI = i;
+            imageViewsText[i].addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), imageViewsText[finalI]);
+                        fadeTransition.setToValue(0.8);
+                        fadeTransition.setCycleCount(1);
+                        FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(1000), imageViewsText[finalI]);
+                        fadeTransition2.setToValue(0);
+                        fadeTransition2.setCycleCount(1);
+                        fadeTransition2.delayProperty().setValue(Duration.seconds(1));
+                        fadeTransition.setOnFinished(event -> fadeTransition2.play());
+                        fadeTransition.play();
+                    }
+            );
+        }
     }
 
     @Override
@@ -88,12 +113,12 @@ public class SkillsOgr implements Skill {
         firstOpen = false;
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 5);
-            turn *= -1;
         } else {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 5);
-            turn *= -1;
         }
+        turn *= -1;
         damageOrHilForSkills(player2.getHero().getAttack() * 5, null, 31);
+
     }
 
     @Override
@@ -118,6 +143,16 @@ public class SkillsOgr implements Skill {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getSupplyHealth());
         }
         damageOrHilForSkills(player1.getHero().getSupplyHealth(), null, 33);
+    }
+
+    @Override
+    public ImageView[] getImageViewsText() {
+        return imageViewsText;
+    }
+
+    @Override
+    public void setImageViewsText(ImageView[] imageViewsText) {
+        this.imageViewsText = imageViewsText;
     }
 
     @Override

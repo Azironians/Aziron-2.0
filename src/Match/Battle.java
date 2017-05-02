@@ -20,6 +20,7 @@ import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
 import static javafx.application.Platform.exit;
 
+
 public class Battle {
     public static int turn = 0;
     public static int turns = 0;
@@ -29,12 +30,56 @@ public class Battle {
     private static ImageView imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\dpsHero.png"));//damage
     private static ImageView imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));//hill
 
+    private static void winAnim() {
+        ImageView imageView;
+        Path path1;
+        ImageView imageView2;
+        Path path2;
+        if (player1.getHero().getHitPoints() > 0) {
+            imageView = player1.getHero().getImage();
+            path1 = new Path(new MoveTo(150, 140), new LineTo(730, 140));
+            imageView2 = player2.getHero().getImage();
+            path2 = new Path(new MoveTo(150, 140), new LineTo(500, -500));
+        } else {
+            imageView = player2.getHero().getImage();
+            path1 = new Path(new MoveTo(150, 140), new LineTo(-480, 140));
+            imageView2 = player1.getHero().getImage();
+            path2 = new Path(new MoveTo(150, 140), new LineTo(-500, -500));
+        }
+
+        RotateTransition rotateTransition = new RotateTransition(Duration.millis(500), imageView2);
+        rotateTransition.setByAngle(360 * 5);
+        rotateTransition.setCycleCount(1);
+        rotateTransition.setOnFinished(event -> {
+            if (player2.getHero().getHitPoints() > 0) System.out.println(player2.getProfileName());
+            else System.out.println(player1.getProfileName());
+            try {
+                Thread.sleep(10000);
+                exit();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        PathTransition pathTransition2 = new PathTransition(Duration.millis(1000), path2, imageView2);
+        pathTransition2.setCycleCount(1);
+
+
+        PathTransition pathTransition = new PathTransition(Duration.millis(1000), path1, imageView);
+        pathTransition.setCycleCount(1);
+        pathTransition.setOnFinished(event -> {
+            pathTransition2.play();
+            rotateTransition.play();
+        });
+        pathTransition.play();
+
+    }
+
+
     public static void damageOrHilForSkills(Double damage, Double hil, int indexUlt) {
-        if ((player1.getHero().getHitPoints() < 0) || (player2.getHero().getHitPoints() < 0))
-            exit();
+
         //благодаря разному исполнению визуализации
-                                                                                        // есть разница в скорости и качестве анимации!!!
-                                                                                        // именно по этому не стал делать это как общую функцию
+        // есть разница в скорости и качестве анимации!!!
+        // именно по этому не стал делать это как общую функцию
 
         if (indexUlt == 11) {
             imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
@@ -45,7 +90,6 @@ public class Battle {
         }
         if (indexUlt == 13) {
             imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
-            imageView2.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\HealthDevSkill.png"));
         }
         if (indexUlt == 21) {
             imageView1.setImage(new Image("file:src\\Picture\\Heroes\\LordWamp\\Ults\\DmgSkillLV.png"));
@@ -71,7 +115,7 @@ public class Battle {
             Path path;
             imageView1.setFitWidth(300);
             imageView1.setFitHeight(300);
-            if (turn == -1) {
+            if ((indexUlt == 31 && turn == 1) || (turn == -1)) {
                 imageView = player1.getHero().getImage();
                 path = new Path(new MoveTo(150, 140), new LineTo(730, 140), new LineTo(150, 140));
                 imageView1.setLayoutX(940);
@@ -112,6 +156,8 @@ public class Battle {
                 fadeTransition.play();
             });
             transition.play();
+            if ((player1.getHero().getHitPoints() < 0 && (turn == -1)) || ((turn == 1) && player2.getHero().getHitPoints() < 0))
+                winAnim();
         }
         if (hil != null) {
             imageView2.setFitWidth(300);
@@ -233,7 +279,7 @@ public class Battle {
     public static void damage(Player player1, Player player2) {
         damageVisual(player1, player2);
         if ((player1.getHero().getHitPoints() < 0) || (player2.getHero().getHitPoints() < 0))
-            exit();//другое окно
+            winAnim();//другое окно
         if (turn == 1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack());
             player1.getHero().setExperience(player1.getHero().getExperience() + player1.getHero().getAttack());
@@ -246,12 +292,13 @@ public class Battle {
 
 
     public static void treatment(Player player1, Player player2) throws InterruptedException {
-        if ((player1.getHero().getHitPoints() < 0) || (player2.getHero().getHitPoints() < 0))
-            exit();
+
         if (turn == 1)
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getTreatment());
         else player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getTreatment());
         treatmentVisual();
+        if ((player1.getHero().getHitPoints() < 0) || (player2.getHero().getHitPoints() < 0))
+            winAnim();
         turn *= -1;
     }
 
@@ -291,8 +338,8 @@ public class Battle {
                 )
         );
         timeline2.setCycleCount(480);
-        timeline.setOnFinished(event -> exit());
-        timeline2.setOnFinished(event -> exit());
+        timeline.setOnFinished(event -> winAnim());
+        timeline2.setOnFinished(event -> winAnim());
 
         if (turn == 1) timeline.play();
         else timeline2.play();
@@ -337,7 +384,6 @@ public class Battle {
         experience2.setFill(Color.LIGHTGREY);
 
 
-
         dpsHero.setLayoutY(-1000);
         dpsHero.setFitWidth(300);
         dpsHero.setFitHeight(300);
@@ -354,7 +400,7 @@ public class Battle {
 
         launch(pane, player1, player2);
         pane.getChildren().addAll(label1, label2, name1, name2, hitPoints1, hitPoints2, attack1, attack2,
-                level1, level2, treatment1, treatment2, experience1, experience2, dpsHero, health, imageView1, imageView2, anyText);
+                treatment1, treatment2, experience1, experience2, level1, level2, dpsHero, health, imageView1, imageView2, anyText);
         Scene scene = new Scene(pane, 1280, 720);
         azironStage.setScene(scene);
 

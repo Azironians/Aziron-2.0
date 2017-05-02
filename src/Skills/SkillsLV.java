@@ -20,7 +20,11 @@ public class SkillsLV implements Skill {
     private boolean firstOpen = false;
     private boolean twoOpen = false;
     private boolean threeOpen = false;
-
+    private ImageView[] imageViewsText = {
+            new ImageView(new Image("file:src\\Picture\\Skills\\21.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\22.png")),
+            new ImageView(new Image("file:src\\Picture\\Skills\\23.png"))
+    };
     private ImageView[] imageViewList = {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV2.png")),
@@ -76,6 +80,36 @@ public class SkillsLV implements Skill {
             imageViewList[1].setLayoutX(1058);
             imageViewList[2].setLayoutX(1131);
         }
+        for (int i = 0; i < 3; i++) {
+            imageViewsText[i].setOpacity(0);
+            imageViewsText[i].setFitHeight(75);
+            imageViewsText[i].setFitWidth(100);
+            imageViewsText[i].setLayoutY(472);
+            imageViewsText[i].setLayoutX(imageViewList[i].getLayoutX());
+            int finalI = i;
+            imageViewsText[i].addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(1000), imageViewsText[finalI]);
+                        fadeTransition.setToValue(0.8);
+                        fadeTransition.setCycleCount(1);
+                        FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(1000), imageViewsText[finalI]);
+                        fadeTransition2.setToValue(0);
+                        fadeTransition2.setCycleCount(1);
+                        fadeTransition2.delayProperty().setValue(Duration.seconds(1));
+                        fadeTransition.setOnFinished(event -> fadeTransition2.play());
+                        fadeTransition.play();
+                    }
+            );
+        }
+    }
+
+    @Override
+    public ImageView[] getImageViewsText() {
+        return imageViewsText;
+    }
+
+    @Override
+    public void setImageViewsText(ImageView[] imageViewsText) {
+        this.imageViewsText = imageViewsText;
     }
 
     @Override
@@ -93,7 +127,7 @@ public class SkillsLV implements Skill {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 3.5);
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getAttack() * 1.5);
         }
-        damageOrHilForSkills(player2.getHero().getAttack() * 3.5,player2.getHero().getAttack() * 1.5,21);
+        damageOrHilForSkills(player2.getHero().getAttack() * 3.5, player2.getHero().getAttack() * 1.5, 21);
     }
 
     @Override
@@ -104,7 +138,7 @@ public class SkillsLV implements Skill {
         } else {
             player2.getHero().setAttack(player2.getHero().getAttack() + player2.getHero().getAttack() * 0.2);
         }
-        damageOrHilForSkills(null,player2.getHero().getAttack() * 0.2,22);
+        damageOrHilForSkills(null, player2.getHero().getAttack() * 0.2, 22);
     }
 
     @Override
@@ -115,7 +149,7 @@ public class SkillsLV implements Skill {
         } else {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() * -1);
         }
-        damageOrHilForSkills(null,player2.getHero().getHitPoints() * 2,23);
+        damageOrHilForSkills(null, player2.getHero().getHitPoints() * 2, 23);
     }
 
     @Override

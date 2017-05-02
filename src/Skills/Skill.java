@@ -4,6 +4,9 @@ import Heroes.Hero;
 import javafx.scene.image.ImageView;
 
 public interface Skill{
+    ImageView[] getImageViewsText();
+
+    void setImageViewsText(ImageView[] imageViewsText);
 
     void firstUlt();
 
