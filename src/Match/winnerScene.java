@@ -15,9 +15,9 @@ public class winnerScene {
         profile2.setLose(profile2.getLose()+1);
         }else {
             profile2.setWin(profile2.getWin()+1);
-            if (profile2.getPlayer().getHero().getClass().equals(HeroOrcBasher.class)) profile1.setWinForOrcBacher(profile1.getWinForOrcBacher()+1);
-            if (profile2.getPlayer().getHero().getClass().equals(HeroLordVamp.class)) profile1.setWinForLV(profile1.getWinForLV()+1);
-            if (profile2.getPlayer().getHero().getClass().equals(HeroDevourer.class)) profile1.setWinForDevourer(profile1.getWinForDevourer()+1);
+            if (profile2.getPlayer().getHero().getClass().equals(HeroOrcBasher.class)) profile2.setWinForOrcBacher(profile2.getWinForOrcBacher()+1);
+            if (profile2.getPlayer().getHero().getClass().equals(HeroLordVamp.class)) profile2.setWinForLV(profile2.getWinForLV()+1);
+            if (profile2.getPlayer().getHero().getClass().equals(HeroDevourer.class)) profile2.setWinForDevourer(profile2.getWinForDevourer()+1);
             profile1.setLose(profile1.getLose()+1);
         }
         profile1.rewriteFile();
