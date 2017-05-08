@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -7,9 +8,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.TimeZone;
 
 import static Main.BuildStage.azironStage;
 
@@ -26,9 +30,17 @@ public class ControllerMenu implements Initializable {
     @FXML ImageView buttonOnBack;
     @FXML Pane panelLocMch;
     @FXML Pane paneButtons;
+    @FXML Pane paneMessage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        System.out.println(new java.util.Date());
+
+
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(4000), paneMessage);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
         try {
             Parent rootAutorization = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml"));
             Scene sceneAutorize = new Scene(rootAutorization, 1280, 720);
@@ -48,6 +60,7 @@ public class ControllerMenu implements Initializable {
                 buttonOffExitProgramm.setVisible(true);
             });
             buttonOnLocMch.setOnMouseClicked(event -> {
+                paneMessage.setVisible(false);
                 paneButtons.setVisible(false);
                 paneButtons.setDisable(true);
                 panelLocMch.setVisible(true);
@@ -80,6 +93,7 @@ public class ControllerMenu implements Initializable {
                 buttonOnBack.setVisible(true);
             });
             buttonOnBack.setOnMouseClicked(event -> {
+                paneMessage.setVisible(true);
                 paneButtons.setVisible(true);
                 paneButtons.setDisable(false);
                 panelLocMch.setVisible(false);

@@ -112,6 +112,7 @@ public class ControllerProfile implements Initializable {
             buttonOnShowStatistics.setVisible(false);
             buttonOffShowStatistics.setVisible(true);
         });
+
         buttonOnLogOut.setOnMouseClicked(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
@@ -119,6 +120,7 @@ public class ControllerProfile implements Initializable {
                 e.printStackTrace();
             }
             profileController--;
+            profile.setName("");
             azironStage.show();
         });
 

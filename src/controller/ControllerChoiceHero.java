@@ -220,11 +220,6 @@ public class ControllerChoiceHero implements Initializable {
 
         btnChoiceHero.setOnMouseClicked(event -> {
             if (profileController == 1) {
-                try {
-                    azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
                 azironStage.show();
                 if (currentBackground.getImage().equals(spotLightDev.getImage())) {
                     profile.setPlayer(new Player(profile.getName(), new HeroDevourer(true)));
@@ -236,6 +231,19 @@ public class ControllerChoiceHero implements Initializable {
                     profile.setPlayer(new Player(profile.getName(), new HeroOrcBasher(true)));
                 }
                 profile1 = profile;
+                paneMessage.setVisible(true);
+                paneMessage.setOnMouseMoved( event1 -> {
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
 
 
             } else {
@@ -258,24 +266,27 @@ public class ControllerChoiceHero implements Initializable {
                 btnChoiceHero.setVisible(false);
                 btnBackToProfile.setVisible(false);
                 paneMessage.setVisible(true);
-                ImageView fon = new ImageView(new Image("file:src\\Picture\\Windows\\WindowInitialization.jpg"));
-                ImageView load = new ImageView(new Image("file:src\\Picture\\Windows\\load.gif"));
-                fon.setFitHeight(720);
-                fon.setFitWidth(1280);
-                load.setFitWidth(150);
-                load.setFitHeight(150);
-                load.setLayoutX(640 - 75);
-                load.setLayoutY(570);
+                paneMessage.setOnMouseMoved(event1 -> {
 
-                Pane pane = new Pane(fon, load);
-                Scene sceneMenu = new Scene(pane, 1280, 720);
-                //2. Окно меню:
-                azironStage.setScene(sceneMenu);
-                player1 = profile1.getPlayer();
-                player2 = profile2.getPlayer();
+                    ImageView fon = new ImageView(new Image("file:src\\Picture\\Windows\\WindowInitialization.jpg"));
+                    ImageView load = new ImageView(new Image("file:src\\Picture\\Windows\\load.gif"));
+                    fon.setFitHeight(720);
+                    fon.setFitWidth(1280);
+                    load.setFitWidth(150);
+                    load.setFitHeight(150);
+                    load.setLayoutX(640 - 75);
+                    load.setLayoutY(570);
 
-                battleProcess(player1, player2);
-                //Запуск матча...
+                    Pane pane = new Pane(fon, load);
+                    Scene sceneMenu = new Scene(pane, 1280, 720);
+                    //2. Окно меню:
+                    azironStage.setScene(sceneMenu);
+                    player1 = profile1.getPlayer();
+                    player2 = profile2.getPlayer();
+
+                    battleProcess(player1, player2);
+                    //Запуск матча...
+                });
             }
         });
     }

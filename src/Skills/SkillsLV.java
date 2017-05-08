@@ -121,22 +121,22 @@ public class SkillsLV implements Skill {
     public void firstUlt() {
         firstOpen = false;
         if (turn == -1) {
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 3.5);
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getAttack() * 1.5);
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 2.5);
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getAttack() * 2.5);
         } else {
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 3.5);
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getAttack() * 1.5);
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 2.5);
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getAttack() * 2.5);
         }
-        damageOrHilForSkills(player2.getHero().getAttack() * 3.5, player2.getHero().getAttack() * 1.5, 21);
+        damageOrHilForSkills(player2.getHero().getAttack() * 2.5, player2.getHero().getAttack() * 2.5, 21);
     }
 
     @Override
     public void twoUlt() {
         twoOpen = false;
         if (turn == -1) {
-            player1.getHero().setAttack(player1.getHero().getAttack() + player1.getHero().getAttack() * 0.2);
+            player1.getHero().setAttack(player1.getHero().getAttack() + player1.getHero().getAttack() * 0.1);
         } else {
-            player2.getHero().setAttack(player2.getHero().getAttack() + player2.getHero().getAttack() * 0.2);
+            player2.getHero().setAttack(player2.getHero().getAttack() + player2.getHero().getAttack() * 0.1);
         }
         damageOrHilForSkills(null, player2.getHero().getAttack() * 0.2, 22);
     }

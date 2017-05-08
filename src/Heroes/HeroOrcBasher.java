@@ -27,7 +27,7 @@ public class HeroOrcBasher implements Hero {
         this.location = location;
         this.attack = 30.0;
         this.supplyHealth = 500.0;
-        this.treatment = 125.0;
+        this.treatment = 200.0;
         this.levelHero = 1;
         this.hitPoints = 500.0;
         this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));

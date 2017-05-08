@@ -1,6 +1,8 @@
 package controller;
 
 import Main.Profile;
+import javafx.animation.FadeTransition;
+import javafx.animation.Transition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.io.*;
 import java.net.URL;
@@ -43,8 +46,16 @@ public class ControllerAutorization implements Initializable {
     @FXML ImageView panelSignIn;
 
 
+
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+
+
 
             //1. Фон:
             panelSignIn.setOnMouseMoved(event -> {
@@ -85,21 +96,21 @@ public class ControllerAutorization implements Initializable {
                         System.out.println(textFieldSignIn.getText() + ".hoa");
                         BufferedReader bufferedReader = new BufferedReader(new FileReader( new File("src\\Profiles\\" + textFieldSignIn.getText() + ".hoa")));
                         List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-                        if (lines.size() < 8) {
-                            throw new IllegalArgumentException("");
+                        if (lines.size() != 8) {
+                            throw new IllegalArgumentException();
                         }
                         System.out.println("size");
                         if (!textFieldSignIn.getText().equals(lines.get(0))){
-                            throw new IllegalArgumentException("");
+                            throw new IllegalArgumentException();
                         }
                         System.out.println("login");
                         if (!passwordFieldSignIn.getText().equals(lines.get(1))){
-                            throw new IllegalArgumentException("");
+                            throw new IllegalArgumentException();
                         }
                         System.out.println(passwordFieldSignIn.getText());
                         String[] parts = lines.get(2).split("/");
                         if (Byte.parseByte(parts[0]) > 20 || Byte.parseByte(parts[0]) < 1 || Integer.parseInt(parts[1]) < 0 || Integer.parseInt(parts[1]) > 5000){
-                            throw new IllegalArgumentException("");
+                            throw new IllegalArgumentException();
                         }
                         System.out.println("rank");
 
@@ -107,28 +118,36 @@ public class ControllerAutorization implements Initializable {
                                 Integer.parseInt(lines.get(5)) < 0 || Integer.parseInt(lines.get(6)) < 0 ||
                                 Integer.parseInt(lines.get(7)) < 0 ||
                         Integer.parseInt(lines.get(3)) != Integer.parseInt(lines.get(5)) + Integer.parseInt(lines.get(6)) + Integer.parseInt(lines.get(7))){
-                            throw new IllegalArgumentException("");
+                            throw new IllegalArgumentException();
                         }
                         System.out.println("wins");
                         profile = new Profile(lines.get(0), Byte.parseByte(parts[0]), Integer.parseInt(parts[1]),
                                 Integer.parseInt(lines.get(3)), Integer.parseInt(lines.get(4)), Integer.parseInt(lines.get(5)),
                                 Integer.parseInt(lines.get(6)), Integer.parseInt(lines.get(7)));
                         profileController++;
-                        try {
-                            azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        azironStage.show();
+
+                        paneSignIn.setVisible(false);
+                        luckSignIn.setVisible(true);
+                        luckSignIn.setOnMouseMoved(event1 -> {
+
+                            try {
+                                Thread.sleep(2000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            try {
+                                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            azironStage.show();
+                        });
 
                     } catch (Exception e) {
-                        if (e.getMessage().equals("Такой пользователь уже авторизован")){
-                            textErrorSignIn.setText("Такой пользователь уже авторизован");
-                        }else {
                             textErrorSignIn.setText("Неверное имя пользователя или пароль");
-                        }
                     }
             });
+
             //Кнопка: "Зарегистрироваться"
             buttonSignUpOK.setOnMouseClicked(event -> {
                 try {
@@ -166,13 +185,22 @@ public class ControllerAutorization implements Initializable {
                         if (i < profileList.size()) bufferedWriter.newLine();
                     }
                     bufferedWriter.close();
+
                     System.out.println("Готово+");
+
                     paneSignUp.setVisible(false);
                     luckSignUp.setVisible(true);
-                    Thread.sleep(1000);
-                    //Пауза...
-                    luckSignUp.setVisible(false);
-                    paneSignIn.setVisible(true);
+
+                    luckSignUp.setOnMouseMoved(event1 -> {
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        luckSignUp.setVisible(false);
+                        paneSignIn.setVisible(true);
+                    });
+
                 } catch (Exception e){
                     textErrorSignUp.setText(e.getMessage());
                 }

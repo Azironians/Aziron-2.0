@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -71,5 +72,64 @@
             </ImageView>
          </children>
       </Pane>
+      <Pane fx:id="paneMessage" layoutX="7.0" layoutY="174.0" opacity="0.0" prefHeight="500.0" prefWidth="400.0">
+         <children>
+            <ImageView fx:id="panelMessage" fitHeight="500.0" fitWidth="414.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Triggers/PaneMessage.png" />
+               </image>
+            </ImageView>
+            <Text fill="#74efff" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Обновление 1.0.0.0.0.0.1" textAlignment="CENTER" wrappingWidth="382.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.) Добавлен контроллер статистики;" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2.) Исправлены сообщения при авторизации" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.) Лечение оглушителя теперь 200;" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4.) Добавлены панели сообщений;" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5.) Исправлена способность Лорда Вампа Devil’s Blades: Ваша атака увеличивается на 10%;" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5.) Исправлена способность Лорда Вампа Devil’s Blades: Ваша атака увеличивается на 10%;" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="392.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6.) Добавлен дополнительный конструктор для Player, чтобы отслеживать статистику матча;" wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <Text fill="#74efff" layoutX="17.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7.) Добавлены методы для профиля." wrappingWidth="367.0">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Text fx:id="Time" fill="WHITE" layoutX="1157.0" layoutY="707.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15:07" textAlignment="CENTER" wrappingWidth="114.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

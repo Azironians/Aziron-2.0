@@ -19,12 +19,13 @@ public class AzironGame extends Application {
         //1. Создание окна загрузки:
         azironStage.getIcons().add(new Image("file:src\\Picture\\Triggers\\Icon.png"));
         azironStage.setResizable(false);
-        azironStage.setTitle("Build 1.0.0.0.0.0.0");
+        azironStage.setTitle("Build 1.0.0.0.0.0.1");
+
         //Прогрузка:
-        Parent rootMenu = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowMenu.fxml"));
-        Scene sceneMenu = new Scene(rootMenu, 1280, 720);
+        Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowInitialization.fxml"));
+        Scene sceneInit = new Scene(rootInit, 1280, 720);
         //2. Окно меню:
-        azironStage.setScene(sceneMenu);
+        azironStage.setScene(sceneInit);
         azironStage.show();
 }
 
