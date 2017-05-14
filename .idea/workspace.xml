@@ -1,40 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="Обновление 1.0.0.0.0.0.0.1" />
-    <list id="c97a453b-08e0-41f6-8d20-6ce911b09703" name="Обновление 1.0.0.0.0.0.0.1" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/AttackDev.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/AttackLV.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/AttackOrcBacher.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/MassiveAttack.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/MassiveAttack/Down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/MassiveAttack/DownSmall.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/MassiveAttack/Top.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Examples/Attack/MassiveAttack/TopSmall.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/PaneMessage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Triggers/e.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/Gates_Background.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowTotalMatch.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Bonus/Bonus.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerInitialization.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controller/ControllerTotalMatch.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowInitialization.fxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowTotalMatch.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Picture/Triggers/Arrowleftred_clip_art_hight.png" afterPath="$PROJECT_DIR$/src/Picture/Triggers/Arrowleftred_clip_art_hight.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Picture/Windows/WindowInitialization.jpg" afterPath="$PROJECT_DIR$/src/Picture/Windows/WindowInitialization.jpg" />
+    <list default="true" id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="Обновление 1.0.0.0.0.0.0.1">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevAttack-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevAttack-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevAttack-3.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevAttack-4.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevDeath.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevGreetings-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevGreetings-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevLowHP.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevSkill1-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevSkill2-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevSkill2-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevSkill3-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevTreatment-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevTreatment-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevTreatment-3.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundDevourer/DevTreatment-4.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVAttack-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVAttack-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVAttack-3.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVDeath.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVGreetings-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVGreetings-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVLowHP.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVSkill1-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVSkill2-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVSkill3-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVTreatment-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVTreatment-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVTreatment-3.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundLordVampire/LVTreatment-4.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrAttack-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrAttack-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrAttack-3.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrDeath.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrGreetings-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrGreetings-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrLowHP.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrSkill1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrSkill2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrSkill3-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrSkill3-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrTreatment-1.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrTreatment-2.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrTreatment-3.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Sounds/SoundOrcBasher/BhrTreatment-4.wav" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Heroes/HeroOrcBasher.java" afterPath="$PROJECT_DIR$/src/Heroes/HeroOrcBasher.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/AzironGame.java" afterPath="$PROJECT_DIR$/src/Main/AzironGame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Profile.java" afterPath="$PROJECT_DIR$/src/Main/Profile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Match/Player.java" afterPath="$PROJECT_DIR$/src/Match/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Profiles/StarKRE.hoa" afterPath="$PROJECT_DIR$/src/Profiles/StarKRE.hoa" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Skills/SkillsLV.java" afterPath="$PROJECT_DIR$/src/Skills/SkillsLV.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerAutorization.java" afterPath="$PROJECT_DIR$/src/controller/ControllerAutorization.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerChoiceHero.java" afterPath="$PROJECT_DIR$/src/controller/ControllerChoiceHero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerMenu.java" afterPath="$PROJECT_DIR$/src/controller/ControllerMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controller/ControllerProfile.java" afterPath="$PROJECT_DIR$/src/controller/ControllerProfile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowMenu.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowMenu.fxml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Picture/Windows/load.gif" afterPath="$PROJECT_DIR$/src/Picture/Triggers/load.gif" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,16 +71,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="WindowMatchMaking1.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="WindowMatchMaking1.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/InitializationGame/WindowMatchMaking1.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="510">
               <caret line="50" column="37" lean-forward="false" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
               <folding>
                 <element signature="method#closeDam1#0;class#WindowMatchMaking1#0" expanded="false" />
                 <element signature="method#openDam2#0;class#WindowMatchMaking1#0" expanded="false" />
                 <element signature="method#closeHil1#0;class#WindowMatchMaking1#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="winnerScene.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Match/winnerScene.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -79,20 +102,6 @@
               <caret line="334" column="42" lean-forward="false" selection-start-line="334" selection-start-column="42" selection-end-line="334" selection-end-column="42" />
               <folding>
                 <marker date="1494245950114" expanded="true" signature="2524:2713" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="2524:3175" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="3051:3135" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="3263:8860" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="3274:3439" ph="//..." />
-                <marker date="1494245950114" expanded="true" signature="6263:7252" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="8931:10981" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="10035:10946" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="11054:12242" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="12306:12999" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="13095:13517" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="13589:19678" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="14180:14304" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="14775:14901" ph="{...}" />
-                <marker date="1494245950114" expanded="true" signature="18150:19611" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -140,11 +149,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AzironGame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AzironGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main/AzironGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="49" />
+            <state relative-caret-position="187">
+              <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -299,6 +308,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Sounds" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AzironConsole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AzironConsole" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Skills" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -409,9 +436,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -719,7 +746,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="" />
-      <changelist id="c97a453b-08e0-41f6-8d20-6ce911b09703" name="Обновление 1.0.0.0.0.0.0.1" comment="" />
       <created>1492620143432</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -907,7 +933,14 @@
       <option name="project" value="LOCAL" />
       <updated>1494245935854</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Обновление 1.0.0.0.0.0.0.1">
+      <created>1494246184483</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1494246184483</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -930,24 +963,24 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.5064447" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29208472" sideWeight="0.47916666" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32664436" sideWeight="0.4935553" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29208472" sideWeight="0.47916666" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23880596" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24413647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277592" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32664436" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32664436" sideWeight="0.49583334" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1074,9 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1904">
           <caret line="130" column="13" lean-forward="false" selection-start-line="130" selection-start-column="13" selection-end-line="130" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,13 +1114,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Match/winnerScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1136,35 +1159,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="826">
           <caret line="73" column="33" lean-forward="true" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="false" />
-            <element signature="e#1524#1525#0" expanded="false" />
-            <element signature="e#1573#1574#0" expanded="false" />
-            <element signature="e#1617#1618#0" expanded="false" />
-            <element signature="e#1661#1662#0" expanded="false" />
-            <element signature="e#1701#1702#0" expanded="false" />
-            <element signature="e#1764#1765#0" expanded="false" />
-            <element signature="e#1822#1823#0" expanded="false" />
-            <element signature="e#1859#1860#0" expanded="false" />
-            <element signature="e#1894#1895#0" expanded="false" />
-            <element signature="e#1948#1949#0" expanded="false" />
-            <element signature="e#1996#1997#0" expanded="false" />
-            <element signature="e#2031#2032#0" expanded="false" />
-            <element signature="e#2064#2065#0" expanded="false" />
-            <element signature="e#2114#2115#0" expanded="false" />
-            <element signature="e#2158#2159#0" expanded="false" />
-            <element signature="e#2198#2199#0" expanded="false" />
-            <element signature="e#2235#2236#0" expanded="false" />
-            <element signature="e#2294#2295#0" expanded="false" />
-            <element signature="e#2346#2347#0" expanded="false" />
-            <element signature="e#2384#2385#0" expanded="false" />
-            <element signature="e#2420#2421#0" expanded="false" />
-            <element signature="e#2476#2477#0" expanded="false" />
-            <element signature="e#2526#2527#0" expanded="false" />
-            <element signature="e#2559#2560#0" expanded="false" />
-            <element signature="e#2588#2589#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1339,14 +1333,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/AzironGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="21" column="36" lean-forward="false" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controller/ControllerAutorization.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2941">
@@ -1371,33 +1357,35 @@
           <caret line="334" column="42" lean-forward="false" selection-start-line="334" selection-start-column="42" selection-end-line="334" selection-end-column="42" />
           <folding>
             <marker date="1494245950114" expanded="true" signature="2524:2713" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="2524:3175" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="3051:3135" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="3263:8860" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="3274:3439" ph="//..." />
-            <marker date="1494245950114" expanded="true" signature="6263:7252" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="8931:10981" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="10035:10946" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="11054:12242" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="12306:12999" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="13095:13517" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="13589:19678" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="14180:14304" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="14775:14901" ph="{...}" />
-            <marker date="1494245950114" expanded="true" signature="18150:19611" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/InitializationGame/WindowMatchMaking1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="510">
           <caret line="50" column="37" lean-forward="false" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
           <folding>
             <element signature="method#closeDam1#0;class#WindowMatchMaking1#0" expanded="false" />
             <element signature="method#openDam2#0;class#WindowMatchMaking1#0" expanded="false" />
             <element signature="method#closeHil1#0;class#WindowMatchMaking1#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Match/winnerScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/AzironGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="40" lean-forward="false" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
