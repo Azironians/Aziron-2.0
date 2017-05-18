@@ -10,6 +10,7 @@ import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -91,6 +92,10 @@ public class ControllerChoiceHero implements Initializable {
                 }
                 try {
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
+                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                    ImageCursor imageCursor = new ImageCursor(cursor);
+                    azironStage.getScene().setCursor(imageCursor);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -132,6 +137,10 @@ public class ControllerChoiceHero implements Initializable {
                 Scene sceneMenu = new Scene(pane, 1280, 720);
                 //2. Окно меню:
                 azironStage.setScene(sceneMenu);
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
                 soundFon.stop();
                 soundFon = new Sound(new File("src\\Sounds\\game.wav"));
                 soundFon.play();
@@ -296,7 +305,12 @@ public class ControllerChoiceHero implements Initializable {
             if (event.getCode() == KeyCode.ENTER) ok();
             if (event.getCode() == KeyCode.ESCAPE) {
                 try {
+
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                    ImageCursor imageCursor = new ImageCursor(cursor);
+                    azironStage.getScene().setCursor(imageCursor);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -310,6 +324,10 @@ public class ControllerChoiceHero implements Initializable {
             if (event.getCode() == KeyCode.ESCAPE) {
                 try {
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                    ImageCursor imageCursor = new ImageCursor(cursor);
+                    azironStage.getScene().setCursor(imageCursor);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -337,6 +355,10 @@ public class ControllerChoiceHero implements Initializable {
         btnBackToProfile.setOnAction(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

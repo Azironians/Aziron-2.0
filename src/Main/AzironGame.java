@@ -2,6 +2,7 @@ package Main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -26,7 +27,9 @@ public class AzironGame extends Application {
         Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowInitialization.fxml"));
         Scene sceneInit = new Scene(rootInit, 1280, 720);
         //2. Окно меню:
+
         azironStage.setScene(sceneInit);
+
         azironStage.show();
         soundFon.play();
         soundFon.setRepeat(true);

@@ -3,6 +3,7 @@ package Match;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -83,6 +84,10 @@ public class Battle {
                 Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowTotalMatch.fxml"));
                 Scene sceneInit = new Scene(rootInit, 1280, 720);
                 azironStage.setScene(sceneInit);
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -457,6 +462,9 @@ public class Battle {
                 treatment1, treatment2, experience1, experience2, level1, level2, dpsHero, health, imageView1, imageView2, anyText);
         Scene scene = new Scene(pane, 1280, 720);
         azironStage.setScene(scene);
+        Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+        ImageCursor imageCursor = new ImageCursor(cursor);
+        azironStage.getScene().setCursor(imageCursor);
 
 
         TimerTask timerTask = new TimerTask() {

@@ -3,8 +3,10 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -133,6 +135,10 @@ public class ControllerProfile implements Initializable {
         buttonOnLogOut.setOnMouseClicked(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -188,6 +194,10 @@ public class ControllerProfile implements Initializable {
         buttonOnChoiceHeroes.setOnMouseClicked(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowChoiceHero.fxml")), 1280, 720));
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -197,6 +207,10 @@ public class ControllerProfile implements Initializable {
             if (event.getCode() == KeyCode.ENTER) {
                 try {
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowChoiceHero.fxml")), 1280, 720));
+                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                    ImageCursor imageCursor = new ImageCursor(cursor);
+                    azironStage.getScene().setCursor(imageCursor);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -205,6 +219,10 @@ public class ControllerProfile implements Initializable {
             if (event.getCode() == KeyCode.ESCAPE) {
                 try {
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
+                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                    ImageCursor imageCursor = new ImageCursor(cursor);
+                    azironStage.getScene().setCursor(imageCursor);
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

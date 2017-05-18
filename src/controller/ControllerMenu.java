@@ -4,8 +4,10 @@ import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -110,7 +112,12 @@ public class ControllerMenu implements Initializable {
                 paneButtons.setDisable(false);
                 panelLocMch.setVisible(false);
                 panelLocMch.setDisable(true);
+
                 azironStage.setScene(sceneAutorize);
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
                 azironStage.show();
             });
         } catch (IOException e){
