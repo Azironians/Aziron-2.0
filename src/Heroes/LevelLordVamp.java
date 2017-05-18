@@ -26,6 +26,7 @@ class LevelLordVamp {
         for (int i = 1; i < levelList.length; i++)
             if (experience >= levelList[i - 1] && experience < levelList[i]) levelNew = i;
         if (experience >= levelList[9]) levelNew = 10;
+        levelHero = levelNew;
         if (levelLast != levelNew) {
             hero.setAttack(getAttack());
             hero.setExperience(getExperience());
