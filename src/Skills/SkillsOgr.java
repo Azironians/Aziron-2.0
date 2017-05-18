@@ -122,10 +122,10 @@ public class SkillsOgr implements Skill {
         firstOpen = false;
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 5);
-            battle.damageOrHilForSkills(player2.getHero().getAttack() * 5, null, 31);
+            battle.damageOrHilForSkills(player1.getHero().getAttack() * 5, null, 31);
         } else {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 5);
-            battle.damageOrHilForSkills(player1.getHero().getAttack() * 5, null, 31);
+            battle.damageOrHilForSkills(player2.getHero().getAttack() * 5, null, 31);
         }
     }
 
@@ -136,11 +136,11 @@ public class SkillsOgr implements Skill {
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 2.5);
             player2.getHero().setSupplyHealth(player2.getHero().getSupplyHealth() - player1.getHero().getAttack() * 2.5);
-            battle.damageOrHilForSkills(player2.getHero().getAttack() * 2.5, null, 32);
+            battle.damageOrHilForSkills(player1.getHero().getAttack() * 2.5, null, 32);
         } else {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 2.5);
             player1.getHero().setSupplyHealth(player1.getHero().getSupplyHealth() - player2.getHero().getAttack() * 2.5);
-            battle.damageOrHilForSkills(player1.getHero().getAttack() * 2.5, null, 32);
+            battle.damageOrHilForSkills(player2.getHero().getAttack() * 2.5, null, 32);
         }
     }
 

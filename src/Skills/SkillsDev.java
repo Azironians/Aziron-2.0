@@ -142,11 +142,11 @@ public class SkillsDev implements Skill {
         twoOpen = false;
         if (turn == -1) {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getTreatment() * 1.4);
-            battle.damageOrHilForSkills(null, player2.getHero().getTreatment() * 1.4, 12);
+            battle.damageOrHilForSkills(null, player1.getHero().getTreatment() * 1.4, 12);
             effect1 = turns;
         } else {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getTreatment() * 1.4);
-            battle.damageOrHilForSkills(null, player1.getHero().getTreatment() * 1.4, 12);
+            battle.damageOrHilForSkills(null, player2.getHero().getTreatment() * 1.4, 12);
             effect2 = turns;
         }
     }
@@ -156,11 +156,13 @@ public class SkillsDev implements Skill {
         sounds[2].play();
         threeOpen = false;
         if (turn == -1) {
-            player2.getHero().setHitPoints(player2.getHero().getHitPoints() / 2);
-            battle.damageOrHilForSkills(player1.getHero().getHitPoints() / 2, null, 12);
-        } else {
-            player1.getHero().setHitPoints(player1.getHero().getHitPoints() / 2);
             battle.damageOrHilForSkills(player2.getHero().getHitPoints() / 2, null, 12);
+            player2.getHero().setHitPoints(player2.getHero().getHitPoints() / 2);
+
+        } else {
+            battle.damageOrHilForSkills(player1.getHero().getHitPoints() / 2, null, 12);
+            player1.getHero().setHitPoints(player1.getHero().getHitPoints() / 2);
+
         }
     }
 

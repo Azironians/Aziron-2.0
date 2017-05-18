@@ -36,7 +36,7 @@ public class SkillsLV implements Skill {
             new Sound(new File("src\\Sounds\\SoundLordVampire\\LVSkill1-1.wav")),
             new Sound(new File("src\\Sounds\\SoundLordVampire\\LVSkill2-1.wav")),
             new Sound(new File("src\\Sounds\\SoundLordVampire\\LVSkill3-1.wav"))
-    } ;
+    };
     private int turnOpen2 = 0;
     private int turnOpen3 = 0;
 
@@ -146,10 +146,10 @@ public class SkillsLV implements Skill {
         twoOpen = false;
         if (turn == -1) {
             player1.getHero().setAttack(player1.getHero().getAttack() + player1.getHero().getAttack() * 0.1);
-            battle.damageOrHilForSkills(null, player2.getHero().getAttack() * 0.2, 22);
+            battle.damageOrHilForSkills(null, player1.getHero().getAttack() * 0.1, 22);
         } else {
             player2.getHero().setAttack(player2.getHero().getAttack() + player2.getHero().getAttack() * 0.1);
-            battle.damageOrHilForSkills(null, player1.getHero().getAttack() * 0.2, 22);
+            battle.damageOrHilForSkills(null, player2.getHero().getAttack() * 0.1, 22);
         }
     }
 
@@ -159,10 +159,10 @@ public class SkillsLV implements Skill {
         threeOpen = false;
         if (turn == -1) {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() * -1);
-            battle.damageOrHilForSkills(null, player2.getHero().getHitPoints() * 2, 23);
+            battle.damageOrHilForSkills(null, player1.getHero().getHitPoints() * 2 * -1, 23);
         } else {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() * -1);
-            battle.damageOrHilForSkills(null, player1.getHero().getHitPoints() * 2, 23);
+            battle.damageOrHilForSkills(null, player2.getHero().getHitPoints() * 2 * -1, 23);
         }
 
     }
