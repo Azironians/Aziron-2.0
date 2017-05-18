@@ -7,10 +7,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
-
-import static Match.Battle.damageOrHilForSkills;
 import static Match.Battle.turn;
 import static Match.Battle.turns;
+import static controller.ControllerChoiceHero.battle;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
 
@@ -121,10 +120,11 @@ public class SkillsDev implements Skill {
 
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 5);
+            battle.damageOrHilForSkills(player1.getHero().getAttack() * 5, null, 11);
         } else {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() - player2.getHero().getAttack() * 5);
+            battle.damageOrHilForSkills(player2.getHero().getAttack() * 5, null, 11);
         }
-        damageOrHilForSkills(player1.getHero().getAttack() * 5, null, 11);
     }
 
     @Override
@@ -132,12 +132,13 @@ public class SkillsDev implements Skill {
         twoOpen = false;
         if (turn == -1) {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getTreatment() * 1.4);
+            battle.damageOrHilForSkills(null, player2.getHero().getTreatment() * 1.4, 12);
             effect1 = turns;
         } else {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() + player2.getHero().getTreatment() * 1.4);
+            battle.damageOrHilForSkills(null, player1.getHero().getTreatment() * 1.4, 12);
             effect2 = turns;
         }
-        damageOrHilForSkills(null, player2.getHero().getTreatment() * 1.4, 12);
     }
 
     @Override
@@ -145,10 +146,11 @@ public class SkillsDev implements Skill {
         threeOpen = false;
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() / 2);
+            battle.damageOrHilForSkills(player1.getHero().getHitPoints() / 2, null, 12);
         } else {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() / 2);
+            battle.damageOrHilForSkills(player2.getHero().getHitPoints() / 2, null, 12);
         }
-        damageOrHilForSkills(player1.getHero().getHitPoints() / 2, null, 12);
     }
 
     @Override

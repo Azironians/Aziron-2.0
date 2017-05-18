@@ -6,6 +6,8 @@ import Heroes.HeroOrcBasher;
 import Match.Player;
 
 import java.io.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Profile {
     String name;
@@ -46,136 +48,123 @@ public class Profile {
     }
 
     //Изменяем ранг профию:
-    public void correctStatistics(Player player, Profile profile, Profile opponentProfile) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(profile.getName()));
+    public void correctStatistics(Profile opponentProfile) throws IOException {
+        Player player = this.getPlayer();
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src\\Profiles\\" + this.getName() + ".hoa")));
+        List<String> lines = bufferedReader.lines().collect(Collectors.toList());
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("src\\Profiles\\" + this.getName() + ".hoa")));
 
-        if (player.isWinner()){
-            for (int i = 0; i < 8; i++){
-                switch (i){
+        if (player.isWinner()) {
+            for (int i = 0; i < 8; i++) {
+                switch (i) {
                     case 2: //Коррекция рейтинга:
-                        profile.setMMR(profile.getMMR() + 25 + opponentProfile.getRank() - profile.getRank()); // Изменить MMR
-                        profile.correctRank(); // Изменить ранг
-                        bufferedWriter.write(profile.getRank().toString() + "/" + profile.getMMR().toString());
+                        this.setMMR(this.getMMR() + 25 + opponentProfile.getRank() - this.getRank()); // Изменить MMR
+                        if (this.getMMR()<0) this.setMMR(0);
+                        this.correctRank(); // Изменить ранг
+                        bufferedWriter.write(this.getRank().toString() + "/" + this.getMMR().toString());
                         bufferedWriter.newLine();
                         break;
                     case 3: //Коррекция побед:
-                        profile.setWin(profile.getWin() + 1);
-                        bufferedWriter.write(profile.getWin());
+                        this.setWin(this.getWin() + 1);
+                        bufferedWriter.write(this.getWin()+"");
                         bufferedWriter.newLine();
                         break;
                     case 5: //Коррекция побед за выбранного героя:
-                        if (player.getHero().getClass().equals(HeroDevourer.class)){
-                            profile.setWinForDevourer(profile.getWinForDevourer() + 1);
-                            bufferedWriter.write(profile.getWinForDevourer());
-                        }
-                        bufferedWriter.newLine();
+                        if (player.getHero().getClass().equals(HeroDevourer.class)) {
+                            this.setWinForDevourer(this.getWinForDevourer() + 1);
+                            bufferedWriter.write(this.getWinForDevourer()+"");
+                            bufferedWriter.newLine();
+                        } else
+                        bufferedWriter.write(lines.get(i)+"\n");
                         break;
                     case 6:
-                        if (player.getHero().getClass().equals(HeroLordVamp.class)){
-                            profile.setWinForDevourer(profile.getWinForLV() + 1);
-                            bufferedWriter.write(profile.getWinForLV());
-                        }
-                        bufferedWriter.newLine();
+                        if (player.getHero().getClass().equals(HeroLordVamp.class)) {
+                            this.setWinForLV(this.getWinForLV() + 1);
+                            bufferedWriter.write(this.getWinForLV()+"");
+                            bufferedWriter.newLine();
+                        } else
+                            bufferedWriter.write(lines.get(i)+"\n");
                         break;
                     case 7:
-                        if (player.getHero().getClass().equals(HeroOrcBasher.class)){
-                            profile.setWinForDevourer(profile.getWinForOrcBacher() + 1);
-                            bufferedWriter.write(profile.getWinForOrcBacher());
-                        }
-                        bufferedWriter.close();
+                        if (player.getHero().getClass().equals(HeroOrcBasher.class)) {
+                            this.setWinForOrcBacher(this.getWinForOrcBacher() + 1);
+                            bufferedWriter.write(this.getWinForOrcBacher()+"");
+                            bufferedWriter.newLine();
+                        } else
+                            bufferedWriter.write(lines.get(i)+"\n");
                         break;
                     default:
-                        bufferedWriter.newLine();
+                        bufferedWriter.write(lines.get(i)+"\n");
                         break;
                 }
             }
         } else { // Если поражение:
-            for (int i = 0; i < 5; i++){
-                switch (i){
+            for (int i = 0; i < 8; i++) {
+                switch (i) {
                     case 2:
-                        profile.setMMR(profile.getMMR() - 20 - profile.getRank() + opponentProfile.getRank()); //Изменить MMR
-                        profile.correctRank(); // Изменить ранг
-                        bufferedWriter.write(profile.getRank().toString() + "/" + profile.getMMR().toString());
+                        this.setMMR(this.getMMR() - 20 - this.getRank() + opponentProfile.getRank()); //Изменить MMR
+                        if (this.getMMR()<0) this.setMMR(0);
+                        this.correctRank(); // Изменить ранг
+                        bufferedWriter.write(this.getRank().toString() + "/" + this.getMMR().toString());
                         bufferedWriter.newLine();
                         break;
                     case 4: //Коррекция поражений
-                        profile.setLose(profile.getLose() + 1);
-                        bufferedWriter.write(profile.getLose());
-                        bufferedWriter.close();
-                    default:
+                        this.setLose(this.getLose() + 1);
+                        bufferedWriter.write(this.getLose()+"");
                         bufferedWriter.newLine();
+                        break;
+                    default:
+                        bufferedWriter.write(lines.get(i)+"\n");
                         break;
                 }
             }
         }
+        bufferedWriter.close();
+        bufferedReader.close();
     }
 
 
-    public void correctRank(Profile this){
-        if (this.getMMR() >= 0 && this.getMMR() < 50){
+    public void correctRank(Profile this) {
+        if (this.getMMR() < 50) {
             this.setRank((byte) 1);
-        }  if (this.getMMR() >= 50 && this.getMMR() < 100){
+        } else if (this.getMMR() >= 50 && this.getMMR() < 100) {
             this.setRank((byte) 2);
-        }
-        if (this.getMMR() >= 100 && this.getMMR() < 150){
+        } else if (this.getMMR() >= 100 && this.getMMR() < 150) {
             this.setRank((byte) 3);
-        }
-        if (this.getMMR() >= 150 && this.getMMR() < 200){
+        } else if (this.getMMR() >= 150 && this.getMMR() < 200) {
             this.setRank((byte) 4);
-        }
-        if (this.getMMR() >= 200 && this.getMMR() < 250){
+        } else if (this.getMMR() >= 200 && this.getMMR() < 250) {
             this.setRank((byte) 5);
-        }
-        if (this.getMMR() >= 250 && this.getMMR() < 300){
+        } else if (this.getMMR() >= 250 && this.getMMR() < 300) {
             this.setRank((byte) 6);
-        }
-        if (this.getMMR() >= 300 && this.getMMR() < 355){
+        } else if (this.getMMR() >= 300 && this.getMMR() < 355) {
             this.setRank((byte) 7);
-        }
-        if (this.getMMR() >= 355 && this.getMMR() < 410){
+        } else if (this.getMMR() >= 355 && this.getMMR() < 410) {
             this.setRank((byte) 8);
-        }
-        if (this.getMMR() >= 410 && this.getMMR() < 465){
+        } else if (this.getMMR() >= 410 && this.getMMR() < 465) {
             this.setRank((byte) 9);
-        }
-        if (this.getMMR() >= 465 && this.getMMR() < 520){
+        } else if (this.getMMR() >= 465 && this.getMMR() < 520) {
             this.setRank((byte) 10);
-        }
-        if (this.getMMR() >= 520 && this.getMMR() < 580){
+        } else if (this.getMMR() >= 520 && this.getMMR() < 580) {
             this.setRank((byte) 11);
-        }
-        if (this.getMMR() >= 580 && this.getMMR() < 640){
+        } else if (this.getMMR() >= 580 && this.getMMR() < 640) {
             this.setRank((byte) 12);
-    }
-        if (this.getMMR() >= 640 && this.getMMR() < 700){
+        } else if (this.getMMR() >= 640 && this.getMMR() < 700) {
             this.setRank((byte) 13);
-        }
-        if (this.getMMR() >= 700 && this.getMMR() < 765){
+        } else if (this.getMMR() >= 700 && this.getMMR() < 765) {
             this.setRank((byte) 14);
-        }
-        if (this.getMMR() >= 765 && this.getMMR() < 830){
+        } else if (this.getMMR() >= 765 && this.getMMR() < 830) {
             this.setRank((byte) 15);
-        }
-        if (this.getMMR() >= 830 && this.getMMR() < 900){
+        } else if (this.getMMR() >= 830 && this.getMMR() < 900) {
             this.setRank((byte) 16);
-    }
-        if (this.getMMR() >= 900 && this.getMMR() < 1000){
+        } else if (this.getMMR() >= 900 && this.getMMR() < 1000) {
             this.setRank((byte) 17);
-        }
-        if (this.getMMR() >= 1000 && this.getMMR() < 1250){
+        } else if (this.getMMR() >= 1000 && this.getMMR() < 1250) {
             this.setRank((byte) 18);
-        }
-        if (this.getMMR() >= 1250 && this.getMMR() < 1500){
+        } else if (this.getMMR() >= 1250 && this.getMMR() < 1500) {
             this.setRank((byte) 19);
-        }
-        if (this.getMMR() >= 1500 && this.getMMR() < 5000){
-            this.setRank((byte) 20);
-        }
-        else throw new IllegalArgumentException();
-}
-
-
-
+        } else this.setRank((byte) 20);
+    }
 
 
     //Getters and Setters:

@@ -84,12 +84,6 @@ public class ControllerTotalMatch implements Initializable {
             textPlayer2Result.setText("Поражение");
         }
         //Коррекция статистики учетных записей профилей:
-        try {
-            correctStatistics(player1, profile1, profile2);
-            correctStatistics(player2, profile2, profile1);
-        } catch (IOException e){
-            System.out.println("Непредвиденная ошибка");
-        }
 
         btnPlayAgain.setOnMouseClicked(event -> {
             try {
@@ -117,67 +111,5 @@ public class ControllerTotalMatch implements Initializable {
 
 
     //Изменяем ранг профию:
-    public void correctStatistics(Player player, Profile profile, Profile opponentProfile) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(profile.getName()));
-        if (player.isWinner()){
-            for (int i = 0; i < 8; i++){
-                switch (i){
-                    case 2: //Коррекция рейтинга:
-                        profile.setMMR(profile.getMMR() + 25 + opponentProfile.getRank() - profile.getRank()); // Изменить MMR
-                        profile.correctRank(); // Изменить ранг
-                        bufferedWriter.write(profile.getRank().toString() + "/" + profile.getMMR().toString());
-                        bufferedWriter.newLine();
-                        break;
-                    case 3: //Коррекция побед:
-                        profile.setWin(profile.getWin() + 1);
-                        bufferedWriter.write(profile.getWin());
-                        bufferedWriter.newLine();
-                        break;
-                    case 5: //Коррекция побед за выбранного героя:
-                        if (player.getHero().getClass().equals(HeroDevourer.class)){
-                            profile.setWinForDevourer(profile.getWinForDevourer() + 1);
-                            bufferedWriter.write(profile.getWinForDevourer());
-                        }
-                        bufferedWriter.newLine();
-                        break;
-                    case 6:
-                        if (player.getHero().getClass().equals(HeroLordVamp.class)){
-                            profile.setWinForDevourer(profile.getWinForLV() + 1);
-                            bufferedWriter.write(profile.getWinForLV());
-                        }
-                        bufferedWriter.newLine();
-                        break;
-                    case 7:
-                        if (player.getHero().getClass().equals(HeroOrcBasher.class)){
-                            profile.setWinForDevourer(profile.getWinForOrcBacher() + 1);
-                            bufferedWriter.write(profile.getWinForOrcBacher());
-                        }
-                        bufferedWriter.close();
-                        break;
-                    default:
-                        bufferedWriter.newLine();
-                        break;
-                }
-            }
-        } else { // Если поражение:
-            for (int i = 0; i < 5; i++){
-                switch (i){
-                    case 2:
-                        profile.setMMR(profile.getMMR() - 20 - profile.getRank() + opponentProfile.getRank()); //Изменить MMR
-                        profile.correctRank(); // Изменить ранг
-                        bufferedWriter.write(profile.getRank().toString() + "/" + profile.getMMR().toString());
-                        bufferedWriter.newLine();
-                        break;
-                    case 4: //Коррекция поражений
-                        profile.setLose(profile.getLose() + 1);
-                        bufferedWriter.write(profile.getLose());
-                        bufferedWriter.close();
-                    default:
-                        bufferedWriter.newLine();
-                        break;
-                }
-            }
-        }
-    }
 
 }

@@ -1,24 +1,28 @@
 package Match;
 
-import Main.Profile;
 import javafx.animation.*;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
-import javafx.scene.text.*;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static InitializationGame.WindowMatchMaking1.launch;
-
-import static Main.BuildStage.azironStage;
-import static Main.BuildStage.profile1;
-import static Main.BuildStage.profile2;
+import static Main.BuildStage.*;
 import static Match.winnerScene.winInfoUpdate;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
@@ -26,6 +30,9 @@ import static javafx.application.Platform.exit;
 
 
 public class Battle {
+    public Battle() {
+    }
+
     public static int turn = 0;
     public static int turns = 0;
     private static ImageView dpsHero = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\dpsHero.png"));
@@ -33,8 +40,10 @@ public class Battle {
     private static Text anyText = new Text(0, 0, "");
     private static ImageView imageView1 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\dpsHero.png"));//damage
     private static ImageView imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));//hill
+    private int[] time = {480};
+    private int[] time2 = {480};
 
-    private static void winAnim() {
+    private void winAnim() {
         ImageView imageView;
         Path path1;
         ImageView imageView2;
@@ -54,13 +63,28 @@ public class Battle {
         RotateTransition rotateTransition = new RotateTransition(Duration.millis(500), imageView2);
         rotateTransition.setByAngle(360 * 5);
         rotateTransition.setCycleCount(1);
-        rotateTransition.setOnFinished(event -> {
-            if (player2.getHero().getHitPoints() > 0) winInfoUpdate(profile1,profile2,false);
-            else winInfoUpdate(profile1,profile2,true);
+        rotateTransition.setOnFinished((ActionEvent event) -> {
+            player1.setReachedLevel((byte) player1.getHero().getLevelHero());
+            player2.setReachedLevel((byte) player2.getHero().getLevelHero());
+            player1.setRemainingTime( time[0]);
+            player2.setRemainingTime( time2[0]);
+            if (player2.getHero().getHitPoints() > 0)
+                try {
+                    winInfoUpdate(profile1, profile2, false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            else try {
+                winInfoUpdate(profile1, profile2, true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             try {
-                Thread.sleep(10000);
-                exit();
-            } catch (InterruptedException e) {
+                Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowTotalMatch.fxml"));
+                Scene sceneInit = new Scene(rootInit, 1280, 720);
+                azironStage.setScene(sceneInit);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         });
@@ -79,12 +103,20 @@ public class Battle {
     }
 
 
-    public static void damageOrHilForSkills(Double damage, Double hil, int indexUlt) {
+    public void damageOrHilForSkills(Double damage, Double hil, int indexUlt) {
 
         //благодаря разному исполнению визуализации
         // есть разница в скорости и качестве анимации!!!
         // именно по этому не стал делать это как общую функцию
-
+        if (turn == -1) {
+          if (damage!=null)  player1.setDealDamage((int) (player1.getDealDamage() + damage));
+            if (hil!=null) player1.setRestoredHitPoints((int) (player1.getRestoredHitPoints() + hil));
+            player1.setUsedSkills((byte) (player1.getUsedSkills() + 1));
+        } else {
+            if (damage!=null)  player2.setDealDamage((int) (player2.getDealDamage() + damage));
+            if (hil!=null) player2.setRestoredHitPoints((int) (player2.getRestoredHitPoints() + hil));
+            player2.setUsedSkills((byte) (player2.getUsedSkills() + 1));
+        }
         if (indexUlt == 11) {
             imageView1.setImage(new Image("file:src\\Picture\\Heroes\\Devourer\\Ults\\DmgSkillDev.png"));
         }
@@ -119,7 +151,7 @@ public class Battle {
             Path path;
             imageView1.setFitWidth(300);
             imageView1.setFitHeight(300);
-            if ((indexUlt == 31 && turn == 1) || (turn == -1)) {
+            if (turn == -1) {
                 imageView = player1.getHero().getImage();
                 path = new Path(new MoveTo(150, 140), new LineTo(730, 140), new LineTo(150, 140));
                 imageView1.setLayoutX(940);
@@ -155,7 +187,12 @@ public class Battle {
                 scaleTransition.setToX(1.2);
                 scaleTransition.setToY(1.2);
                 scaleTransition.setCycleCount(1);
-                scaleTransition.setOnFinished(event2 -> anyText.toBack());
+                scaleTransition.setOnFinished(event2 -> {
+                    anyText.toBack();
+                    if (indexUlt == 31) {
+                        turn *= -1;
+                    }
+                });
                 scaleTransition.play();
                 fadeTransition.play();
             });
@@ -197,6 +234,7 @@ public class Battle {
             scaleTransition.play();
             fadeTransition.play();
         }
+
     }
 
     private static void damageVisual(Player player1, Player player2) {
@@ -250,7 +288,6 @@ public class Battle {
 
     private static void treatmentVisual() throws InterruptedException {
 
-
         if (turn == 1) {
             health.setLayoutX(50);
             anyText.setText(player1.getHero().getTreatment().intValue() + "");
@@ -280,10 +317,15 @@ public class Battle {
         fadeTransition.play();
     }
 
-    public static void damage(Player player1, Player player2) {
+    public void damage(Player player1, Player player2) {
         damageVisual(player1, player2);
         if ((player1.getHero().getHitPoints() < 0) || (player2.getHero().getHitPoints() < 0))
             winAnim();//другое окно
+        if (turn == 1) {
+            player1.setDealDamage((int) (player1.getDealDamage() + player1.getHero().getAttack()));
+        } else {
+            player2.setDealDamage((int) (player2.getDealDamage() + player2.getHero().getAttack()));
+        }
         if (turn == 1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack());
             player1.getHero().setExperience(player1.getHero().getExperience() + player1.getHero().getAttack());
@@ -292,10 +334,16 @@ public class Battle {
             player2.getHero().setExperience(player2.getHero().getExperience() + player2.getHero().getAttack());
         }
         turn *= -1;
+
     }
 
 
-    public static void treatment(Player player1, Player player2) throws InterruptedException {
+    public void treatment(Player player1, Player player2) throws InterruptedException {
+        if (turn == 1) {
+            player1.setRestoredHitPoints((int) (player1.getRestoredHitPoints() + player1.getHero().getTreatment()));
+        } else {
+            player2.setRestoredHitPoints((int) (player2.getRestoredHitPoints() + player2.getHero().getTreatment()));
+        }
 
         if (turn == 1)
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getTreatment());
@@ -306,8 +354,7 @@ public class Battle {
         turn *= -1;
     }
 
-
-    public static void battleProcess(Player player1, Player player2) {
+    public void battleProcess(Player player1, Player player2) {
 
         imageView1.setLayoutY(-10000);
         imageView2.setLayoutY(-10000);
@@ -317,10 +364,10 @@ public class Battle {
         Text label1 = new Text(536, 80, "480");
         label1.setFont(new Font("Times New Roman", 30));
         label1.setFill(Color.LIGHTBLUE);
-        int[] time = {480}; //Чтобы внутри события был доступен, делаем в виде массива.
+        //Чтобы внутри события был доступен, делаем в виде массива.
         Timeline timeline = new Timeline(
                 new KeyFrame(
-                        Duration.seconds(1), //1000 мс * 60 сек = 1 мин
+                        Duration.seconds(1),
                         ae -> {
                             time[0]--;
                             label1.setText("" + time[0]);
@@ -331,10 +378,10 @@ public class Battle {
         Text label2 = new Text(716, 80, "480");
         label2.setFont(new Font("Times New Roman", 30));
         label2.setFill(Color.RED);
-        int[] time2 = {480}; //Чтобы внутри события был доступен, делаем в виде массива.
+
         Timeline timeline2 = new Timeline(
                 new KeyFrame(
-                        Duration.seconds(1), //1000 мс * 60 сек = 1 мин
+                        Duration.seconds(1),
                         ae -> {
                             time2[0]--;
                             label2.setText("" + time2[0]);

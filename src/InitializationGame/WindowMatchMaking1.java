@@ -10,7 +10,9 @@ import javafx.util.Duration;
 
 import java.io.File;
 
-import static Match.Battle.*;
+import static Match.Battle.turn;
+import static controller.ControllerChoiceHero.battle;
+
 
 public class WindowMatchMaking1 {
     private static ImageView Dam1 = new ImageView(new Image("file:src\\Picture\\Triggers\\Arrowleftred_clip_art_hight.png"));
@@ -78,7 +80,7 @@ public class WindowMatchMaking1 {
         Dam1.setFitHeight(300);
         Dam1.setFitWidth(600);
         Dam1.setLayoutX(1280 / 2 - 300);
-        Dam1.setLayoutY(720 / 2 - 150);
+        Dam1.setLayoutY(720 / 2 - 200);
         Dam1.setOpacity(0);
         Hil1.setFitHeight(300);
         Hil1.setFitWidth(300);
@@ -88,7 +90,7 @@ public class WindowMatchMaking1 {
         Dam2.setFitHeight(300);
         Dam2.setFitWidth(600);
         Dam2.setLayoutX(1280 / 2 - 300);
-        Dam2.setLayoutY(720 / 2 - 150);
+        Dam2.setLayoutY(720 / 2 - 200);
         Dam2.setOpacity(0);
         Hil2.setFitHeight(300);
         Hil2.setFitWidth(300);
@@ -115,19 +117,19 @@ public class WindowMatchMaking1 {
         heroTwo.setLayoutY(140);
         heroTwo.setScaleX(-1);
         heroTwo.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            turns++;
-            if (turn == 1) damage(player1, player2);
+            battle.turns++;
+            if (turn == 1) battle.damage(player1, player2);
             else try {
-                treatment(player1, player2);
+                battle.treatment(player1, player2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         });
         heroOne.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            turns++;
-            if (turn == -1) damage(player1, player2);
+            battle.turns++;
+            if (turn == -1) battle.damage(player1, player2);
             else try {
-                treatment(player1, player2);
+                battle.treatment(player1, player2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

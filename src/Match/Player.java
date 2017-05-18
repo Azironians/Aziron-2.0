@@ -6,12 +6,12 @@ import Heroes.Hero;
 public class Player {
     private String profileName;
     private Hero hero;
-    private double dealDamage;
-    private double restoredHitPoints;
-    private byte reachedLevel;
-    private byte usedSkills;
+    private double dealDamage=0;
+    private double restoredHitPoints=0;
+    private byte reachedLevel=1;
+    private byte usedSkills=0;
     private Bonus favouriteBonus;
-    private byte remainingTime;
+    private int remainingTime;
     private boolean winner;
 
     public Player(String profileName, Hero hero) {
@@ -102,11 +102,11 @@ public class Player {
         this.favouriteBonus = favouriteBonus;
     }
 
-    public byte getRemainingTime() {
+    public int getRemainingTime() {
         return remainingTime;
     }
 
-    public void setRemainingTime(byte remainingTime) {
+    public void setRemainingTime(int remainingTime) {
         this.remainingTime = remainingTime;
     }
 
