@@ -1,6 +1,6 @@
 package Heroes;
 
-public class LevelLordVamp {
+class LevelLordVamp {
     private static Double[] attackList = {0.0, 10.0, 12.0, 13.0, 19.0, 21.0, 24.0, 30.0, 36.0, 41.0};
     private static Double[] treatmentList = {0.0, 15.0, 18.0, 22.0, 26.0, 31.0, 37.0, 45.0, 53.0, 65.0};
     private static Double[] supplyHealthList = {0.0, 60.0, 70.0, 90.0, 105.0, 120.0, 150.0, 180.0, 225.0, 250.0};
@@ -11,7 +11,7 @@ public class LevelLordVamp {
     private static Double supplyHealth;
     private static int levelHero;
 
-    public static void LevelUpLordVamp(Hero hero) {
+    static void LevelUpLordVamp(Hero hero) {
         if (hero.getHitPoints() > hero.getSupplyHealth()) hero.setHitPoints(hero.getSupplyHealth());
         experience = hero.getExperience();
         attack = hero.getAttack();

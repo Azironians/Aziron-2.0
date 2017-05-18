@@ -1,12 +1,15 @@
 package Skills;
 
 import Heroes.Hero;
+import Main.Sound;
 import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 
+
+import java.io.File;
 
 import static Match.Battle.turn;
 import static Match.Battle.turns;
@@ -29,6 +32,11 @@ public class SkillsLV implements Skill {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV2.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillLV3.png"))};
+    private Sound[] sounds = {
+            new Sound(new File("src\\Sounds\\SoundLordVampire\\LVSkill1-1.wav")),
+            new Sound(new File("src\\Sounds\\SoundLordVampire\\LVSkill2-1.wav")),
+            new Sound(new File("src\\Sounds\\SoundLordVampire\\LVSkill3-1.wav"))
+    } ;
     private int turnOpen2 = 0;
     private int turnOpen3 = 0;
 
@@ -119,6 +127,7 @@ public class SkillsLV implements Skill {
 
     @Override
     public void firstUlt() {
+        sounds[0].play();
         firstOpen = false;
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() - player1.getHero().getAttack() * 2.5);
@@ -133,6 +142,7 @@ public class SkillsLV implements Skill {
 
     @Override
     public void twoUlt() {
+        sounds[1].play();
         twoOpen = false;
         if (turn == -1) {
             player1.getHero().setAttack(player1.getHero().getAttack() + player1.getHero().getAttack() * 0.1);
@@ -145,6 +155,7 @@ public class SkillsLV implements Skill {
 
     @Override
     public void threeUlt() {
+        sounds[2].play();
         threeOpen = false;
         if (turn == -1) {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() * -1);

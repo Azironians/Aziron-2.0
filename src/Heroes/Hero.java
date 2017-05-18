@@ -12,6 +12,9 @@ public interface Hero {
 
     Player getPlayer();
 
+    void soundAttack();
+
+    void soundTreatment();
 
     void levelUp();
 

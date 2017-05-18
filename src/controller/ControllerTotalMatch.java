@@ -4,6 +4,7 @@ import Heroes.HeroDevourer;
 import Heroes.HeroLordVamp;
 import Heroes.HeroOrcBasher;
 import Main.Profile;
+import Main.Sound;
 import Match.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +17,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static Main.AzironGame.soundFon;
 import static Main.BuildStage.azironStage;
 import static Main.BuildStage.profile1;
 import static Main.BuildStage.profile2;
@@ -54,8 +56,10 @@ public class ControllerTotalMatch implements Initializable {
         //Костя передаёт сюда данные из окна матча...
         //Локальные данные матча выводятся на экран...
         //Глобальные данные матча записываются в файлы профиля...
-
-
+        soundFon.stop();
+        soundFon = new Sound(new File("src\\Sounds\\menu.wav"));
+        soundFon.play();
+        soundFon.setRepeat(true);
         //Игрок 1:
         textPlayer1Name.setText(profile1.getName());
         textPlayer1DealDamage.setText(String.valueOf(player1.getDealDamage()));

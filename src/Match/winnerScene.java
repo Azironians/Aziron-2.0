@@ -4,10 +4,10 @@ import Main.Profile;
 
 import java.io.IOException;
 
-public class winnerScene {
+class winnerScene {
 
 
-    public static void winInfoUpdate(Profile profile1, Profile profile2, Boolean winer) throws IOException {
+    static void winInfoUpdate(Profile profile1, Profile profile2, Boolean winer) throws IOException {
 
 //        if (winer){
 //            profile1.setWin(profile1.getWin()+1);

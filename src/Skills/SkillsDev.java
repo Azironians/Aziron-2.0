@@ -1,11 +1,14 @@
 package Skills;
 
 import Heroes.Hero;
+import Main.Sound;
 import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
+
+import java.io.File;
 
 import static Match.Battle.turn;
 import static Match.Battle.turns;
@@ -27,6 +30,11 @@ public class SkillsDev implements Skill {
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev1.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev2.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\SkillDev3.png"))};
+    private Sound[] sounds = {
+            new Sound(new File("src\\Sounds\\SoundDevourer\\DevSkill1-1.wav")),
+            new Sound(new File("src\\Sounds\\SoundDevourer\\DevSkill2-1.wav")),
+            new Sound(new File("src\\Sounds\\SoundDevourer\\DevSkill3-1.wav"))
+} ;
     private int turnOpen2 = 0;
     private int turnOpen3 = 0;
     private int effect1 = -1;
@@ -116,6 +124,7 @@ public class SkillsDev implements Skill {
 
     @Override
     public void firstUlt() {
+        sounds[0].play();
         firstOpen = false;
 
         if (turn == -1) {
@@ -129,6 +138,7 @@ public class SkillsDev implements Skill {
 
     @Override
     public void twoUlt() {
+        sounds[1].play();
         twoOpen = false;
         if (turn == -1) {
             player1.getHero().setHitPoints(player1.getHero().getHitPoints() + player1.getHero().getTreatment() * 1.4);
@@ -143,6 +153,7 @@ public class SkillsDev implements Skill {
 
     @Override
     public void threeUlt() {
+        sounds[2].play();
         threeOpen = false;
         if (turn == -1) {
             player2.getHero().setHitPoints(player2.getHero().getHitPoints() / 2);

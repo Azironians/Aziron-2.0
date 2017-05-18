@@ -1,6 +1,6 @@
 package Heroes;
 
-public class LevelDevourer {
+class LevelDevourer {
     private static Double[] attackList = {0.0, 8.0, 10.0, 11.0, 14.0, 17.0, 20.0, 23.0, 29.0, 35.0};
     private static Double[] treatmentList = {0.0, 20.0, 24.0, 29.0, 34.0, 42.0, 50.0, 59.0, 72.0, 86.0};
     private static Double[] supplyHealthList = {0.0, 80.0, 95.0, 115.0, 140.0, 165.0, 200.0, 235.0, 290.0, 345.0};
@@ -11,7 +11,7 @@ public class LevelDevourer {
     private static Double supplyHealth;
     private static int levelHero;
 
-    public static void LevelUpDevourer(Hero hero) {
+    static void LevelUpDevourer(Hero hero) {
         if (hero.getHitPoints() > hero.getSupplyHealth()) hero.setHitPoints(hero.getSupplyHealth());
         experience = hero.getExperience();
         attack = hero.getAttack();

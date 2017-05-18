@@ -1,5 +1,6 @@
 package Heroes;
 
+import Main.Sound;
 import Match.Player;
 import Skills.Skill;
 import Skills.SkillsOgr;
@@ -22,6 +23,14 @@ public class HeroOrcBasher implements Hero {
     private Double experience = 0.0;
     private Boolean location;
     private Player player;
+    private Sound a1 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-1.wav"));
+    private Sound a2 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-2.wav"));
+    private Sound a3 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-3.wav"));
+ //   private Sound a4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-4.wav"));
+    private Sound h1 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-1.wav"));
+    private Sound h2 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-2.wav"));
+    private Sound h3 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-3.wav"));
+    private Sound h4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-4.wav"));
 
     public HeroOrcBasher(Boolean location) {
         this.location = location;
@@ -32,6 +41,50 @@ public class HeroOrcBasher implements Hero {
         this.hitPoints = 500.0;
         this.imageView = new ImageView(new Image(new File("src\\Picture\\Heroes\\Basher\\Basher.png").toURI().toString()));
         this.skills = new SkillsOgr(this);
+    }
+
+    @Override
+    public void soundAttack() {
+        int choise = (int) (Math.random() * 75) / 25;
+        switch (choise) {
+            case 1:
+                a1.play();
+                break;
+            case 2:
+                a2.play();
+                break;
+            case 3:
+                a3.play();
+                break;
+//            case 4:
+//                a4.play();
+//                break;
+            default:
+                a1.play();
+                break;
+        }
+    }
+
+    @Override
+    public void soundTreatment() {
+        int choise = (int) (Math.random() * 100) / 25;
+        switch (choise) {
+            case 1:
+                h1.play();
+                break;
+            case 2:
+                h2.play();
+                break;
+            case 3:
+                h3.play();
+                break;
+            case 4:
+                h4.play();
+                break;
+            default:
+                h1.play();
+                break;
+        }
     }
 
     @Override

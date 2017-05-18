@@ -10,17 +10,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Profile {
-    String name;
-    Byte rank;
-    Integer MMR;
-    Integer win;
-    Integer lose;
-    Integer winForDevourer;
-    Integer winForLV;
-    Integer winForOrcBacher;
-    Player player;
+   private String name;
+    private Byte rank;
+    private Integer MMR;
+    private Integer win;
+    private Integer lose;
+    private Integer winForDevourer;
+    private Integer winForLV;
+    private Integer winForOrcBacher;
+    private  Player player;
 
-    public Profile(String name) {
+    Profile(String name) {
         this.name = name;
     }
 
@@ -35,17 +35,17 @@ public class Profile {
         this.winForOrcBacher = winForOrcBacher;
     }
 
-    public Profile(String name, Byte rank, Integer MMR, Integer win, Integer lose, Integer winForDevourer, Integer winForLV, Integer winForOrcBacher, Player player) {
-        this.name = name;
-        this.rank = rank;
-        this.MMR = MMR;
-        this.win = win;
-        this.lose = lose;
-        this.winForDevourer = winForDevourer;
-        this.winForLV = winForLV;
-        this.winForOrcBacher = winForOrcBacher;
-        this.player = player;
-    }
+//    public Profile(String name, Byte rank, Integer MMR, Integer win, Integer lose, Integer winForDevourer, Integer winForLV, Integer winForOrcBacher, Player player) {
+//        this.name = name;
+//        this.rank = rank;
+//        this.MMR = MMR;
+//        this.win = win;
+//        this.lose = lose;
+//        this.winForDevourer = winForDevourer;
+//        this.winForLV = winForLV;
+//        this.winForOrcBacher = winForOrcBacher;
+//        this.player = player;
+//    }
 
     //Изменяем ранг профию:
     public void correctStatistics(Profile opponentProfile) throws IOException {
@@ -124,7 +124,7 @@ public class Profile {
     }
 
 
-    public void correctRank(Profile this) {
+    private void correctRank(Profile this) {
         if (this.getMMR() < 50) {
             this.setRank((byte) 1);
         } else if (this.getMMR() >= 50 && this.getMMR() < 100) {

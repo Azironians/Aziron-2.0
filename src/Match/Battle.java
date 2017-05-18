@@ -26,7 +26,6 @@ import static Main.BuildStage.*;
 import static Match.winnerScene.winInfoUpdate;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
-import static javafx.application.Platform.exit;
 
 
 public class Battle {
@@ -247,12 +246,14 @@ public class Battle {
             dpsHero.setLayoutX(940);
             anyText.setText(player1.getHero().getAttack().intValue() + "");
             anyText.setLayoutX(1000);
+            player1.getHero().soundAttack();
         } else {
             imageView = player2.getHero().getImage();
             path = new Path(new MoveTo(150, 140), new LineTo(-480, 140), new LineTo(150, 140));
             dpsHero.setLayoutX(50);
             anyText.setText(player2.getHero().getAttack().intValue() + "");
             anyText.setLayoutX(100);
+            player2.getHero().soundAttack();
         }
 
         PathTransition pathTransition = new PathTransition(Duration.millis(1000), path, imageView);
@@ -292,10 +293,12 @@ public class Battle {
             health.setLayoutX(50);
             anyText.setText(player1.getHero().getTreatment().intValue() + "");
             anyText.setLayoutX(100);
+            player1.getHero().soundTreatment();
         } else {
             health.setLayoutX(940);
             anyText.setText(player2.getHero().getTreatment().intValue() + "");
             anyText.setLayoutX(1000);
+            player2.getHero().soundTreatment();
         }
         health.setLayoutY(140);
         health.toFront();

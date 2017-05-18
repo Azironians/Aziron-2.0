@@ -1,5 +1,6 @@
 package InitializationGame;
 
+import Match.Battle;
 import Match.Player;
 import javafx.animation.FadeTransition;
 import javafx.scene.image.Image;
@@ -117,7 +118,7 @@ public class WindowMatchMaking1 {
         heroTwo.setLayoutY(140);
         heroTwo.setScaleX(-1);
         heroTwo.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            battle.turns++;
+            Battle.turns++;
             if (turn == 1) battle.damage(player1, player2);
             else try {
                 battle.treatment(player1, player2);
@@ -126,7 +127,7 @@ public class WindowMatchMaking1 {
             }
         });
         heroOne.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> {
-            battle.turns++;
+            Battle.turns++;
             if (turn == -1) battle.damage(player1, player2);
             else try {
                 battle.treatment(player1, player2);

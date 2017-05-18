@@ -16,6 +16,7 @@ public class Sound {
     private Clip clip = null;
     private FloatControl volumeC = null;
     private boolean playing = false;
+    private boolean repeat = false;
 
     public Sound(File f) {
         try {
@@ -117,13 +118,21 @@ public class Sound {
         snd.play();
         return snd;
     }
+    public void setRepeat(boolean repeat) {
+        this.repeat =repeat;
+    }
+
+
     private class Listener implements LineListener {
         public void update(LineEvent ev) {
-            if (ev.getType() == LineEvent.Type.STOP) {
+
+            if (ev.getType() == LineEvent.Type.STOP && !repeat) {
                 playing = false;
                 synchronized (clip) {
                     clip.notify();
                 }
+            } else if (ev.getType() == LineEvent.Type.STOP && repeat) {
+                clip.setFramePosition(0);
             }
         }
     }

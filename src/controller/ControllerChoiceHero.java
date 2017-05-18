@@ -3,6 +3,7 @@ package controller;
 import Heroes.HeroDevourer;
 import Heroes.HeroLordVamp;
 import Heroes.HeroOrcBasher;
+import Main.Sound;
 import Match.Battle;
 import Match.Player;
 import javafx.animation.FadeTransition;
@@ -28,6 +29,8 @@ import java.util.ResourceBundle;
 
 import static Main.BuildStage.*;
 import static Main.Sound.playSound;
+import static Main.AzironGame.soundFon;
+
 
 
 public class ControllerChoiceHero implements Initializable {
@@ -129,9 +132,12 @@ public class ControllerChoiceHero implements Initializable {
                 Scene sceneMenu = new Scene(pane, 1280, 720);
                 //2. Окно меню:
                 azironStage.setScene(sceneMenu);
+                soundFon.stop();
+                soundFon = new Sound(new File("src\\Sounds\\game.wav"));
+                soundFon.play();
+                soundFon.setRepeat(true);
                 player1 = profile1.getPlayer();
                 player2 = profile2.getPlayer();
-
                 battle = new Battle();
                 battle.battleProcess(player1, player2);
                 //Запуск матча...
