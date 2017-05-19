@@ -187,4 +187,8 @@ public class HeroDevourer implements Hero {
         return location;
     }
 
+    @Override
+    public Double[] getExperienceList() {
+        return LevelDevourer.getLevelList();
+    }
 }

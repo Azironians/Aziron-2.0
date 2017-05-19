@@ -187,4 +187,8 @@ public class HeroOrcBasher implements Hero {
         return location;
     }
 
+    @Override
+    public Double[] getExperienceList() {
+        return LevelOrg.getLevelList();
+    }
 }

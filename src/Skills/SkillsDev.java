@@ -69,21 +69,21 @@ public class SkillsDev implements Skill {
         for (int i = 0; i < 3; i++) {
             imageViewList[i].setOpacity(0.3);
             imageViewList[i].setFitHeight(112);
-            imageViewList[i].setFitWidth(112);
+            imageViewList[i].setFitWidth(131);
             imageViewList[i].setLayoutY(547);
         }
 
         if (hero.getLocation()) {
-            imageViewList[0].setLayoutX(29);
-            imageViewList[1].setLayoutX(108);
-            imageViewList[2].setLayoutX(177);
+            imageViewList[0].setLayoutX(27);
+            imageViewList[1].setLayoutX(99);
+            imageViewList[2].setLayoutX(174);
         } else {
             for (int i = 0; i < 3; i++) {
                 imageViewList[i].setScaleX(-1);
             }
-            imageViewList[0].setLayoutX(983);
-            imageViewList[1].setLayoutX(1058);
-            imageViewList[2].setLayoutX(1131);
+            imageViewList[0].setLayoutX(978);
+            imageViewList[1].setLayoutX(1053);
+            imageViewList[2].setLayoutX(1126);
         }
         for (int i = 0; i < 3; i++) {
             imageViewsText[i].setOpacity(0);

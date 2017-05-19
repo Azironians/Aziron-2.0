@@ -188,4 +188,8 @@ public class HeroLordVamp implements Hero {
     }
 
 
+    @Override
+    public Double[] getExperienceList() {
+        return LevelLordVamp.getLevelList();
+    }
 }

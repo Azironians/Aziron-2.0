@@ -16,6 +16,7 @@ import javafx.scene.shape.Path;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -42,6 +43,9 @@ public class Battle {
     private static ImageView imageView2 = new ImageView(new Image("file:src\\Picture\\Heroes\\GeneralSkills\\health.png"));//hill
     private int[] time = {480};
     private int[] time2 = {480};
+    private static ImageView fire = new ImageView(new Image("file:src\\Picture\\Triggers\\fire.gif"));
+    private static ImageView icon = new ImageView(new Image("file:src\\Picture\\Triggers\\Icon.png"));
+
 
     private void winAnim() {
         ImageView imageView;
@@ -364,6 +368,15 @@ public class Battle {
 
     public void battleProcess(Player player1, Player player2) {
 
+        fire.setFitHeight(52);
+        fire.setFitWidth(1280);
+        fire.setLayoutY(665);
+        fire.setLayoutX(0);
+        icon.setFitHeight(100);
+        icon.setFitWidth(100);
+        icon.setLayoutY(635);
+        icon.setLayoutX(640-50);
+
         imageView1.setLayoutY(-10000);
         imageView2.setLayoutY(-10000);
 
@@ -379,6 +392,7 @@ public class Battle {
                         ae -> {
                             time[0]--;
                             label1.setText("" + time[0]);
+                            fire.setScaleX(1);
                         }
                 )
         );
@@ -393,6 +407,7 @@ public class Battle {
                         ae -> {
                             time2[0]--;
                             label2.setText("" + time2[0]);
+                            fire.setScaleX(-1);
                         }
                 )
         );
@@ -403,12 +418,16 @@ public class Battle {
         if (turn == 1) timeline.play();
         else timeline2.play();
 
-        Text name1 = new Text(486, 44, player1.getProfileName());
+        Text name1 = new Text(547, 44, player1.getProfileName());
         name1.setFont(new Font("Times New Roman", 30));
+        name1.setTranslateX(-name1.getLayoutBounds().getWidth()/2);
         name1.setFill(Color.LIGHTBLUE);
-        Text name2 = new Text(666, 44, player2.getProfileName());
+
+        Text name2 = new Text(721, 44, player2.getProfileName());
         name2.setFont(new Font("Times New Roman", 30));
+        name2.setTranslateX(-name2.getLayoutBounds().getWidth()/2);
         name2.setFill(Color.RED);
+
         Text hitPoints1 = new Text(8, 104, player1.getHero().getHitPoints().intValue() + "/"
                 + player1.getHero().getSupplyHealth().intValue());
         hitPoints1.setFont(new Font(30));
@@ -425,22 +444,22 @@ public class Battle {
         attack2.setFill(Color.LIGHTGREY);
         Text level1 = new Text(315, 57, player1.getHero().getLevelHero() + "");
         level1.setFont(new Font(50));
-        level1.setFill(Color.LIGHTGREY);
+        level1.setFill(Color.DARKBLUE);
         Text level2 = new Text(936, 57, player2.getHero().getLevelHero() + "");
         level2.setFont(new Font(50));
-        level2.setFill(Color.LIGHTGREY);
+        level2.setFill(Color.DARKBLUE);
         Text treatment1 = new Text(75, 494, player1.getHero().getTreatment().intValue() + "");
         treatment1.setFont(new Font(45));
         treatment1.setFill(Color.LIGHTGREY);
         Text treatment2 = new Text(1111, 494, player2.getHero().getTreatment().intValue() + "");
         treatment2.setFont(new Font(45));
         treatment2.setFill(Color.LIGHTGREY);
-        Text experience1 = new Text(77, 57, player1.getHero().getExperience().intValue() + "");
-        experience1.setFont(new Font(50));
-        experience1.setFill(Color.LIGHTGREY);
-        Text experience2 = new Text(1030, 57, player2.getHero().getExperience().intValue() + "");
-        experience2.setFont(new Font(50));
-        experience2.setFill(Color.LIGHTGREY);
+        Text experience1 = new Text(77, 47, player1.getHero().getExperience().intValue() + "/" + player1.getHero().getExperienceList()[player1.getHero().getLevelHero()].intValue());
+        experience1.setFont(new Font(30));
+        experience1.setFill(Color.DARKBLUE);
+        Text experience2 = new Text(1030, 47, player2.getHero().getExperience().intValue() + "/"  + player2.getHero().getExperienceList()[player2.getHero().getLevelHero()].intValue());
+        experience2.setFont(new Font(30));
+        experience2.setFill(Color.DARKBLUE);
 
 
         dpsHero.setLayoutY(-1000);
@@ -459,7 +478,7 @@ public class Battle {
 
         launch(pane, player1, player2);
         pane.getChildren().addAll(label1, label2, name1, name2, hitPoints1, hitPoints2, attack1, attack2,
-                treatment1, treatment2, experience1, experience2, level1, level2, dpsHero, health, imageView1, imageView2, anyText);
+                treatment1, treatment2, experience1, experience2, level1, level2, dpsHero, health, imageView1, imageView2, anyText, fire, icon);
         Scene scene = new Scene(pane, 1280, 720);
         azironStage.setScene(scene);
         Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
@@ -487,8 +506,8 @@ public class Battle {
                 level2.setText(player2.getHero().getLevelHero() + "");
                 treatment1.setText(player1.getHero().getTreatment().intValue() + "");
                 treatment2.setText(player2.getHero().getTreatment().intValue() + "");
-                experience1.setText(player1.getHero().getExperience().intValue() + "");
-                experience2.setText(player2.getHero().getExperience().intValue() + "");
+                experience1.setText(player1.getHero().getExperience().intValue() + "/" + player1.getHero().getExperienceList()[player1.getHero().getLevelHero()].intValue());
+                experience2.setText(player2.getHero().getExperience().intValue() + "/" + player2.getHero().getExperienceList()[player2.getHero().getLevelHero()].intValue());
                 player1.getHero().levelUp();
                 player2.getHero().levelUp();
                 player1.getHero().getSkills().updateSkills(player1.getHero());

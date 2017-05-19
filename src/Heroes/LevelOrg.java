@@ -10,6 +10,7 @@ class LevelOrg {
     private static Double hitPoints;
     private static Double supplyHealth;
     private static int levelHero;
+    private static Double[] levelList = {0.0, 150.0, 366.0, 667.0, 1083.0, 1641.0, 2381.0, 3371.0, 4667.0, 6357.0, null};
 
     static void LevelUpOgr(Hero hero) {
         if (hero.getHitPoints() > hero.getSupplyHealth()) hero.setHitPoints(hero.getSupplyHealth());
@@ -20,10 +21,9 @@ class LevelOrg {
         levelHero = hero.getLevelHero();
         hitPoints = hero.getHitPoints();
 
-        Double[] levelList = {0.0, 150.0, 366.0, 667.0, 1083.0, 1641.0, 2381.0, 3371.0, 4667.0, 6357.0};
         int levelLast = levelHero;
         int levelNew = 0;
-        for (int i = 1; i < levelList.length; i++)
+        for (int i = 1; i < levelList.length - 1; i++)
             if (experience >= levelList[i - 1] && experience < levelList[i]) levelNew = i;
         if (experience >= levelList[9]) levelNew = 10;
         levelHero = levelNew;
@@ -35,6 +35,14 @@ class LevelOrg {
             hero.setSupplyHealth(getSupplyHealth());
             hero.setTreatment(getTreatment());
         }
+    }
+
+    public static Double[] getLevelList() {
+        return levelList;
+    }
+
+    public static void setLevelList(Double[] levelList) {
+        LevelOrg.levelList = levelList;
     }
 
     private static Double getAttack() {

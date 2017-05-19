@@ -20,6 +20,10 @@ public interface Hero {
 
     Double getExperience();
 
+
+    Double[] getExperienceList();
+
+
     void setExperience(Double experience);
 
     ImageView getImage();

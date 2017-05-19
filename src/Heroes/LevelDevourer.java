@@ -10,6 +10,7 @@ class LevelDevourer {
     private static Double hitPoints;
     private static Double supplyHealth;
     private static int levelHero;
+    private static Double[] levelList = {0.0, 200.0, 488.0, 894.0, 1446.0, 2193.0, 3193.0, 4513.0, 6229.0, 8465.0, null};
 
     static void LevelUpDevourer(Hero hero) {
         if (hero.getHitPoints() > hero.getSupplyHealth()) hero.setHitPoints(hero.getSupplyHealth());
@@ -20,10 +21,10 @@ class LevelDevourer {
         levelHero = hero.getLevelHero();
         hitPoints = hero.getHitPoints();
 
-        Double[] levelList = {0.0, 200.0, 488.0, 894.0, 1446.0, 2193.0, 3193.0, 4513.0, 6229.0, 8465.0};
+
         int levelLast = levelHero;
         int levelNew = 0;
-        for (int i = 1; i < levelList.length; i++)
+        for (int i = 1; i < levelList.length-1; i++)
             if (experience >= levelList[i - 1] && experience < levelList[i]) levelNew = i;
         if (experience >= levelList[9]) levelNew = 10;
         levelHero = levelNew;
@@ -35,6 +36,14 @@ class LevelDevourer {
             hero.setSupplyHealth(getSupplyHealth());
             hero.setTreatment(getTreatment());
         }
+    }
+
+    public static Double[] getLevelList() {
+        return levelList;
+    }
+
+    public static void setLevelList(Double[] levelList) {
+        LevelDevourer.levelList = levelList;
     }
 
     private static Double getAttack() {
