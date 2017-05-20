@@ -33,7 +33,6 @@ import static Main.Sound.playSound;
 import static Main.AzironGame.soundFon;
 
 
-
 public class ControllerChoiceHero implements Initializable {
     public static Battle battle;
     public static Player player1;
@@ -63,6 +62,15 @@ public class ControllerChoiceHero implements Initializable {
     Pane paneMessage;
     @FXML
     Pane paneControls;
+    @FXML
+    ImageView btnOffBack;
+    @FXML
+    ImageView btnOnBack;
+    @FXML
+    ImageView btnOffChoiceHero;
+    @FXML
+    ImageView btnOnChoiceHero;
+
     File SDev1 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-1.wav");
     File SDev2 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-2.wav");
     File SLV1 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-1.wav");
@@ -156,7 +164,8 @@ public class ControllerChoiceHero implements Initializable {
 
     private void left() {
         if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
-           if (Math.random()>0.5) playSound(SDev1); else  playSound(SDev2);
+            if (Math.random() > 0.5) playSound(SDev1);
+            else playSound(SDev2);
             FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightBHR);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
@@ -171,7 +180,8 @@ public class ControllerChoiceHero implements Initializable {
             fadeTransition.play();
         } else {
             if (currentBackground.getImage().equals(spotLightLV.getImage())) {
-                if (Math.random()>0.5) playSound(SOB1); else playSound(SOB2);
+                if (Math.random() > 0.5) playSound(SOB1);
+                else playSound(SOB2);
                 FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightLV);
                 fadeTransition.setFromValue(1);
                 fadeTransition.setToValue(0);
@@ -186,7 +196,8 @@ public class ControllerChoiceHero implements Initializable {
                 fadeTransition.play();
             } else {
                 if (currentBackground.getImage().equals(spotLightDev.getImage())) {
-                    if (Math.random()>0.5) playSound(SLV1); else playSound(SLV2);
+                    if (Math.random() > 0.5) playSound(SLV1);
+                    else playSound(SLV2);
                     FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
                     fadeTransition.setFromValue(1);
                     fadeTransition.setToValue(0);
@@ -206,7 +217,8 @@ public class ControllerChoiceHero implements Initializable {
 
     private void right() {
         if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
-            if (Math.random()>0.5) playSound(SLV1); else playSound(SLV2);
+            if (Math.random() > 0.5) playSound(SLV1);
+            else playSound(SLV2);
             FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightBHR);
             fadeTransition.setFromValue(1);
             fadeTransition.setToValue(0);
@@ -221,7 +233,8 @@ public class ControllerChoiceHero implements Initializable {
             fadeTransition.play();
         } else {
             if (currentBackground.getImage().equals(spotLightLV.getImage())) {
-                if (Math.random()>0.5)  playSound(SDev1); else  playSound(SDev2);
+                if (Math.random() > 0.5) playSound(SDev1);
+                else playSound(SDev2);
                 FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightLV);
                 fadeTransition.setFromValue(1);
                 fadeTransition.setToValue(0);
@@ -236,8 +249,9 @@ public class ControllerChoiceHero implements Initializable {
                 fadeTransition.play();
             } else {
                 if (currentBackground.getImage().equals(spotLightDev.getImage())) {
-                    if (Math.random()>0.5) playSound(SOB1); else playSound(SOB2);
-                        FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
+                    if (Math.random() > 0.5) playSound(SOB1);
+                    else playSound(SOB2);
+                    FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
                     fadeTransition.setFromValue(1);
                     fadeTransition.setToValue(0);
                     fadeTransition.setCycleCount(1);
@@ -263,6 +277,34 @@ public class ControllerChoiceHero implements Initializable {
         spotLightBHR.setOpacity(0);
         spotLightDev.setVisible(true);
         spotLightDev.setOpacity(0);
+
+        //Выбор героя:
+        btnOffChoiceHero.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+            btnOffChoiceHero.setVisible(false);
+            btnOnChoiceHero.setVisible(true);
+        });
+        btnOnChoiceHero.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
+            btnOffChoiceHero.setVisible(true);
+            btnOnChoiceHero.setVisible(false);
+        });
+        btnOffBack.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
+            btnOffBack.setVisible(false);
+            btnOnBack.setVisible(true);
+        });
+        btnOnBack.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
+            btnOffBack.setVisible(true);
+            btnOnBack.setVisible(false);
+        });
+
+        btnOnChoiceHero.setOnMouseClicked(event -> ok());
+        btnOnBack.setOnMouseClicked(event -> {
+            try {
+                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            azironStage.show();
+        });
 
         switch (favouriteHero) {
             case "Любимый герой: Пожиратель":

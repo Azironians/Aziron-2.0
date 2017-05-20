@@ -10,10 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.TimeZone;
 
@@ -33,12 +39,21 @@ public class ControllerMenu implements Initializable {
     @FXML Pane panelLocMch;
     @FXML Pane paneButtons;
     @FXML Pane paneMessage;
-
+@FXML Text time;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println(new java.util.Date());
-
+        Timer ClockTimer = new Timer(500, e -> {
+            Date d = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.dd.MM");
+            Text text = new Text();
+            text.setText(sdf.format(d));
+            DateFormat df = new SimpleDateFormat("HH:mm");
+            Date times = Calendar.getInstance().getTime();
+            String reportDate = df.format(times);
+            time.setText(reportDate); // FXML Text не позволяет сделать класс Clock static
+        });
+        ClockTimer.start();
 
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(4000), paneMessage);
         fadeTransition.setToValue(1);

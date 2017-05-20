@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.text.*?>
 <?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMenu">
    <children>
@@ -15,9 +11,9 @@
             <Image url="@../Picture/Windows/WindowMenu.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="panelLocMch" disable="true" layoutX="303.0" layoutY="210.0" prefHeight="501.0" prefWidth="742.0" visible="false">
+      <Pane fx:id="panelLocMch" disable="true" layoutX="300.0" layoutY="210.0" prefHeight="360.0" prefWidth="730.0" visible="false">
          <children>
-            <ImageView fx:id="panel" fitHeight="356.0" fitWidth="726.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="panel" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Triggers/Pane.png" />
                </image>
@@ -37,12 +33,12 @@
                   <Image url="@../Picture/Buttons/ButtonOnWindowLocMatchOnTwo.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonOffBack" fitHeight="47.0" fitWidth="80.0" layoutX="601.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonOffBack" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Buttons/ButtonExitOffWindowLocMatchOnTwo.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="buttonOnBack" fitHeight="47.0" fitWidth="80.0" layoutX="601.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <ImageView fx:id="buttonOnBack" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../Picture/Buttons/ButtonExitOnWindowLocMatchOnTwo.png" />
                </image>
@@ -50,7 +46,7 @@
          </children></Pane>
       <Pane fx:id="paneButtons" layoutY="-6.0">
          <children>
-            <ImageView fx:id="buttonOffExitProgramm" fitHeight="83.0" fitWidth="173.0" layoutX="1093.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="buttonOffExitProgramm" fitHeight="83.0" fitWidth="175.0" layoutX="1093.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Picture/Buttons/ButtonMenuExitProgrammOff.png" />
                </image>
@@ -94,7 +90,7 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Text fill="#74efff" layoutX="17.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.) Лечение оглушителя теперь 200;" wrappingWidth="367.0">
+            <Text fill="#74efff" layoutX="17.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.) Лечение оглушителя теперь 190;" wrappingWidth="367.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -126,9 +122,9 @@
             </Text>
          </children>
       </Pane>
-      <Text fx:id="Time" fill="WHITE" layoutX="1157.0" layoutY="707.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15:07" textAlignment="CENTER" wrappingWidth="114.13671875">
+      <Text fx:id="time" fill="WHITE" layoutX="1160.0" layoutY="710.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="114.13671875">
          <font>
-            <Font size="20.0" />
+            <Font size="25.0" />
          </font>
       </Text>
    </children>

@@ -13,11 +13,12 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+import javax.swing.Timer;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static Main.BuildStage.*;
 
@@ -75,11 +76,22 @@ public class ControllerProfile implements Initializable {
     ImageView panelStatistics;
     @FXML
     Button btn;
-
+@FXML
+Text time;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Инициализация окна:
-
+        Timer ClockTimer = new Timer(500, e -> {
+            Date d = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.dd.MM");
+            Text text = new Text();
+            text.setText(sdf.format(d));
+            DateFormat df = new SimpleDateFormat("HH:mm");
+            Date times = Calendar.getInstance().getTime();
+            String reportDate = df.format(times);
+            time.setText(reportDate); // FXML Text не позволяет сделать класс Clock static
+        });
+        ClockTimer.start();
         textPlayer.setText("Игрок " + profileController);
         textProfileName.setText(profile.getName());
         List<Integer> listWinsOfHeroes = Arrays.asList(

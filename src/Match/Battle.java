@@ -52,7 +52,7 @@ public class Battle {
         Path path1;
         ImageView imageView2;
         Path path2;
-        if (player1.getHero().getHitPoints() > 0) {
+        if (turn==-1) {
             imageView = player1.getHero().getImage();
             path1 = new Path(new MoveTo(150, 140), new LineTo(730, 140));
             imageView2 = player2.getHero().getImage();
@@ -506,8 +506,10 @@ public class Battle {
                 level2.setText(player2.getHero().getLevelHero() + "");
                 treatment1.setText(player1.getHero().getTreatment().intValue() + "");
                 treatment2.setText(player2.getHero().getTreatment().intValue() + "");
-                experience1.setText(player1.getHero().getExperience().intValue() + "/" + player1.getHero().getExperienceList()[player1.getHero().getLevelHero()].intValue());
-                experience2.setText(player2.getHero().getExperience().intValue() + "/" + player2.getHero().getExperienceList()[player2.getHero().getLevelHero()].intValue());
+                experience1.setText(player1.getHero().getExperience().intValue() + "/" +
+                        player1.getHero().getExperienceList()[player1.getHero().getLevelHero()].intValue());
+                experience2.setText(player2.getHero().getExperience().intValue() + "/" +
+                        player2.getHero().getExperienceList()[player2.getHero().getLevelHero()].intValue());
                 player1.getHero().levelUp();
                 player2.getHero().levelUp();
                 player1.getHero().getSkills().updateSkills(player1.getHero());

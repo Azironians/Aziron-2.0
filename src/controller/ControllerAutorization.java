@@ -15,11 +15,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
+import javax.swing.*;
+import javax.swing.Timer;
 import java.io.*;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static Main.BuildStage.*;
@@ -63,15 +65,17 @@ public class ControllerAutorization implements Initializable {
     ImageView buttonOnBackToMenu;
     @FXML
     ImageView panelSignIn;
-
+    @FXML
+    Text time;
 
     private void avtoriz() {
+
 
         try {
             System.out.println("profile: " + profile.getName());
             System.out.println("поле: " + textFieldSignIn.getText());
             if ((textFieldSignIn.getText()).equals(profile.getName())) {
-                throw new IllegalArgumentException("Такой пользователь уже авторизован");
+                throw new IllegalCallerException("Такой пользователь уже авторизован");
             }
             System.out.println(textFieldSignIn.getText() + ".hoa");
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src\\Profiles\\" + textFieldSignIn.getText() + ".hoa")));
@@ -127,6 +131,8 @@ public class ControllerAutorization implements Initializable {
                 azironStage.show();
             });
 
+        } catch (IllegalCallerException e) {
+            textErrorSignIn.setText("Такой пользователь уже авторизован");
         } catch (Exception e) {
             textErrorSignIn.setText("Неверное имя пользователя или пароль");
         }
@@ -135,7 +141,17 @@ public class ControllerAutorization implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        Timer ClockTimer = new Timer(500, e -> {
+            Date d = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.dd.MM");
+            Text text = new Text();
+            text.setText(sdf.format(d));
+            DateFormat df = new SimpleDateFormat("HH:mm");
+            Date times = Calendar.getInstance().getTime();
+            String reportDate = df.format(times);
+            time.setText(reportDate); // FXML Text не позволяет сделать класс Clock static
+        });
+        ClockTimer.start();
 
         //1. Фон:
         panelSignIn.setOnMouseMoved(event -> {
@@ -171,11 +187,11 @@ public class ControllerAutorization implements Initializable {
         });
         //Кнопка "Вход":
         textFieldSignIn.setOnKeyPressed(event -> {
-            if (event.getCode()==(KeyCode.ENTER))
-            avtoriz();
+            if (event.getCode() == (KeyCode.ENTER))
+                avtoriz();
         });
         passwordFieldSignIn.setOnKeyPressed(event -> {
-            if (event.getCode()==(KeyCode.ENTER))
+            if (event.getCode() == (KeyCode.ENTER))
                 avtoriz();
         });
         buttonSignIn.setOnMouseClicked(event -> avtoriz()
