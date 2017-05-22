@@ -21,25 +21,24 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.TimeZone;
 
 import static Main.BuildStage.azironStage;
 
 public class ControllerMenu implements Initializable {
-    @FXML ImageView windowMenu;
-    @FXML ImageView buttonOnLocMch;
-    @FXML ImageView buttonOffLocMch;
-    @FXML ImageView buttonOffExitProgramm;
-    @FXML ImageView buttonOnExitProgramm;
-    @FXML ImageView panel;
-    @FXML ImageView buttonOffGameTwo;
-    @FXML ImageView buttonOnGameTwo;
-    @FXML ImageView buttonOffBack;
-    @FXML ImageView buttonOnBack;
-    @FXML Pane panelLocMch;
-    @FXML Pane paneButtons;
-    @FXML Pane paneMessage;
-@FXML Text time;
+    @FXML private ImageView windowMenu;
+    @FXML private ImageView buttonOnLocMch;
+    @FXML private ImageView buttonOffLocMch;
+    @FXML private ImageView buttonOffExitProgramm;
+    @FXML private ImageView buttonOnExitProgramm;
+    @FXML private ImageView panel;
+    @FXML private ImageView buttonOffGameTwo;
+    @FXML private ImageView buttonOnGameTwo;
+    @FXML private ImageView buttonOffBack;
+    @FXML private ImageView buttonOnBack;
+    @FXML private Pane panelLocMch;
+    @FXML private Pane paneButtons;
+    @FXML private Pane paneMessage;
+@FXML private Text time;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -92,9 +91,7 @@ public class ControllerMenu implements Initializable {
                 buttonOnLocMch.setVisible(false);
                 buttonOffLocMch.setVisible(true);
             });
-            buttonOnExitProgramm.setOnMouseClicked(event -> {
-                System.exit(1);
-            });
+            buttonOnExitProgramm.setOnMouseClicked(event -> System.exit(1));
 
             //4. Панель:
             panel.setOnMouseMoved(event -> {

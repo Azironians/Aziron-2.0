@@ -10,7 +10,7 @@ class LevelLordVamp {
     private static Double hitPoints;
     private static Double supplyHealth;
     private static int levelHero;
-    private static Double[] levelList =  {0.0, 250.0, 610.0, 1114.0, 1794.0, 2730.0, 3980.0, 5619.0, 7767.0, 10562.0, null};
+    private static Double[] levelList = {0.0, 250.0, 610.0, 1114.0, 1794.0, 2730.0, 3980.0, 5619.0, 7767.0, 10562.0, null};
 
     static void LevelUpLordVamp(Hero hero) {
         if (hero.getHitPoints() > hero.getSupplyHealth()) hero.setHitPoints(hero.getSupplyHealth());
@@ -23,7 +23,7 @@ class LevelLordVamp {
 
         int levelLast = levelHero;
         int levelNew = 0;
-        for (int i = 1; i < levelList.length-1; i++)
+        for (int i = 1; i < levelList.length - 1; i++)
             if (experience >= levelList[i - 1] && experience < levelList[i]) levelNew = i;
         if (experience >= levelList[9]) levelNew = 10;
         levelHero = levelNew;
@@ -36,13 +36,15 @@ class LevelLordVamp {
             hero.setTreatment(getTreatment());
         }
     }
-    public static Double[] getLevelList() {
+
+    static Double[] getLevelList() {
         return levelList;
     }
 
     public static void setLevelList(Double[] levelList) {
         LevelLordVamp.levelList = levelList;
     }
+
     private static Double getAttack() {
         return attack + attackList[levelHero - 1];
     }

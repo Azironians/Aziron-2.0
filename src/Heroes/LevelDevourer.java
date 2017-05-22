@@ -24,7 +24,7 @@ class LevelDevourer {
 
         int levelLast = levelHero;
         int levelNew = 0;
-        for (int i = 1; i < levelList.length-1; i++)
+        for (int i = 1; i < levelList.length - 1; i++)
             if (experience >= levelList[i - 1] && experience < levelList[i]) levelNew = i;
         if (experience >= levelList[9]) levelNew = 10;
         levelHero = levelNew;
@@ -38,7 +38,7 @@ class LevelDevourer {
         }
     }
 
-    public static Double[] getLevelList() {
+    static Double[] getLevelList() {
         return levelList;
     }
 

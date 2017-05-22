@@ -46,7 +46,7 @@ public class Player {
 
 
 
-    public String getProfileName() {
+    String getProfileName() {
         return profileName;
     }
 
@@ -66,7 +66,7 @@ public class Player {
         return dealDamage;
     }
 
-    public void setDealDamage(int dealDamage) {
+    void setDealDamage(int dealDamage) {
         this.dealDamage = dealDamage;
     }
 
@@ -74,7 +74,7 @@ public class Player {
         return restoredHitPoints;
     }
 
-    public void setRestoredHitPoints(int restoredHitPoints) {
+    void setRestoredHitPoints(int restoredHitPoints) {
         this.restoredHitPoints = restoredHitPoints;
     }
 
@@ -82,7 +82,7 @@ public class Player {
         return reachedLevel;
     }
 
-    public void setReachedLevel(byte reachedLevel) {
+    void setReachedLevel(byte reachedLevel) {
         this.reachedLevel = reachedLevel;
     }
 
@@ -90,7 +90,7 @@ public class Player {
         return usedSkills;
     }
 
-    public void setUsedSkills(byte usedSkills) {
+    void setUsedSkills(byte usedSkills) {
         this.usedSkills = usedSkills;
     }
 
@@ -106,7 +106,7 @@ public class Player {
         return remainingTime;
     }
 
-    public void setRemainingTime(int remainingTime) {
+    void setRemainingTime(int remainingTime) {
         this.remainingTime = remainingTime;
     }
 
@@ -114,7 +114,7 @@ public class Player {
         return winner;
     }
 
-    public void setWinner(boolean winner) {
+    void setWinner(boolean winner) {
         this.winner = winner;
     }
 

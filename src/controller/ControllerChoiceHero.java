@@ -7,6 +7,7 @@ import Main.Sound;
 import Match.Battle;
 import Match.Player;
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,10 +18,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -28,9 +27,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static Main.AzironGame.soundFon;
 import static Main.BuildStage.*;
 import static Main.Sound.playSound;
-import static Main.AzironGame.soundFon;
 
 
 public class ControllerChoiceHero implements Initializable {
@@ -39,44 +38,42 @@ public class ControllerChoiceHero implements Initializable {
     public static Player player2;
 
     @FXML
-    ImageView spotLightDev;
+    private ImageView spotLightDev;
     @FXML
-    ImageView spotLightLV;
+    private ImageView spotLightLV;
     @FXML
-    ImageView spotLightBHR;
+    private ImageView spotLightBHR;
     @FXML
-    ImageView btnOffLeft;
+    private ImageView btnOffLeft;
     @FXML
-    ImageView btnOnLeft;
+    private ImageView btnOnLeft;
     @FXML
-    ImageView btnOnRight;
+    private ImageView btnOnRight;
     @FXML
-    ImageView btnOffRight;
+    private ImageView btnOffRight;
     @FXML
-    ImageView currentBackground;
+    private ImageView currentBackground;
     @FXML
-    Button btnChoiceHero;
+    private Button btnChoiceHero;
     @FXML
-    Button btnBackToProfile;
+    private Button btnBackToProfile;
     @FXML
-    Pane paneMessage;
+    private Pane paneMessage;
     @FXML
-    Pane paneControls;
+    private ImageView btnOffBack;
     @FXML
-    ImageView btnOffBack;
+    private ImageView btnOnBack;
     @FXML
-    ImageView btnOnBack;
+    private ImageView btnOffChoiceHero;
     @FXML
-    ImageView btnOffChoiceHero;
-    @FXML
-    ImageView btnOnChoiceHero;
+    private ImageView btnOnChoiceHero;
 
-    File SDev1 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-1.wav");
-    File SDev2 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-2.wav");
-    File SLV1 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-1.wav");
-    File SLV2 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-2.wav");
-    File SOB1 = new File("src\\Sounds\\SoundOrcBasher\\BhrGreetings-1.wav");
-    File SOB2 = new File("src\\Sounds\\SoundOrcBasher\\BhrGreetings-2.wav");
+    private File SDev1 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-1.wav");
+    private File SDev2 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-2.wav");
+    private File SLV1 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-1.wav");
+    private File SLV2 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-2.wav");
+    private File SOB1 = new File("src\\Sounds\\SoundOrcBasher\\BhrGreetings-1.wav");
+    private File SOB2 = new File("src\\Sounds\\SoundOrcBasher\\BhrGreetings-2.wav");
 
     private void ok() {
         if (profileController == 1) {
@@ -92,12 +89,10 @@ public class ControllerChoiceHero implements Initializable {
             }
             profile1 = profile;
             paneMessage.setVisible(true);
-            paneMessage.setOnMouseMoved(event1 -> {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            TranslateTransition transition2 = new TranslateTransition(Duration.millis(1), new Rectangle(-10, -10, 1, 1));
+            transition2.setByX(1);
+            transition2.setCycleCount(1);
+            transition2.setOnFinished(event1 -> {
                 try {
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
                     Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
@@ -108,6 +103,7 @@ public class ControllerChoiceHero implements Initializable {
                     e.printStackTrace();
                 }
             });
+            transition2.play();
 
 
         } else {
@@ -130,8 +126,10 @@ public class ControllerChoiceHero implements Initializable {
             btnChoiceHero.setVisible(false);
             btnBackToProfile.setVisible(false);
             paneMessage.setVisible(true);
-            paneMessage.setOnMouseMoved(event1 -> {
-
+            TranslateTransition transition2 = new TranslateTransition(Duration.millis(1), new Rectangle(-10, -10, 1, 1));
+            transition2.setByX(1);
+            transition2.setCycleCount(1);
+            transition2.setOnFinished(event1 -> {
                 ImageView fon = new ImageView(new Image("file:src\\Picture\\Windows\\WindowInitialization.jpg"));
                 ImageView load = new ImageView(new Image("file:src\\Picture\\Windows\\load.gif"));
                 fon.setFitHeight(720);
@@ -148,7 +146,6 @@ public class ControllerChoiceHero implements Initializable {
                 Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
                 ImageCursor imageCursor = new ImageCursor(cursor);
                 azironStage.getScene().setCursor(imageCursor);
-
                 soundFon.stop();
                 soundFon = new Sound(new File("src\\Sounds\\game.wav"));
                 soundFon.play();
@@ -159,6 +156,7 @@ public class ControllerChoiceHero implements Initializable {
                 battle.battleProcess(player1, player2);
                 //Запуск матча...
             });
+            transition2.play();
         }
     }
 
@@ -327,7 +325,7 @@ public class ControllerChoiceHero implements Initializable {
 
 
         //Фон:
-        currentBackground.setOnMouseMoved(event -> {
+        currentBackground.setOnMouseEntered(event -> {
             btnOnRight.setVisible(false);
             btnOffRight.setVisible(true);
             btnOnLeft.setVisible(false);

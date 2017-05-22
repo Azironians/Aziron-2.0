@@ -1,6 +1,7 @@
 package controller;
 
 import Main.Profile;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,9 +14,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
-import javax.swing.*;
 import javax.swing.Timer;
 import java.io.*;
 import java.net.URL;
@@ -28,45 +30,45 @@ import static Main.BuildStage.*;
 
 public class ControllerAutorization implements Initializable {
     @FXML
-    Pane paneSignIn;
+    private  Pane paneSignIn;
     @FXML
-    Pane paneSignUp;
+    private  Pane paneSignUp;
     @FXML
-    Pane luckSignIn;
+    private Pane luckSignIn;
     @FXML
-    Pane luckSignUp;
+    private  Pane luckSignUp;
     @FXML
-    Text textErrorSignUp;
+    private  Text textErrorSignUp;
     @FXML
-    Text textErrorSignIn;
+    private   Text textErrorSignIn;
     @FXML
-    TextField textFieldSignIn;
+    private  TextField textFieldSignIn;
     @FXML
-    TextField textFieldNewName;
+    private  TextField textFieldNewName;
     @FXML
-    TextField textFieldNewNameRepeat;
+    private TextField textFieldNewNameRepeat;
     @FXML
-    PasswordField passwordFieldSignIn;
+    private PasswordField passwordFieldSignIn;
     @FXML
-    PasswordField passwordFieldNewPassword;
+    private PasswordField passwordFieldNewPassword;
     @FXML
-    PasswordField passwordFieldNewPasswordRepeat;
+    private  PasswordField passwordFieldNewPasswordRepeat;
     @FXML
-    Button buttonSignIn;
+    private Button buttonSignIn;
     @FXML
-    Button buttonSignUp;
+    private  Button buttonSignUp;
     @FXML
-    Button buttonSignUpToSignIn;
+    private  Button buttonSignUpToSignIn;
     @FXML
-    Button buttonSignUpOK;
+    private  Button buttonSignUpOK;
     @FXML
-    ImageView buttonOffBackToMenu;
+    private ImageView buttonOffBackToMenu;
     @FXML
-    ImageView buttonOnBackToMenu;
+    private ImageView buttonOnBackToMenu;
     @FXML
-    ImageView panelSignIn;
+    private  ImageView panelSignIn;
     @FXML
-    Text time;
+    private Text time;
 
     private void avtoriz() {
 
@@ -112,13 +114,11 @@ public class ControllerAutorization implements Initializable {
 
             paneSignIn.setVisible(false);
             luckSignIn.setVisible(true);
-            luckSignIn.setOnMouseMoved(event1 -> {
 
-                try {
-                    Thread.sleep(0);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+            TranslateTransition transition2 = new TranslateTransition(Duration.millis(100), new Rectangle(-10, -10, 1, 1));
+            transition2.setByX(1);
+            transition2.setCycleCount(1);
+            transition2.setOnFinished(event1 -> {
                 try {
                     azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
                     Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
@@ -130,7 +130,7 @@ public class ControllerAutorization implements Initializable {
                 }
                 azironStage.show();
             });
-
+            transition2.play();
         } catch (IllegalCallerException e) {
             textErrorSignIn.setText("Такой пользователь уже авторизован");
         } catch (Exception e) {
@@ -154,12 +154,12 @@ public class ControllerAutorization implements Initializable {
         ClockTimer.start();
 
         //1. Фон:
-        panelSignIn.setOnMouseMoved(event -> {
+        panelSignIn.setOnMouseEntered(event -> {
             buttonOnBackToMenu.setVisible(false);
             buttonOffBackToMenu.setVisible(true);
         });
         // Кнопка "Назад в меню"
-        buttonOffBackToMenu.setOnMouseMoved(event -> {
+        buttonOffBackToMenu.setOnMouseEntered(event -> {
             buttonOffBackToMenu.setVisible(false);
             buttonOnBackToMenu.setVisible(true);
         });
@@ -240,16 +240,10 @@ public class ControllerAutorization implements Initializable {
                 paneSignUp.setVisible(false);
                 luckSignUp.setVisible(true);
 
-                luckSignUp.setOnMouseMoved(event1 -> {
-                    try {
-                        Thread.sleep(0);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                luckSignUp.setOnMouseEntered(event1 -> {
                     luckSignUp.setVisible(false);
                     paneSignIn.setVisible(true);
                 });
-
             } catch (Exception e) {
                 textErrorSignUp.setText(e.getMessage());
             }

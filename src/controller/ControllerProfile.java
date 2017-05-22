@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
@@ -24,60 +23,63 @@ import static Main.BuildStage.*;
 
 public class ControllerProfile implements Initializable {
     @FXML
+    private
     ImageView background;
     @FXML
-    ImageView buttonOffLogOut;
+    private ImageView buttonOffLogOut;
     @FXML
-    ImageView buttonOnLogOut;
+    private ImageView buttonOnLogOut;
     @FXML
-    ImageView buttonOffShowStatistics;
+    private ImageView buttonOffShowStatistics;
     @FXML
+    private
     ImageView buttonOnShowStatistics;
     @FXML
-    ImageView buttonOffChoiceHeroes;
+    private ImageView buttonOffChoiceHeroes;
     @FXML
-    ImageView buttonOnChoiceHeroes;
+    private ImageView buttonOnChoiceHeroes;
     @FXML
-    ImageView Devourer;
+    private ImageView Devourer;
     @FXML
-    ImageView LordVamp;
+    private ImageView LordVamp;
     @FXML
-    ImageView OrcBasher;
+    private ImageView OrcBasher;
 
     @FXML
-    Text textFavouriteHero;
+    private Text textFavouriteHero;
     @FXML
-    Text textProfileName;
+    private Text textProfileName;
     @FXML
-    Text textPlayer;
+    private Text textPlayer;
 
     @FXML
-    Pane paneStatistics;
+    private Pane paneStatistics;
     @FXML
-    Text textRank;
+    private Text textRank;
     @FXML
-    Text textRating;
+    private Text textRating;
     @FXML
-    Text textWins;
+    private Text textWins;
     @FXML
-    Text textLoses;
+    private Text textLoses;
     @FXML
-    Text textWinsDevourer;
+    private Text textWinsDevourer;
     @FXML
-    Text textWinsLV;
+    private Text textWinsLV;
     @FXML
-    Text textWinsOrcBasher;
+    private Text textWinsOrcBasher;
 
     @FXML
-    ImageView buttonOffCloseStatistics;
+    private ImageView buttonOffCloseStatistics;
     @FXML
-    ImageView buttonOnCloseStatistics;
+    private ImageView buttonOnCloseStatistics;
     @FXML
-    ImageView panelStatistics;
+    private ImageView panelStatistics;
     @FXML
-    Button btn;
-@FXML
-Text time;
+    private Button btn;
+    @FXML
+    private Text time;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Инициализация окна:
@@ -155,7 +157,7 @@ Text time;
                 e.printStackTrace();
             }
             profileController--;
-            profile.setName("");
+            profile.setName();
             azironStage.show();
         });
 
@@ -239,13 +241,13 @@ Text time;
                     e.printStackTrace();
                 }
                 profileController--;
-                profile.setName("");
+                profile.setName();
                 azironStage.show();
             }
         });
     }
 
-    public Integer max(List<Integer> list) {
+    private Integer max(List<Integer> list) {
         Integer maxValue = 0;
         for (Integer win : list) {
             if (maxValue < win) {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Profile {
-   private String name;
+    private String name;
     private Byte rank;
     private Integer MMR;
     private Integer win;
@@ -18,7 +18,7 @@ public class Profile {
     private Integer winForDevourer;
     private Integer winForLV;
     private Integer winForOrcBacher;
-    private  Player player;
+    private Player player;
 
     Profile(String name) {
         this.name = name;
@@ -59,42 +59,42 @@ public class Profile {
                 switch (i) {
                     case 2: //Коррекция рейтинга:
                         this.setMMR(this.getMMR() + 25 + opponentProfile.getRank() - this.getRank()); // Изменить MMR
-                        if (this.getMMR()<0) this.setMMR(0);
+                        if (this.getMMR() < 0) this.setMMR(0);
                         this.correctRank(); // Изменить ранг
                         bufferedWriter.write(this.getRank().toString() + "/" + this.getMMR().toString());
                         bufferedWriter.newLine();
                         break;
                     case 3: //Коррекция побед:
                         this.setWin(this.getWin() + 1);
-                        bufferedWriter.write(this.getWin()+"");
+                        bufferedWriter.write(this.getWin() + "");
                         bufferedWriter.newLine();
                         break;
                     case 5: //Коррекция побед за выбранного героя:
                         if (player.getHero().getClass().equals(HeroDevourer.class)) {
                             this.setWinForDevourer(this.getWinForDevourer() + 1);
-                            bufferedWriter.write(this.getWinForDevourer()+"");
+                            bufferedWriter.write(this.getWinForDevourer() + "");
                             bufferedWriter.newLine();
                         } else
-                        bufferedWriter.write(lines.get(i)+"\n");
+                            bufferedWriter.write(lines.get(i) + "\n");
                         break;
                     case 6:
                         if (player.getHero().getClass().equals(HeroLordVamp.class)) {
                             this.setWinForLV(this.getWinForLV() + 1);
-                            bufferedWriter.write(this.getWinForLV()+"");
+                            bufferedWriter.write(this.getWinForLV() + "");
                             bufferedWriter.newLine();
                         } else
-                            bufferedWriter.write(lines.get(i)+"\n");
+                            bufferedWriter.write(lines.get(i) + "\n");
                         break;
                     case 7:
                         if (player.getHero().getClass().equals(HeroOrcBasher.class)) {
                             this.setWinForOrcBacher(this.getWinForOrcBacher() + 1);
-                            bufferedWriter.write(this.getWinForOrcBacher()+"");
+                            bufferedWriter.write(this.getWinForOrcBacher() + "");
                             bufferedWriter.newLine();
                         } else
-                            bufferedWriter.write(lines.get(i)+"\n");
+                            bufferedWriter.write(lines.get(i) + "\n");
                         break;
                     default:
-                        bufferedWriter.write(lines.get(i)+"\n");
+                        bufferedWriter.write(lines.get(i) + "\n");
                         break;
                 }
             }
@@ -103,18 +103,18 @@ public class Profile {
                 switch (i) {
                     case 2:
                         this.setMMR(this.getMMR() - 20 - this.getRank() + opponentProfile.getRank()); //Изменить MMR
-                        if (this.getMMR()<0) this.setMMR(0);
+                        if (this.getMMR() < 0) this.setMMR(0);
                         this.correctRank(); // Изменить ранг
                         bufferedWriter.write(this.getRank().toString() + "/" + this.getMMR().toString());
                         bufferedWriter.newLine();
                         break;
                     case 4: //Коррекция поражений
                         this.setLose(this.getLose() + 1);
-                        bufferedWriter.write(this.getLose()+"");
+                        bufferedWriter.write(this.getLose() + "");
                         bufferedWriter.newLine();
                         break;
                     default:
-                        bufferedWriter.write(lines.get(i)+"\n");
+                        bufferedWriter.write(lines.get(i) + "\n");
                         break;
                 }
             }
@@ -181,15 +181,15 @@ public class Profile {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName() {
+        this.name = "";
     }
 
     public Byte getRank() {
         return rank;
     }
 
-    public void setRank(Byte rank) {
+    private void setRank(Byte rank) {
         this.rank = rank;
     }
 
@@ -197,7 +197,7 @@ public class Profile {
         return MMR;
     }
 
-    public void setMMR(Integer MMR) {
+    private void setMMR(Integer MMR) {
         this.MMR = MMR;
     }
 
@@ -205,7 +205,7 @@ public class Profile {
         return win;
     }
 
-    public void setWin(Integer win) {
+    private void setWin(Integer win) {
         this.win = win;
     }
 
@@ -213,7 +213,7 @@ public class Profile {
         return lose;
     }
 
-    public void setLose(Integer lose) {
+    private void setLose(Integer lose) {
         this.lose = lose;
     }
 
@@ -221,7 +221,7 @@ public class Profile {
         return winForDevourer;
     }
 
-    public void setWinForDevourer(Integer winForDevourer) {
+    private void setWinForDevourer(Integer winForDevourer) {
         this.winForDevourer = winForDevourer;
     }
 
@@ -229,7 +229,7 @@ public class Profile {
         return winForLV;
     }
 
-    public void setWinForLV(Integer winForLV) {
+    private void setWinForLV(Integer winForLV) {
         this.winForLV = winForLV;
     }
 
@@ -237,7 +237,7 @@ public class Profile {
         return winForOrcBacher;
     }
 
-    public void setWinForOrcBacher(Integer winForOrcBacher) {
+    private void setWinForOrcBacher(Integer winForOrcBacher) {
         this.winForOrcBacher = winForOrcBacher;
     }
 }

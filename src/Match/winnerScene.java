@@ -31,6 +31,7 @@ class winnerScene {
         }
         profile1.correctStatistics(profile2);
         profile2.correctStatistics(profile1);
+
     }
 
 }

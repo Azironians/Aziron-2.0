@@ -37,7 +37,7 @@ class LevelOrg {
         }
     }
 
-    public static Double[] getLevelList() {
+    static Double[] getLevelList() {
         return levelList;
     }
 

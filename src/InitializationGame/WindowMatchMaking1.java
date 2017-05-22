@@ -3,8 +3,10 @@ package InitializationGame;
 import Match.Battle;
 import Match.Player;
 import javafx.animation.FadeTransition;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -78,6 +80,70 @@ public class WindowMatchMaking1 {
     }
 
     public static void launch(Pane root, Player player1, Player player2) {
+        Button button = new Button();
+        button.setLayoutX(-1000);
+        button.setOnKeyPressed(event -> {
+
+            if (turn == 1) {
+                if (event.getCode() == KeyCode.DIGIT1) {
+                    Battle.turns++;
+                    battle.damage(player1, player2);
+                }
+                if (event.getCode() == KeyCode.DIGIT2) {
+                    Battle.turns++;
+                    try {
+                        battle.treatment(player1, player2);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (event.getCode() == KeyCode.Q && player1.getHero().getSkills().isFirstOpen()) {
+                    Battle.turns++;
+                    turn *= -1;
+                    player1.getHero().getSkills().firstUlt();
+                }
+                if (event.getCode() == KeyCode.W && player1.getHero().getSkills().isTwoOpen()) {
+                    Battle.turns++;
+                    turn *= -1;
+                    player1.getHero().getSkills().twoUlt();
+                }
+                if (event.getCode() == KeyCode.E && player1.getHero().getSkills().isThreeOpen()) {
+                    Battle.turns++;
+                    turn *= -1;
+                    player1.getHero().getSkills().threeUlt();
+                }
+            }
+            if (turn == -1) {
+                if (event.getCode() == KeyCode.NUMPAD1) {
+                    Battle.turns++;
+                    battle.damage(player1, player2);
+                }
+                if (event.getCode() == KeyCode.NUMPAD2) {
+                    try {
+                        Battle.turns++;
+                        battle.treatment(player1, player2);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                if (event.getCode() == KeyCode.NUMPAD4 && player2.getHero().getSkills().isFirstOpen()) {
+                    Battle.turns++;
+                    turn *= -1;
+                    player2.getHero().getSkills().firstUlt();
+                }
+                if (event.getCode() == KeyCode.NUMPAD5 && player2.getHero().getSkills().isTwoOpen()) {
+                    Battle.turns++;
+                    turn *= -1;
+                    player2.getHero().getSkills().twoUlt();
+                }
+                if (event.getCode() == KeyCode.NUMPAD6 && player2.getHero().getSkills().isThreeOpen()) {
+                    Battle.turns++;
+                    turn *= -1;
+                    player2.getHero().getSkills().threeUlt();
+                }
+            }
+        });
+
         Dam1.setFitHeight(300);
         Dam1.setFitWidth(600);
         Dam1.setLayoutX(1280 / 2 - 300);
@@ -167,7 +233,7 @@ public class WindowMatchMaking1 {
             closeHil2();
         });
 
-        root.getChildren().addAll(imageBattleGround, heroOne, Dam1, Hil1,
+        root.getChildren().addAll(button, imageBattleGround, heroOne, Dam1, Hil1,
                 player1.getHero().getSkills().getImageViewList()[0],
                 player1.getHero().getSkills().getImageViewList()[1],
                 player1.getHero().getSkills().getImageViewList()[2],

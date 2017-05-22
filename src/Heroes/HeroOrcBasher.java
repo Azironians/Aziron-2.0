@@ -26,7 +26,7 @@ public class HeroOrcBasher implements Hero {
     private Sound a1 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-1.wav"));
     private Sound a2 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-2.wav"));
     private Sound a3 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-3.wav"));
- //   private Sound a4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-4.wav"));
+    //   private Sound a4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-4.wav"));
     private Sound h1 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-1.wav"));
     private Sound h2 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-2.wav"));
     private Sound h3 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-3.wav"));

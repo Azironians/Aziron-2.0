@@ -1,56 +1,64 @@
 package controller;
 
-import Heroes.HeroDevourer;
-import Heroes.HeroLordVamp;
-import Heroes.HeroOrcBasher;
-import Main.Profile;
 import Main.Sound;
-import Match.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import static Main.AzironGame.soundFon;
-import static Main.BuildStage.azironStage;
-import static Main.BuildStage.profile1;
-import static Main.BuildStage.profile2;
+import static Main.BuildStage.*;
+import static controller.ControllerChoiceHero.battle;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
 
 public class ControllerTotalMatch implements Initializable {
-    @FXML Button btnPlayAgain;
-    @FXML Button btnBackToMenu;
+    @FXML
+    private Button btnPlayAgain;
+    @FXML
+    private Button btnBackToMenu;
     //Статистика:
-    @FXML Text textPlayer1Name;
-    @FXML Text  textPlayer2Name;
-    @FXML Text textPlayer1DealDamage;
-    @FXML Text textPlayer2DealDamage;
-    @FXML Text textPlayer1RestoreHitPoints;
-    @FXML Text textPlayer2RestoreHitPoints;
-    @FXML Text textPlayer1ReachedLevel;
-    @FXML Text textPlayer2ReachedLevel;
-    @FXML Text textPlayer1UsedSkills;
-    @FXML Text textPlayer2UsedSkills;
-    @FXML Text textPlayer1FavouriteBonus;
-    @FXML Text textPlayer2FavouriteBonus;
-    @FXML Text textPlayer1RemainingTime;
-    @FXML Text textPlayer2RemainingTime;
-    @FXML Text textPlayer1Result;
-    @FXML Text textPlayer2Result;
-
-
-
-
-
+    @FXML
+    private Text textPlayer1Name;
+    @FXML
+    private Text textPlayer2Name;
+    @FXML
+    private Text textPlayer1DealDamage;
+    @FXML
+    private Text textPlayer2DealDamage;
+    @FXML
+    private Text textPlayer1RestoreHitPoints;
+    @FXML
+    private Text textPlayer2RestoreHitPoints;
+    @FXML
+    private Text textPlayer1ReachedLevel;
+    @FXML
+    private Text textPlayer2ReachedLevel;
+    @FXML
+    private Text textPlayer1UsedSkills;
+    @FXML
+    private Text textPlayer2UsedSkills;
+    @FXML
+    private Text textPlayer1FavouriteBonus;
+    @FXML
+    private Text textPlayer2FavouriteBonus;
+    @FXML
+    private Text textPlayer1RemainingTime;
+    @FXML
+    private Text textPlayer2RemainingTime;
+    @FXML
+    private Text textPlayer1Result;
+    @FXML
+    private Text textPlayer2Result;
 
 
     @Override
@@ -70,7 +78,7 @@ public class ControllerTotalMatch implements Initializable {
         textPlayer1UsedSkills.setText(String.valueOf(player1.getUsedSkills()));
         textPlayer1FavouriteBonus.setText(String.valueOf(player1.getFavouriteBonus()));
         textPlayer1RemainingTime.setText(String.valueOf(player1.getRemainingTime()));
-        if (player1.isWinner()){
+        if (player1.isWinner()) {
             textPlayer1Result.setText("Победа");
         } else {
             textPlayer1Result.setText("Поражение");
@@ -84,13 +92,19 @@ public class ControllerTotalMatch implements Initializable {
         textPlayer2UsedSkills.setText(String.valueOf(player2.getUsedSkills()));
         textPlayer2FavouriteBonus.setText(String.valueOf(player2.getFavouriteBonus()));
         textPlayer2RemainingTime.setText(String.valueOf(player2.getRemainingTime()));
-        if (player2.isWinner()){
+        if (player2.isWinner()) {
             textPlayer2Result.setText("Победа");
         } else {
             textPlayer2Result.setText("Поражение");
         }
         //Коррекция статистики учетных записей профилей:
 
+
+        player1 = null;
+        player2 = null;
+        battle = null;
+        profile1 = null;
+        profile2 = null;
         btnPlayAgain.setOnMouseClicked(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
@@ -118,10 +132,7 @@ public class ControllerTotalMatch implements Initializable {
         });
 
 
-
     }
-
-
 
 
     //Изменяем ранг профию:
