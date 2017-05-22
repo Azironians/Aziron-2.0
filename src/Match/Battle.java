@@ -1,5 +1,7 @@
 package Match;
 
+import Heroes.HeroDevourer;
+import Heroes.HeroLordVamp;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -19,12 +21,14 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static InitializationGame.WindowMatchMaking1.launch;
 import static Main.BuildStage.*;
 import static Match.winnerScene.winInfoUpdate;
+import static controller.ControllerChoiceHero.battle;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
 
@@ -44,14 +48,15 @@ public class Battle {
     private int[] time2 = {480};
     private static ImageView fire = new ImageView(new Image("file:src\\Picture\\Triggers\\fire.gif"));
     private static ImageView icon = new ImageView(new Image("file:src\\Picture\\Triggers\\Icon.png"));
-
+    private TimerTask timerTask;
 
     private void winAnim() {
+        timerTask.cancel();
         ImageView imageView;
         Path path1;
         ImageView imageView2;
         Path path2;
-        if (turn==-1) {
+        if (turn == -1) {
             imageView = player1.getHero().getImage();
             path1 = new Path(new MoveTo(150, 140), new LineTo(730, 140));
             imageView2 = player2.getHero().getImage();
@@ -69,21 +74,21 @@ public class Battle {
         rotateTransition.setOnFinished((ActionEvent event) -> {
             player1.setReachedLevel((byte) player1.getHero().getLevelHero());
             player2.setReachedLevel((byte) player2.getHero().getLevelHero());
-            player1.setRemainingTime( time[0]);
-            player2.setRemainingTime( time2[0]);
+            player1.setRemainingTime(time[0]);
+            player2.setRemainingTime(time2[0]);
             if (player2.getHero().getHitPoints() > 0)
                 try {
                     winInfoUpdate(profile1, profile2, false);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             else try {
                 winInfoUpdate(profile1, profile2, true);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
+
                 Parent rootInit = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowTotalMatch.fxml"));
                 Scene sceneInit = new Scene(rootInit, 1280, 720);
                 azironStage.setScene(sceneInit);
@@ -116,12 +121,12 @@ public class Battle {
         // есть разница в скорости и качестве анимации!!!
         // именно по этому не стал делать это как общую функцию
         if (turn == -1) {
-          if (damage!=null)  player1.setDealDamage((int) (player1.getDealDamage() + damage));
-            if (hil!=null) player1.setRestoredHitPoints((int) (player1.getRestoredHitPoints() + hil));
+            if (damage != null) player1.setDealDamage((int) (player1.getDealDamage() + damage));
+            if (hil != null) player1.setRestoredHitPoints((int) (player1.getRestoredHitPoints() + hil));
             player1.setUsedSkills((byte) (player1.getUsedSkills() + 1));
         } else {
-            if (damage!=null)  player2.setDealDamage((int) (player2.getDealDamage() + damage));
-            if (hil!=null) player2.setRestoredHitPoints((int) (player2.getRestoredHitPoints() + hil));
+            if (damage != null) player2.setDealDamage((int) (player2.getDealDamage() + damage));
+            if (hil != null) player2.setRestoredHitPoints((int) (player2.getRestoredHitPoints() + hil));
             player2.setUsedSkills((byte) (player2.getUsedSkills() + 1));
         }
         if (indexUlt == 11) {
@@ -374,7 +379,7 @@ public class Battle {
         icon.setFitHeight(100);
         icon.setFitWidth(100);
         icon.setLayoutY(635);
-        icon.setLayoutX(640-50);
+        icon.setLayoutX(640 - 50);
 
         imageView1.setLayoutY(-10000);
         imageView2.setLayoutY(-10000);
@@ -419,12 +424,12 @@ public class Battle {
 
         Text name1 = new Text(547, 44, player1.getProfileName());
         name1.setFont(new Font("Times New Roman", 30));
-        name1.setTranslateX(-name1.getLayoutBounds().getWidth()/2);
+        name1.setTranslateX(-name1.getLayoutBounds().getWidth() / 2);
         name1.setFill(Color.LIGHTBLUE);
 
         Text name2 = new Text(721, 44, player2.getProfileName());
         name2.setFont(new Font("Times New Roman", 30));
-        name2.setTranslateX(-name2.getLayoutBounds().getWidth()/2);
+        name2.setTranslateX(-name2.getLayoutBounds().getWidth() / 2);
         name2.setFill(Color.RED);
 
         Text hitPoints1 = new Text(8, 104, player1.getHero().getHitPoints().intValue() + "/"
@@ -456,7 +461,7 @@ public class Battle {
         Text experience1 = new Text(77, 47, player1.getHero().getExperience().intValue() + "/" + player1.getHero().getExperienceList()[player1.getHero().getLevelHero()].intValue());
         experience1.setFont(new Font(30));
         experience1.setFill(Color.DARKBLUE);
-        Text experience2 = new Text(1030, 47, player2.getHero().getExperience().intValue() + "/"  + player2.getHero().getExperienceList()[player2.getHero().getLevelHero()].intValue());
+        Text experience2 = new Text(1030, 47, player2.getHero().getExperience().intValue() + "/" + player2.getHero().getExperienceList()[player2.getHero().getLevelHero()].intValue());
         experience2.setFont(new Font(30));
         experience2.setFill(Color.DARKBLUE);
 
@@ -485,15 +490,86 @@ public class Battle {
         azironStage.getScene().setCursor(imageCursor);
 
 
-        TimerTask timerTask = new TimerTask() {
+        timerTask = new TimerTask() {
             @Override
             public void run() {
+
                 if (turn == 1) {
                     timeline2.pause();
                     timeline.play();
                 } else {
                     timeline.pause();
                     timeline2.play();
+                }
+                if (turn == 1 && Objects.equals(player1.getProfileName(), "Computer")) {
+                    TranslateTransition transition2 = new TranslateTransition(Duration.millis(2000), new Rectangle(-10, -10, 1, 1));
+                    transition2.setByX(1);
+                    transition2.setCycleCount(1);
+                    transition2.setOnFinished(event1 -> {
+                        if (turn == 1 && Objects.equals(player1.getProfileName(), "Computer")) {
+                            Battle.turns++;
+
+                            if (player1.getHero().getClass() == HeroLordVamp.class) {
+                                if (player1.getHero().getSkills().isThreeOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().threeUlt();
+                                } else if (player1.getHero().getSkills().isFirstOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().firstUlt();
+                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+                                    try {
+                                        battle.treatment(player1, player2);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                } else if (player1.getHero().getSkills().isTwoOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().twoUlt();
+                                } else {
+                                    battle.damage(player1, player2);
+                                }
+                            } else if (player1.getHero().getClass() == HeroDevourer.class) {
+                                if (player1.getHero().getSkills().isThreeOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().threeUlt();
+                                } else if (player1.getHero().getSkills().isTwoOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().twoUlt();
+                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+                                    try {
+                                        battle.treatment(player1, player2);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                } else if (player1.getHero().getSkills().isFirstOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().firstUlt();
+                                } else {
+                                    battle.damage(player1, player2);
+                                }
+                            } else {
+                                if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+                                    try {
+                                        battle.treatment(player1, player2);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                } else if (player1.getHero().getSkills().isThreeOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().threeUlt();
+                                } else if (player1.getHero().getSkills().isTwoOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().twoUlt();
+                                } else if (player1.getHero().getSkills().isFirstOpen()) {
+                                    turn *= -1;
+                                    player1.getHero().getSkills().firstUlt();
+                                } else {
+                                    battle.damage(player1, player2);
+                                }
+                            }
+                        }
+                    });
+                    transition2.play();
                 }
                 hitPoints1.setText(player1.getHero().getHitPoints().intValue() + "/"
                         + player1.getHero().getSupplyHealth().intValue());
