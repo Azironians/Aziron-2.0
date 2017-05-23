@@ -21,19 +21,20 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import javax.swing.*;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
-import static Main.BuildStage.azironStage;
-import static Main.BuildStage.profile1;
-import static Main.BuildStage.profileController;
+import static Main.BuildStage.*;
 
 public class ControllerMenu implements Initializable {
+    public static Boolean gameWithPC = false;
     @FXML
     private ImageView windowMenu;
     @FXML
@@ -148,16 +149,33 @@ public class ControllerMenu implements Initializable {
             });
             testII.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.INSERT) {
+                    gameWithPC=true;
                     paneButtons.setVisible(true);
                     paneButtons.setDisable(false);
                     panelLocMch.setVisible(false);
                     panelLocMch.setDisable(true);
                     profileController = (byte) 2;
-                    profile1 = new Profile("Computer", (byte) 1, 10, 0, 0, 0, 0, 0);
+                    String[] namePCList = new File("src\\Profiles").list();
+                    assert namePCList != null;
+                    int indexList = (int) (Math.random() * namePCList.length);
+                    String namePC = namePCList[indexList]
+                            .substring(0, namePCList[indexList].length() - 4);
+                    profile1 = new Profile(namePC);
+                    BufferedReader bufferedReader = null;
+                    try {
+                        bufferedReader = new BufferedReader(new FileReader(new File("src\\Profiles\\" + profile1.getName() + ".hoa")));
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    List<String> lines = bufferedReader.lines().collect(Collectors.toList());
+                    String[] parts = lines.get(2).split("/");
+                    profile1 = new Profile(lines.get(0), Byte.parseByte(parts[0]), Integer.parseInt(parts[1]),
+                            Integer.parseInt(lines.get(3)), Integer.parseInt(lines.get(4)), Integer.parseInt(lines.get(5)),
+                            Integer.parseInt(lines.get(6)), Integer.parseInt(lines.get(7)));
                     double variant = Math.random() * 90;
-                    if (variant > 60) profile1.setPlayer(new Player("Computer", new HeroOrcBasher(true)));
-                    else if (variant > 30) profile1.setPlayer(new Player("Computer", new HeroLordVamp(true)));
-                    else profile1.setPlayer(new Player("Computer", new HeroDevourer(true)));
+                    if (variant > 60) profile1.setPlayer(new Player(namePC, new HeroOrcBasher(true)));
+                    else if (variant > 30) profile1.setPlayer(new Player(namePC, new HeroLordVamp(true)));
+                    else profile1.setPlayer(new Player(namePC, new HeroDevourer(true)));
                     azironStage.setScene(sceneAutorize);
                     Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
                     ImageCursor imageCursor = new ImageCursor(cursor);

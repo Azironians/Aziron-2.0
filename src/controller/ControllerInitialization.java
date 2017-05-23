@@ -9,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 
@@ -29,7 +28,7 @@ public class ControllerInitialization implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        TranslateTransition transition = new TranslateTransition(Duration.millis(9500), new Rectangle(-10, -10, 1, 1));
+        TranslateTransition transition = new TranslateTransition(Duration.millis(9250), new Rectangle(-10, -10, 1, 1));
         transition.setByX(2);
         transition.setCycleCount(1);
         transition.setOnFinished(event -> {

@@ -70,6 +70,20 @@ public class ControllerAutorization implements Initializable {
     @FXML
     private Text time;
 
+    private void exitToMenu(){
+        try {
+
+            azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowMenu.fxml")), 1280, 720));
+            Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+            ImageCursor imageCursor = new ImageCursor(cursor);
+            azironStage.getScene().setCursor(imageCursor);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        profileController = 0;
+        azironStage.show();
+    }
+
     private void avtoriz() {
 
 
@@ -163,19 +177,7 @@ public class ControllerAutorization implements Initializable {
             buttonOffBackToMenu.setVisible(false);
             buttonOnBackToMenu.setVisible(true);
         });
-        buttonOnBackToMenu.setOnMouseClicked(event -> {
-            try {
-
-                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowMenu.fxml")), 1280, 720));
-                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                ImageCursor imageCursor = new ImageCursor(cursor);
-                azironStage.getScene().setCursor(imageCursor);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            profileController = 0;
-            azironStage.show();
-        });
+        buttonOnBackToMenu.setOnMouseClicked(event -> exitToMenu());
         //Кнопка "Регистрация"
         buttonSignUp.setOnMouseClicked(event -> {
             paneSignIn.setVisible(false);
@@ -189,10 +191,14 @@ public class ControllerAutorization implements Initializable {
         textFieldSignIn.setOnKeyPressed(event -> {
             if (event.getCode() == (KeyCode.ENTER))
                 avtoriz();
+            if (event.getCode() == (KeyCode.ESCAPE))
+                exitToMenu();
         });
         passwordFieldSignIn.setOnKeyPressed(event -> {
             if (event.getCode() == (KeyCode.ENTER))
                 avtoriz();
+            if (event.getCode() == (KeyCode.ESCAPE))
+                exitToMenu();
         });
         buttonSignIn.setOnMouseClicked(event -> avtoriz()
         );

@@ -20,7 +20,7 @@ public class Profile {
     private Integer winForOrcBacher;
     private Player player;
 
-    Profile(String name) {
+    public Profile(String name) {
         this.name = name;
     }
 

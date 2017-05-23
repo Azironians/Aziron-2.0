@@ -31,6 +31,7 @@ import static Match.winnerScene.winInfoUpdate;
 import static controller.ControllerChoiceHero.battle;
 import static controller.ControllerChoiceHero.player1;
 import static controller.ControllerChoiceHero.player2;
+import static controller.ControllerMenu.gameWithPC;
 
 
 public class Battle {
@@ -56,7 +57,7 @@ public class Battle {
         Path path1;
         ImageView imageView2;
         Path path2;
-        if (turn == -1) {
+        if (turn == -1 && player2.getHero().getHitPoints()<0) {
             imageView = player1.getHero().getImage();
             path1 = new Path(new MoveTo(150, 140), new LineTo(730, 140));
             imageView2 = player2.getHero().getImage();
@@ -75,8 +76,10 @@ public class Battle {
             player1.setReachedLevel((byte) player1.getHero().getLevelHero());
             player2.setReachedLevel((byte) player2.getHero().getLevelHero());
             player1.setRemainingTime(time[0]);
+
+
             player2.setRemainingTime(time2[0]);
-            if (player2.getHero().getHitPoints() > 0)
+            if (player1.getHero().getHitPoints() < 0 && turn == -1)
                 try {
                     winInfoUpdate(profile1, profile2, false);
                 } catch (IOException e) {
@@ -501,12 +504,12 @@ public class Battle {
                     timeline.pause();
                     timeline2.play();
                 }
-                if (turn == 1 && Objects.equals(player1.getProfileName(), "Computer")) {
+                if (turn == 1 && gameWithPC) {
                     TranslateTransition transition2 = new TranslateTransition(Duration.millis(2000), new Rectangle(-10, -10, 1, 1));
                     transition2.setByX(1);
                     transition2.setCycleCount(1);
                     transition2.setOnFinished(event1 -> {
-                        if (turn == 1 && Objects.equals(player1.getProfileName(), "Computer")) {
+                        if (turn == 1 && gameWithPC) {
                             Battle.turns++;
 
                             if (player1.getHero().getClass() == HeroLordVamp.class) {
@@ -516,7 +519,7 @@ public class Battle {
                                 } else if (player1.getHero().getSkills().isFirstOpen()) {
                                     turn *= -1;
                                     player1.getHero().getSkills().firstUlt();
-                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 0.5) {
                                     try {
                                         battle.treatment(player1, player2);
                                     } catch (InterruptedException e) {
@@ -535,7 +538,7 @@ public class Battle {
                                 } else if (player1.getHero().getSkills().isTwoOpen()) {
                                     turn *= -1;
                                     player1.getHero().getSkills().twoUlt();
-                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
+                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 1) {
                                     try {
                                         battle.treatment(player1, player2);
                                     } catch (InterruptedException e) {

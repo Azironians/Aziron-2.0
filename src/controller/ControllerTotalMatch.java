@@ -105,6 +105,7 @@ public class ControllerTotalMatch implements Initializable {
         battle = null;
         profile1 = null;
         profile2 = null;
+        profileController = 0;
         btnPlayAgain.setOnMouseClicked(event -> {
             try {
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
