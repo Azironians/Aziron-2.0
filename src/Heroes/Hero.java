@@ -4,8 +4,6 @@ import Match.Player;
 import Skills.Skill;
 import javafx.scene.image.ImageView;
 
-import java.util.List;
-
 public interface Hero {
 
     void setPlayer(Player player);

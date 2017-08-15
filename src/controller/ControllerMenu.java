@@ -1,8 +1,10 @@
 package controller;
 
+import AzironBots.ControllerBot;
 import Heroes.HeroDevourer;
 import Heroes.HeroLordVamp;
 import Heroes.HeroOrcBasher;
+import Main.AzironGame;
 import Main.Profile;
 import Match.Player;
 import javafx.animation.FadeTransition;
@@ -19,7 +21,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-
 import javax.swing.*;
 import java.io.*;
 import java.net.URL;
@@ -34,7 +35,6 @@ import java.util.stream.Collectors;
 import static Main.BuildStage.*;
 
 public class ControllerMenu implements Initializable {
-    public static Boolean gameWithPC = false;
     @FXML
     private ImageView windowMenu;
     @FXML
@@ -56,6 +56,10 @@ public class ControllerMenu implements Initializable {
     @FXML
     private ImageView buttonOnBack;
     @FXML
+    private ImageView buttonOffVersusComputer;
+    @FXML
+    private ImageView buttonOnVersusComputer;
+    @FXML
     private Pane panelLocMch;
     @FXML
     private Pane paneButtons;
@@ -64,8 +68,7 @@ public class ControllerMenu implements Initializable {
     @FXML
     private Text time;
     @FXML
-    private Button testII;
-
+    private Button buttonVersusComputerKey;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -127,6 +130,8 @@ public class ControllerMenu implements Initializable {
                 buttonOffBack.setVisible(true);
                 buttonOnGameTwo.setVisible(false);
                 buttonOffGameTwo.setVisible(true);
+                buttonOnVersusComputer.setVisible(false);
+                buttonOffVersusComputer.setVisible(true);
             });
 
             //5. Кнопка "Назад":
@@ -147,43 +152,6 @@ public class ControllerMenu implements Initializable {
                 buttonOffGameTwo.setVisible(false);
                 buttonOnGameTwo.setVisible(true);
             });
-            testII.setOnKeyPressed(event -> {
-                if (event.getCode() == KeyCode.INSERT) {
-                    gameWithPC=true;
-                    paneButtons.setVisible(true);
-                    paneButtons.setDisable(false);
-                    panelLocMch.setVisible(false);
-                    panelLocMch.setDisable(true);
-                    profileController = (byte) 2;
-                    String[] namePCList = new File("src\\Profiles").list();
-                    assert namePCList != null;
-                    int indexList = (int) (Math.random() * namePCList.length);
-                    String namePC = namePCList[indexList]
-                            .substring(0, namePCList[indexList].length() - 4);
-                    profile1 = new Profile(namePC);
-                    BufferedReader bufferedReader = null;
-                    try {
-                        bufferedReader = new BufferedReader(new FileReader(new File("src\\Profiles\\" + profile1.getName() + ".hoa")));
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-                    String[] parts = lines.get(2).split("/");
-                    profile1 = new Profile(lines.get(0), Byte.parseByte(parts[0]), Integer.parseInt(parts[1]),
-                            Integer.parseInt(lines.get(3)), Integer.parseInt(lines.get(4)), Integer.parseInt(lines.get(5)),
-                            Integer.parseInt(lines.get(6)), Integer.parseInt(lines.get(7)));
-                    double variant = Math.random() * 90;
-                    if (variant > 60) profile1.setPlayer(new Player(namePC, new HeroOrcBasher(true)));
-                    else if (variant > 30) profile1.setPlayer(new Player(namePC, new HeroLordVamp(true)));
-                    else profile1.setPlayer(new Player(namePC, new HeroDevourer(true)));
-                    azironStage.setScene(sceneAutorize);
-                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                    ImageCursor imageCursor = new ImageCursor(cursor);
-                    azironStage.getScene().setCursor(imageCursor);
-
-                    azironStage.show();
-                }
-            });
             buttonOnGameTwo.setOnMouseClicked(event -> {
                 paneButtons.setVisible(true);
                 paneButtons.setDisable(false);
@@ -197,6 +165,26 @@ public class ControllerMenu implements Initializable {
 
                 azironStage.show();
             });
+
+            //7. Кнопка "Против ИИ"
+            buttonOffVersusComputer.setOnMouseMoved(event -> {
+                buttonOffVersusComputer.setVisible(false);
+                buttonOnVersusComputer.setVisible(true);
+            });
+
+
+            buttonOnVersusComputer.setOnMouseClicked(event -> {
+                    AzironGame.getControllerBot().setGameWithPC(true);
+                    paneButtons.setVisible(true);
+                    paneButtons.setDisable(false);
+                    panelLocMch.setVisible(false);
+                    panelLocMch.setDisable(true);
+                    profileController = (byte) 2;
+                    AzironGame.getControllerBot().installGameWithBot();
+                    azironStage.setScene(sceneAutorize);
+                    azironStage.show();
+            });
+
         } catch (IOException e) {
             e.printStackTrace();
         }

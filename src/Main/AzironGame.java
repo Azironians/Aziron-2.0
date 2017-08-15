@@ -1,5 +1,6 @@
 package Main;
 
+import AzironBots.ControllerBot;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +15,10 @@ import static Main.BuildStage.azironStage;
 
 
 public class AzironGame extends Application {
+    static ControllerBot controllerBot = new ControllerBot();
     public static Sound soundFon = new Sound(new File("src\\Sounds\\menu.wav"));
+
+
 
     @Override
     public void start(Stage virtualStage) throws Exception {
@@ -37,4 +41,8 @@ public class AzironGame extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+    public static ControllerBot getControllerBot() {
+        return controllerBot;
+    }
+
 }

@@ -86,7 +86,6 @@ public class ControllerAutorization implements Initializable {
 
     private void avtoriz() {
 
-
         try {
             System.out.println("profile: " + profile.getName());
             System.out.println("поле: " + textFieldSignIn.getText());

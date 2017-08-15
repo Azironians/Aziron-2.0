@@ -13,7 +13,7 @@
             <Image url="@../Picture/Windows/WindowMenu.jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="panelLocMch" disable="true" layoutX="300.0" layoutY="210.0" prefHeight="360.0" prefWidth="730.0" visible="false">
+      <Pane fx:id="panelLocMch" disable="true" layoutX="300.0" layoutY="210.0" prefHeight="360.0" prefWidth="668.0" visible="false">
          <children>
             <ImageView fx:id="panel" fitHeight="360.0" fitWidth="730.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -43,6 +43,16 @@
             <ImageView fx:id="buttonOnBack" fitHeight="50.0" fitWidth="80.0" layoutX="605.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../Picture/Buttons/ButtonExitOnWindowLocMatchOnTwo.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOffVersusComputer" fitHeight="47.0" fitWidth="200.0" layoutX="42.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonOffWindowLocMatchVersusComputer.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="buttonOnVersusComputer" fitHeight="47.0" fitWidth="200.0" layoutX="42.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../Picture/Buttons/ButtonOnWindowLocMatchVersusComputer.png" />
                </image>
             </ImageView>
          </children></Pane>
@@ -77,12 +87,12 @@
                   <Image url="@../Picture/Triggers/PaneMessage.png" />
                </image>
             </ImageView>
-            <Text fill="#74efff" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Обновление 1.0.0.0.0.0.1" textAlignment="CENTER" wrappingWidth="382.0">
+            <Text fill="#74efff" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Обновление 1.0.0.0.0.0.2" textAlignment="CENTER" wrappingWidth="382.0">
                <font>
                   <Font size="27.0" />
                </font>
             </Text>
-            <Text fill="#74efff" layoutX="17.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.) Добавлен контроллер статистики;" wrappingWidth="367.0">
+            <Text fill="#74efff" layoutX="17.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1.) Режим против ИИ;" wrappingWidth="367.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -92,7 +102,7 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <Text fill="#74efff" layoutX="17.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.) Лечение оглушителя теперь 190;" wrappingWidth="367.0">
+            <Text fill="#74efff" layoutX="17.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3.) Лечение оглушителя теперь 150;" wrappingWidth="367.0">
                <font>
                   <Font size="19.0" />
                </font>
@@ -129,6 +139,6 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="testII" layoutX="113.0" layoutY="-54.0" mnemonicParsing="false" text="TestII" />
+      <Button fx:id="buttonVersusComputerKey" layoutX="113.0" layoutY="-54.0" mnemonicParsing="false" text="TestII" />
    </children>
 </AnchorPane>

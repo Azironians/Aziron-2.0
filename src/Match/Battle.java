@@ -1,7 +1,6 @@
 package Match;
 
-import Heroes.HeroDevourer;
-import Heroes.HeroLordVamp;
+import Main.AzironGame;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -21,22 +20,16 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.IOException;
-import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import static InitializationGame.WindowMatchMaking1.launch;
 import static Main.BuildStage.*;
 import static Match.winnerScene.winInfoUpdate;
-import static controller.ControllerChoiceHero.battle;
-import static controller.ControllerChoiceHero.player1;
-import static controller.ControllerChoiceHero.player2;
-import static controller.ControllerMenu.gameWithPC;
+import static controller.ControllerChoiceHero.*;
 
 
 public class Battle {
-    public Battle() {
-    }
+    public Battle() {}
 
     public static int turn = 0;
     public static int turns = 0;
@@ -476,9 +469,13 @@ public class Battle {
         health.setFitWidth(300);
         health.setFitHeight(300);
 
-        if (Math.random() < 0.5)
+        if (Math.random() < 0.5) {
             turn = 1;
-        else turn = -1;
+            player2.getHero().setExperience(player2.getHero().getAttack());
+        } else {
+            turn = -1;
+            player1.getHero().setExperience(player1.getHero().getAttack());
+        }
 
 
         Pane pane = new Pane();
@@ -504,76 +501,20 @@ public class Battle {
                     timeline.pause();
                     timeline2.play();
                 }
-                if (turn == 1 && gameWithPC) {
+                if (turn == 1 && AzironGame.getControllerBot().getGameWithPC()) {
                     TranslateTransition transition2 = new TranslateTransition(Duration.millis(2000), new Rectangle(-10, -10, 1, 1));
                     transition2.setByX(1);
                     transition2.setCycleCount(1);
                     transition2.setOnFinished(event1 -> {
-                        if (turn == 1 && gameWithPC) {
+                        if (turn == 1 && AzironGame.getControllerBot().getGameWithPC()) {
                             Battle.turns++;
-
-                            if (player1.getHero().getClass() == HeroLordVamp.class) {
-                                if (player1.getHero().getSkills().isThreeOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().threeUlt();
-                                } else if (player1.getHero().getSkills().isFirstOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().firstUlt();
-                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 0.5) {
-                                    try {
-                                        battle.treatment(player1, player2);
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-                                } else if (player1.getHero().getSkills().isTwoOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().twoUlt();
-                                } else {
-                                    battle.damage(player1, player2);
-                                }
-                            } else if (player1.getHero().getClass() == HeroDevourer.class) {
-                                if (player1.getHero().getSkills().isThreeOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().threeUlt();
-                                } else if (player1.getHero().getSkills().isTwoOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().twoUlt();
-                                } else if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 1) {
-                                    try {
-                                        battle.treatment(player1, player2);
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-                                } else if (player1.getHero().getSkills().isFirstOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().firstUlt();
-                                } else {
-                                    battle.damage(player1, player2);
-                                }
-                            } else {
-                                if (player1.getHero().getHitPoints() < player2.getHero().getAttack() * 2.5) {
-                                    try {
-                                        battle.treatment(player1, player2);
-                                    } catch (InterruptedException e) {
-                                        e.printStackTrace();
-                                    }
-                                } else if (player1.getHero().getSkills().isThreeOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().threeUlt();
-                                } else if (player1.getHero().getSkills().isTwoOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().twoUlt();
-                                } else if (player1.getHero().getSkills().isFirstOpen()) {
-                                    turn *= -1;
-                                    player1.getHero().getSkills().firstUlt();
-                                } else {
-                                    battle.damage(player1, player2);
-                                }
-                            }
+                            //Запуск бота первого уровня
+                            AzironGame.getControllerBot().playingEasyBot();
                         }
                     });
                     transition2.play();
                 }
+
                 hitPoints1.setText(player1.getHero().getHitPoints().intValue() + "/"
                         + player1.getHero().getSupplyHealth().intValue());
                 hitPoints2.setText(player2.getHero().getHitPoints().intValue() + "/"
