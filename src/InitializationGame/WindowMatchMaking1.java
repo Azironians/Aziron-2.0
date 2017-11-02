@@ -83,7 +83,6 @@ public class WindowMatchMaking1 {
         Button button = new Button();
         button.setLayoutX(-1000);
         button.setOnKeyPressed(event -> {
-
             if (turn == 1) {
                 if (event.getCode() == KeyCode.DIGIT1) {
                     Battle.turns++;

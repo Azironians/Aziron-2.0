@@ -1,5 +1,6 @@
 package controller;
 
+import Main.Clock;
 import Main.Profile;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -72,7 +73,6 @@ public class ControllerAutorization implements Initializable {
 
     private void exitToMenu(){
         try {
-
             azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowMenu.fxml")), 1280, 720));
             Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
             ImageCursor imageCursor = new ImageCursor(cursor);
@@ -85,33 +85,25 @@ public class ControllerAutorization implements Initializable {
     }
 
     private void avtoriz() {
-
         try {
-            System.out.println("profile: " + profile.getName());
-            System.out.println("поле: " + textFieldSignIn.getText());
             if ((textFieldSignIn.getText()).equals(profile.getName())) {
                 throw new IllegalCallerException("Такой пользователь уже авторизован");
             }
-            System.out.println(textFieldSignIn.getText() + ".hoa");
             BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src\\Profiles\\" + textFieldSignIn.getText() + ".hoa")));
             List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-            if (lines.size() < 8) {
+            if (lines.size() != 8) {
                 throw new IllegalArgumentException();
             }
-            System.out.println("size");
             if (!textFieldSignIn.getText().equals(lines.get(0))) {
                 throw new IllegalArgumentException();
             }
-            System.out.println("login");
             if (!passwordFieldSignIn.getText().equals(lines.get(1))) {
                 throw new IllegalArgumentException();
             }
-            System.out.println(passwordFieldSignIn.getText());
             String[] parts = lines.get(2).split("/");
             if (Byte.parseByte(parts[0]) > 20 || Byte.parseByte(parts[0]) < 1 || Integer.parseInt(parts[1]) < 0 || Integer.parseInt(parts[1]) > 5000) {
                 throw new IllegalArgumentException();
             }
-            System.out.println("rank");
 
             if (Integer.parseInt(lines.get(3)) < 0 || Integer.parseInt(lines.get(4)) < 0 ||
                     Integer.parseInt(lines.get(5)) < 0 || Integer.parseInt(lines.get(6)) < 0 ||
@@ -119,7 +111,6 @@ public class ControllerAutorization implements Initializable {
                     Integer.parseInt(lines.get(3)) != Integer.parseInt(lines.get(5)) + Integer.parseInt(lines.get(6)) + Integer.parseInt(lines.get(7))) {
                 throw new IllegalArgumentException();
             }
-            System.out.println("wins");
             profile = new Profile(lines.get(0), Byte.parseByte(parts[0]), Integer.parseInt(parts[1]),
                     Integer.parseInt(lines.get(3)), Integer.parseInt(lines.get(4)), Integer.parseInt(lines.get(5)),
                     Integer.parseInt(lines.get(6)), Integer.parseInt(lines.get(7)));
@@ -154,17 +145,7 @@ public class ControllerAutorization implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Timer ClockTimer = new Timer(500, e -> {
-            Date d = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.dd.MM");
-            Text text = new Text();
-            text.setText(sdf.format(d));
-            DateFormat df = new SimpleDateFormat("HH:mm");
-            Date times = Calendar.getInstance().getTime();
-            String reportDate = df.format(times);
-            time.setText(reportDate); // FXML Text не позволяет сделать класс Clock static
-        });
-        ClockTimer.start();
+        Clock.launchTimer(time).start();
 
         //1. Фон:
         panelSignIn.setOnMouseEntered(event -> {
@@ -215,11 +196,9 @@ public class ControllerAutorization implements Initializable {
                 if (!passwordFieldNewPassword.getText().equals(passwordFieldNewPasswordRepeat.getText())) {
                     throw new IllegalArgumentException("Пароль пользователя не совпадает с текущим");
                 }
-                System.out.println("Password+");
                 if (new File("src\\Profiles\\" + textFieldNewName.getText() + ".hoa").canRead()) {
                     throw new IllegalArgumentException("Такой профиль уже существует");
                 }
-                System.out.println("Профиль+");
                 File newProfile = new File("src\\Profiles\\" + textFieldNewName.getText() + ".hoa");
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(newProfile));
                 List<String> profileList = Arrays.asList(
@@ -239,8 +218,6 @@ public class ControllerAutorization implements Initializable {
                     if (i < profileList.size()) bufferedWriter.newLine();
                 }
                 bufferedWriter.close();
-
-                System.out.println("Готово+");
 
                 paneSignUp.setVisible(false);
                 luckSignUp.setVisible(true);

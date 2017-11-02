@@ -1,5 +1,6 @@
 package controller;
 
+import Main.Clock;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -83,17 +84,7 @@ public class ControllerProfile implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Инициализация окна:
-        Timer ClockTimer = new Timer(500, e -> {
-            Date d = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.dd.MM");
-            Text text = new Text();
-            text.setText(sdf.format(d));
-            DateFormat df = new SimpleDateFormat("HH:mm");
-            Date times = Calendar.getInstance().getTime();
-            String reportDate = df.format(times);
-            time.setText(reportDate); // FXML Text не позволяет сделать класс Clock static
-        });
-        ClockTimer.start();
+        Clock.launchTimer(time).start();
         textPlayer.setText("Игрок " + profileController);
         textProfileName.setText(profile.getName());
         List<Integer> listWinsOfHeroes = Arrays.asList(

@@ -21,6 +21,7 @@ public class SkillsDev implements Skill {
     private boolean firstOpen = false;
     private boolean twoOpen = false;
     private boolean threeOpen = false;
+
     private ImageView[] imageViewsText = {
             new ImageView(new Image("file:src\\Picture\\Skills\\11.png")),
             new ImageView(new Image("file:src\\Picture\\Skills\\12.png")),

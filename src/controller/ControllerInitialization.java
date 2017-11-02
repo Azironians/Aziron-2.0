@@ -34,7 +34,7 @@ public class ControllerInitialization implements Initializable {
         transition.setOnFinished(event -> {
             Aziron.setVisible(true);
             background.setVisible(false);
-            TranslateTransition transition2 = new TranslateTransition(Duration.millis(500), new Rectangle(-10, -10, 1, 1));
+            TranslateTransition       transition2 = new TranslateTransition(Duration.millis(500), new Rectangle(-10, -10, 1, 1));
             transition2.setByX(2);
             transition2.setCycleCount(1);
             transition2.setOnFinished(event2 -> {

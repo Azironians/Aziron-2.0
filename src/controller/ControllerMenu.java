@@ -1,10 +1,7 @@
 package controller;
 
-import AzironBots.ControllerBot;
-import Heroes.HeroDevourer;
-import Heroes.HeroLordVamp;
-import Heroes.HeroOrcBasher;
 import Main.AzironGame;
+import Main.Clock;
 import Main.Profile;
 import Match.Player;
 import javafx.animation.FadeTransition;
@@ -72,18 +69,7 @@ public class ControllerMenu implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        Timer ClockTimer = new Timer(500, e -> {
-            Date d = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy.dd.MM");
-            Text text = new Text();
-            text.setText(sdf.format(d));
-            DateFormat df = new SimpleDateFormat("HH:mm");
-            Date times = Calendar.getInstance().getTime();
-            String reportDate = df.format(times);
-            time.setText(reportDate); // FXML Text не позволяет сделать класс Clock static
-        });
-        ClockTimer.start();
+        Clock.launchTimer(time).start();
 
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(4000), paneMessage);
         fadeTransition.setToValue(1);
@@ -118,7 +104,6 @@ public class ControllerMenu implements Initializable {
             buttonOffExitProgramm.setOnMouseMoved(event -> {
                 buttonOffExitProgramm.setVisible(false);
                 buttonOnExitProgramm.setVisible(true);
-
                 buttonOnLocMch.setVisible(false);
                 buttonOffLocMch.setVisible(true);
             });
@@ -172,7 +157,6 @@ public class ControllerMenu implements Initializable {
                 buttonOnVersusComputer.setVisible(true);
             });
 
-
             buttonOnVersusComputer.setOnMouseClicked(event -> {
                     AzironGame.getControllerBot().setGameWithPC(true);
                     paneButtons.setVisible(true);
@@ -184,7 +168,6 @@ public class ControllerMenu implements Initializable {
                     azironStage.setScene(sceneAutorize);
                     azironStage.show();
             });
-
         } catch (IOException e) {
             e.printStackTrace();
         }

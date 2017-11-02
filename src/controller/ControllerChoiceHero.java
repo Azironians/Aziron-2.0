@@ -77,7 +77,7 @@ public class ControllerChoiceHero implements Initializable {
 
     private void ok() {
         if (profileController == 1) {
-            azironStage.show();
+
             if (currentBackground.getImage().equals(spotLightDev.getImage())) {
                 profile.setPlayer(new Player(profile.getName(), new HeroDevourer(true)));
             }
@@ -98,7 +98,7 @@ public class ControllerChoiceHero implements Initializable {
                     Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
                     ImageCursor imageCursor = new ImageCursor(cursor);
                     azironStage.getScene().setCursor(imageCursor);
-
+                    azironStage.show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
