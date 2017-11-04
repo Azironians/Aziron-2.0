@@ -109,7 +109,7 @@ public class ControllerMenu implements Initializable {
             });
             buttonOnExitProgramm.setOnMouseClicked(event -> System.exit(1));
 
-            //Test. Панель:
+            //4. Панель:
             panel.setOnMouseMoved(event -> {
                 buttonOnBack.setVisible(false);
                 buttonOffBack.setVisible(true);

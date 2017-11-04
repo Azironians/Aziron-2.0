@@ -27,11 +27,11 @@ public class HeroDevourer implements Hero {
     private Sound a1 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevAttack-1.wav"));
     private Sound a2 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevAttack-2.wav"));
     private Sound a3 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevAttack-3.wav"));
-    private Sound a4 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevAttack-Test.wav"));
+    private Sound a4 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevAttack-4.wav"));
     private Sound h1 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevTreatment-1.wav"));
     private Sound h2 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevTreatment-2.wav"));
     private Sound h3 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevTreatment-3.wav"));
-    private Sound h4 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevTreatment-Test.wav"));
+    private Sound h4 = new Sound(new File("src\\Sounds\\SoundDevourer\\DevTreatment-4.wav"));
 
     public HeroDevourer(Boolean location) {
         this.location = location;
@@ -57,7 +57,7 @@ public class HeroDevourer implements Hero {
             case 3:
                 a3.play();
                 break;
-            case Test:
+            case 4:
                 a4.play();
                 break;
             default:
@@ -79,7 +79,7 @@ public class HeroDevourer implements Hero {
             case 3:
                 h3.play();
                 break;
-            case Test:
+            case 4:
                 h4.play();
                 break;
             default:
