@@ -1,6 +1,6 @@
 package Match;
 
-import Bonus.Bonus;
+import BonusDirectory.Bonus;
 import Heroes.Hero;
 
 public class Player {

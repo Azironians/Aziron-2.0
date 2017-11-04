@@ -1,11 +1,13 @@
 package Main;
 
+import BonusDirectory.Bonus;
 import Heroes.HeroDevourer;
 import Heroes.HeroLordVamp;
 import Heroes.HeroOrcBasher;
 import Match.Player;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +21,7 @@ public class Profile {
     private Integer winForLV;
     private Integer winForOrcBacher;
     private Player player;
+    private List<Bonus> collection = new ArrayList<>();
 
     public Profile(String name) {
         this.name = name;

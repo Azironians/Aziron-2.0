@@ -199,7 +199,9 @@ public class ControllerAutorization implements Initializable {
                 if (new File("src\\Profiles\\" + textFieldNewName.getText() + ".hoa").canRead()) {
                     throw new IllegalArgumentException("Такой профиль уже существует");
                 }
-                File newProfile = new File("src\\Profiles\\" + textFieldNewName.getText() + ".hoa");
+                File newDirectory = new File("src\\Profiles\\" + textFieldNewName.getText());
+                newDirectory.mkdirs();
+                File newProfile = new File("src\\Profiles\\" + textFieldNewName.getText() + "\\" + textFieldNewName.getText() + ".hoa");
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(newProfile));
                 List<String> profileList = Arrays.asList(
                         textFieldNewName.getText(),

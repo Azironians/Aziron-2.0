@@ -26,11 +26,11 @@ public class HeroOrcBasher implements Hero {
     private Sound a1 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-1.wav"));
     private Sound a2 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-2.wav"));
     private Sound a3 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-3.wav"));
-    //   private Sound a4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-4.wav"));
+    //   private Sound a4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrAttack-Test.wav"));
     private Sound h1 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-1.wav"));
     private Sound h2 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-2.wav"));
     private Sound h3 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-3.wav"));
-    private Sound h4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-4.wav"));
+    private Sound h4 = new Sound(new File("src\\Sounds\\SoundOrcBasher\\BhrTreatment-Test.wav"));
 
     public HeroOrcBasher(Boolean location) {
         this.location = location;
@@ -56,7 +56,7 @@ public class HeroOrcBasher implements Hero {
             case 3:
                 a3.play();
                 break;
-//            case 4:
+//            case Test:
 //                a4.play();
 //                break;
             default:
@@ -78,7 +78,7 @@ public class HeroOrcBasher implements Hero {
             case 3:
                 h3.play();
                 break;
-            case 4:
+            case Test:
                 h4.play();
                 break;
             default:

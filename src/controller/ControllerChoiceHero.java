@@ -118,7 +118,6 @@ public class ControllerChoiceHero implements Initializable {
             }
             profile2 = profile;
 
-
             btnOffLeft.setVisible(false);
             btnOnLeft.setVisible(false);
             btnOnRight.setVisible(false);
