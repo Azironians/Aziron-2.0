@@ -1,16 +1,15 @@
 package BonusDirectory;
 
+import Heroes.Hero;
+import Main.Profile;
 import org.jetbrains.annotations.Contract;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BonusCollectionReader {
+public class BonusCollectionReaderWriter {
     BonusCollection bonusCollection = new BonusCollection();
     int classicBonuses = 16; //верхние границы
     int devourer = 64;
@@ -23,7 +22,7 @@ public class BonusCollectionReader {
     }
 
 
-    public List<List<Bonus>> parseBonusCollection(File collectionOfBonus) throws FileNotFoundException {
+    public List<List<Bonus>> parseBonusesCollection(File collectionOfBonus) throws FileNotFoundException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(collectionOfBonus));
         List<String> listOfInputCollection = bufferedReader.lines().collect(Collectors.toList());
         switch (collectionOfBonus.getName()) {
@@ -57,6 +56,27 @@ public class BonusCollectionReader {
             outputList.add(currentOutputList);
         }
         return outputList;
+    }
+
+    public void reWriteBonusesCollection(List<List<Bonus>> listOfCollections , List<Bonus> inputListOfCollection , Hero hero, String profileName, int numberOfCollection) throws IOException {
+        String nameOfHeroCollection = "";
+        switch (hero.getClass().toString()) {
+            case "HeroDevourer":
+                nameOfHeroCollection = "collectionDevourer.hoa";
+                break;
+            case "HeroLordVamp":
+                nameOfHeroCollection = "collectionLordVamp.hoa";
+                break;
+            case "HeroOrcBasher":
+                nameOfHeroCollection = "collectionOrcBasher";
+
+        }
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("Profiles/" + profileName + "/" + nameOfHeroCollection)));
+        for(int i=0;i<listOfCollections.size();i++) {
+            if (i == numberOfCollection ) {
+                bufferedWriter.write() ;
+            }
+        }
     }
 
 
