@@ -58,7 +58,7 @@ public class BonusCollectionReaderWriter {
         return outputList;
     }
 
-    public void reWriteBonusesCollection(List<List<Bonus>> listOfCollections , List<Bonus> inputListOfCollection , Hero hero, String profileName, int numberOfCollection) throws IOException {
+    public void reWriteBonusesCollection(List<List<Bonus>> listOfCollections, List<Bonus> inputListOfCollection, Hero hero, String profileName, int numberOfCollection) throws IOException {
         String nameOfHeroCollection = "";
         switch (hero.getClass().toString()) {
             case "HeroDevourer":
@@ -68,17 +68,33 @@ public class BonusCollectionReaderWriter {
                 nameOfHeroCollection = "collectionLordVamp.hoa";
                 break;
             case "HeroOrcBasher":
-                nameOfHeroCollection = "collectionOrcBasher";
+                nameOfHeroCollection = "collectionOrcBasher.hoa";
 
         }
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("Profiles/" + profileName + "/" + nameOfHeroCollection)));
-        for(int i=0;i<listOfCollections.size();i++) {
-            if (i == numberOfCollection ) {
-                bufferedWriter.write() ;
+        for (int i = 0; i < listOfCollections.size(); i++) {
+            if (i == numberOfCollection) {
+                bufferedWriter.write(joinToString(inputListOfCollection));
+            } else {
+                bufferedWriter.write(joinToString(listOfCollections.get(i)));
+            }
+            if (i < listOfCollections.size() - 1) {
+                bufferedWriter.newLine();
+            } else {
+                bufferedWriter.close();
             }
         }
     }
 
+    private String joinToString(List<Bonus> bonusList) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < bonusList.size(); i++) {
+            sb.append(bonusList.get(i).getId());
+            sb.append(" ");
+        }
+        sb.deleteCharAt(sb.length() - 1);
+        return sb.toString();
+    }
 
 }
 
