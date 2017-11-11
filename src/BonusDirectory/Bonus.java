@@ -5,11 +5,13 @@ import javafx.scene.image.ImageView;
 public abstract class Bonus {
 
 
-    private ImageView sprite;
+
 
     private int id;
     private int numberOfTurns; //??
     private int count;
+    private ImageView sprite;
+    private ImageView label;
 
     public int getId() {
         return id;
@@ -34,4 +36,6 @@ public abstract class Bonus {
     public abstract void decreaseOfTurns(); // Уменьшение срабатывания бонусов на ходах ?? не точно.
 
     public abstract void controllingBattleProcess();
+
+    public abstract int getCountActivity();
 }
