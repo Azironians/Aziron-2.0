@@ -1,8 +1,7 @@
-package controller;
+package Controllers;
 
-import Heroes.HeroDevourer;
-import Heroes.HeroLordVamp;
-import Heroes.HeroOrcBasher;
+import Heroes.*;
+import Interface.SceneMover;
 import Main.Sound;
 import Match.Battle;
 import Match.Player;
@@ -25,24 +24,20 @@ import javafx.util.Duration;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import static Heroes.AzironHero.*;
 import static Main.AzironGame.soundFon;
 import static Main.BuildStage.*;
-import static Main.Sound.playSound;
 
 
-public class ControllerChoiceHero implements Initializable {
-    public static Battle battle;
-    public static Player player1;
-    public static Player player2;
+public class ControllerChoiceHero implements Initializable, Controller {
+    private SceneMover sceneMover = new SceneMover();
+    public static AzironHero devourer = BuilderAzironHero.buildDevourer();
 
-    @FXML
-    private ImageView spotLightDev;
-    @FXML
-    private ImageView spotLightLV;
-    @FXML
-    private ImageView spotLightBHR;
+
     @FXML
     private ImageView btnOffLeft;
     @FXML
@@ -56,8 +51,6 @@ public class ControllerChoiceHero implements Initializable {
     @FXML
     private Button btnChoiceHero;
     @FXML
-    private Button btnBackToProfile;
-    @FXML
     private Pane paneMessage;
     @FXML
     private ImageView btnOffBack;
@@ -68,12 +61,7 @@ public class ControllerChoiceHero implements Initializable {
     @FXML
     private ImageView btnOnChoiceHero;
 
-    private File SDev1 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-1.wav");
-    private File SDev2 = new File("src\\Sounds\\SoundDevourer\\DevGreetings-2.wav");
-    private File SLV1 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-1.wav");
-    private File SLV2 = new File("src\\Sounds\\SoundLordVampire\\LVGreetings-2.wav");
-    private File SOB1 = new File("src\\Sounds\\SoundOrcBasher\\BhrGreetings-1.wav");
-    private File SOB2 = new File("src\\Sounds\\SoundOrcBasher\\BhrGreetings-2.wav");
+    private List<Presentation> presentations = Arrays.asList(devourer.getPresentation())
 
     private void ok() {
         if (profileController == 1) {
@@ -267,111 +255,124 @@ public class ControllerChoiceHero implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println(favouriteHero);
-        spotLightLV.setVisible(true);
-        spotLightLV.setOpacity(0);
-        spotLightBHR.setVisible(true);
-        spotLightBHR.setOpacity(0);
-        spotLightDev.setVisible(true);
-        spotLightDev.setOpacity(0);
+        appearance();
+    }
+//        System.out.println(favouriteHero);
+//        spotLightLV.setVisible(true);
+//        spotLightLV.setOpacity(0);
+//        spotLightBHR.setVisible(true);
+//        spotLightBHR.setOpacity(0);
+//        spotLightDev.setVisible(true);
+//        spotLightDev.setOpacity(0);
 
-        //Выбор героя:
-        btnOffChoiceHero.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
-            btnOffChoiceHero.setVisible(false);
-            btnOnChoiceHero.setVisible(true);
-        });
-        btnOnChoiceHero.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
-            btnOffChoiceHero.setVisible(true);
-            btnOnChoiceHero.setVisible(false);
-        });
-        btnOffBack.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
-            btnOffBack.setVisible(false);
-            btnOnBack.setVisible(true);
-        });
-        btnOnBack.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
-            btnOffBack.setVisible(true);
-            btnOnBack.setVisible(false);
-        });
+    //Выбор героя:
+        btnOnChoiceHero.addEventHandler(MouseEvent.MOUSE_EXITED,mouseEvent ->
 
-        btnOnChoiceHero.setOnMouseClicked(event -> ok());
-        btnOnBack.setOnMouseClicked(event -> {
+    {
+        btnOffChoiceHero.setVisible(true);
+        btnOnChoiceHero.setVisible(false);
+    });
+     btnOffBack.addEventHandler(MouseEvent.MOUSE_ENTERED,mouseEvent ->
+
+    {
+        btnOffBack.setVisible(false);
+        btnOnBack.setVisible(true);
+    });
+        btnOnBack.addEventHandler(MouseEvent.MOUSE_EXITED,mouseEvent ->
+
+    {
+        btnOffBack.setVisible(true);
+        btnOnBack.setVisible(false);
+    });
+
+        btnOnChoiceHero.setOnMouseClicked(event ->
+
+    ok());
+        btnOnBack.setOnMouseClicked(event ->
+
+    {
+        try {
+            azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        azironStage.show();
+    });
+
+        switch(favouriteHero)
+
+    {
+        case "Любимый герой: Пожиратель":
+            currentBackground.setImage(spotLightDev.getImage());
+            spotLightDev.setOpacity(1);
+            break;
+        case "Любимый герой: Лорд Вампир":
+            currentBackground.setImage(spotLightLV.getImage());
+            spotLightLV.setOpacity(1);
+            break;
+        case "Любимый герой: Орк-Оглушитель":
+            currentBackground.setImage(spotLightBHR.getImage());
+            spotLightBHR.setOpacity(1);
+            break;
+        default:
+            currentBackground.setImage(spotLightDev.getImage());
+            spotLightDev.setOpacity(1);
+            break;
+    }
+
+
+    //Фон:
+        currentBackground.setOnMouseEntered(event ->
+
+    {
+        btnOnRight.setVisible(false);
+        btnOffRight.setVisible(true);
+        btnOnLeft.setVisible(false);
+        btnOffLeft.setVisible(true);
+    });
+
+    //Влево:
+        btnOffLeft.addEventHandler(MouseEvent.MOUSE_ENTERED,mouseEvent ->
+
+    {
+        btnOffLeft.setVisible(false);
+        btnOnLeft.setVisible(true);
+    });
+
+        btnOnLeft.setOnMouseClicked(event ->
+
+    left());
+        btnChoiceHero.setOnKeyPressed(event ->
+
+    {
+        if (event.getCode() == KeyCode.LEFT) left();
+        if (event.getCode() == KeyCode.RIGHT) right();
+        if (event.getCode() == KeyCode.ENTER) ok();
+        if (event.getCode() == KeyCode.ESCAPE) {
             try {
+
                 azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
+                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
+                ImageCursor imageCursor = new ImageCursor(cursor);
+                azironStage.getScene().setCursor(imageCursor);
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
             azironStage.show();
-        });
-
-        switch (favouriteHero) {
-            case "Любимый герой: Пожиратель":
-                currentBackground.setImage(spotLightDev.getImage());
-                spotLightDev.setOpacity(1);
-                break;
-            case "Любимый герой: Лорд Вампир":
-                currentBackground.setImage(spotLightLV.getImage());
-                spotLightLV.setOpacity(1);
-                break;
-            case "Любимый герой: Орк-Оглушитель":
-                currentBackground.setImage(spotLightBHR.getImage());
-                spotLightBHR.setOpacity(1);
-                break;
-            default:
-                currentBackground.setImage(spotLightDev.getImage());
-                spotLightDev.setOpacity(1);
-                break;
         }
+    });
+        btnBackToProfile.setOnKeyPressed(event ->
+
+    {
+        if (event.getCode() == KeyCode.LEFT) left();
+        if (event.getCode() == KeyCode.RIGHT) right();
+        if (event.getCode() == KeyCode.ENTER) ok();
+        if (event.getCode() == KeyCode.ESCAPE) {
+
+            sceneMover.moveToScene("../fxmlFiles/WindowProfile.fxml");
 
 
-        //Фон:
-        currentBackground.setOnMouseEntered(event -> {
-            btnOnRight.setVisible(false);
-            btnOffRight.setVisible(true);
-            btnOnLeft.setVisible(false);
-            btnOffLeft.setVisible(true);
-        });
-
-        //Влево:
-        btnOffLeft.addEventHandler(MouseEvent.MOUSE_ENTERED, mouseEvent -> {
-            btnOffLeft.setVisible(false);
-            btnOnLeft.setVisible(true);
-        });
-
-        btnOnLeft.setOnMouseClicked(event -> left());
-        btnChoiceHero.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.LEFT) left();
-            if (event.getCode() == KeyCode.RIGHT) right();
-            if (event.getCode() == KeyCode.ENTER) ok();
-            if (event.getCode() == KeyCode.ESCAPE) {
-                try {
-
-                    azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
-                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                    ImageCursor imageCursor = new ImageCursor(cursor);
-                    azironStage.getScene().setCursor(imageCursor);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                azironStage.show();
-            }
-        });
-        btnBackToProfile.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.LEFT) left();
-            if (event.getCode() == KeyCode.RIGHT) right();
-            if (event.getCode() == KeyCode.ENTER) ok();
-            if (event.getCode() == KeyCode.ESCAPE) {
-                try {
-                    azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
-                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                    ImageCursor imageCursor = new ImageCursor(cursor);
-                    azironStage.getScene().setCursor(imageCursor);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                azironStage.show();
-            }
         });
 
         btnOnLeft.addEventHandler(MouseEvent.MOUSE_EXITED, mouseEvent -> {
@@ -392,17 +393,51 @@ public class ControllerChoiceHero implements Initializable {
             btnOnRight.setVisible(false);
         });
         btnBackToProfile.setOnAction(event -> {
-            try {
-                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowProfile.fxml")), 1280, 720));
-                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                ImageCursor imageCursor = new ImageCursor(cursor);
-                azironStage.getScene().setCursor(imageCursor);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            azironStage.show();
+            sceneMover.moveToScene("../fxmlFiles/WindowProfile.fxml");
         });
-        btnChoiceHero.setOnAction(event -> ok());
+        btnChoiceHero.setOnAction(event -> ok();
     }
+
+    @Override
+    public SceneMover getSceneMover() {
+        return sceneMover;
+    }
+
+    @Override
+    public void appearance() {
+
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    public void buttonOffChoiceHeroEntered() {
+        btnOffChoiceHero.setVisible(false);
+        btnOnChoiceHero.setVisible(true);
+    }
+
+    public void buttonOnChoiceHeroExited() {
+        btnOffChoiceHero.setVisible(true);
+        btnOnChoiceHero.setVisible(false);
+    }
+
+    public void buttonOffLeftEntered() {
+        btnOffLeft.setVisible(false);
+        btnOnLeft.setVisible(true);
+    }
+
+    public void buttonOnLeftExited() {
+        btnOffLeft.setVisible(true);
+        btnOnLeft.setVisible(false);
+    }
+
+    public void buttonOnBackClicked() {
+        sceneMover.moveToScene("../fxmlFiles/WindowProfile.fxml");
+
+    }
+
+    public void buttonOnLeftClicked() {
+
+    }
+
+
 }

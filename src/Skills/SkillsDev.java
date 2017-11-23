@@ -12,9 +12,9 @@ import java.io.File;
 
 import static Match.Battle.turn;
 import static Match.Battle.turns;
-import static controller.ControllerChoiceHero.battle;
-import static controller.ControllerChoiceHero.player1;
-import static controller.ControllerChoiceHero.player2;
+import static Controllers.ControllerChoiceHero.battle;
+import static Controllers.ControllerChoiceHero.player1;
+import static Controllers.ControllerChoiceHero.player2;
 
 
 public class SkillsDev implements Skill {

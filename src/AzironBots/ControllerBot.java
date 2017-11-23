@@ -18,9 +18,9 @@ import java.util.stream.Collectors;
 import static Main.BuildStage.azironStage;
 import static Main.BuildStage.profile1;
 import static Match.Battle.turns;
-import static controller.ControllerChoiceHero.battle;
-import static controller.ControllerChoiceHero.player1;
-import static controller.ControllerChoiceHero.player2;
+import static Controllers.ControllerChoiceHero.battle;
+import static Controllers.ControllerChoiceHero.player1;
+import static Controllers.ControllerChoiceHero.player2;
 import static Match.Battle.turn;
 
 /**

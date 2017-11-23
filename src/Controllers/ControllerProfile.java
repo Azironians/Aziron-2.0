@@ -1,4 +1,4 @@
-package controller;
+package Controllers;
 
 import Main.Clock;
 import javafx.fxml.FXML;
@@ -13,11 +13,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 
-import javax.swing.Timer;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static Main.BuildStage.*;

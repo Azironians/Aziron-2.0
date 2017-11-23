@@ -25,7 +25,7 @@ import java.util.TimerTask;
 import static InitializationGame.WindowMatchMaking1.launch;
 import static Main.BuildStage.*;
 import static Match.winnerScene.winInfoUpdate;
-import static controller.ControllerChoiceHero.*;
+import static Controllers.ControllerChoiceHero.*;
 
 
 public class Battle {

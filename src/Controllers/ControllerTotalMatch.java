@@ -1,4 +1,4 @@
-package controller;
+package Controllers;
 
 import Main.Sound;
 import javafx.fxml.FXML;
@@ -17,9 +17,9 @@ import java.util.ResourceBundle;
 
 import static Main.AzironGame.soundFon;
 import static Main.BuildStage.*;
-import static controller.ControllerChoiceHero.battle;
-import static controller.ControllerChoiceHero.player1;
-import static controller.ControllerChoiceHero.player2;
+import static Controllers.ControllerChoiceHero.battle;
+import static Controllers.ControllerChoiceHero.player1;
+import static Controllers.ControllerChoiceHero.player2;
 
 public class ControllerTotalMatch implements Initializable {
     @FXML

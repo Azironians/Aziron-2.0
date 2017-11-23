@@ -25,10 +25,51 @@ public class AzironHero {
     private ImageView imageView; //Картинка героя
     private List<Media> listOfAttackVoices;
     private List<Media> listOfTreatmentVoices;
+    private Presentation presentation;
 
-    AzironHero(){}
+    public static class Presentation {
+        private final ImageView backGround;
+        private final List<Media> listOfPresentationMedia;
+        private Pane pane;
+
+
+        public Presentation(ImageView backGround, List<Media> listOfPresentationMedia, Pane pane) {
+            backGround.setFitWidth(1280);
+            backGround.setFitHeight(720);
+            pane.getChildren().add(backGround);
+            this.backGround = backGround;
+            this.listOfPresentationMedia = listOfPresentationMedia;
+            this.pane = pane;
+        }
+
+        public void showPresentation() {
+            pane.setVisible(true);
+        }
+
+        public void hidePresentation() {
+            pane.setVisible(false);
+        }
+
+        public ImageView getBackGround() {
+            return backGround;
+        }
+
+        public List<Media> getListOfPresentationMedia() {
+            return listOfPresentationMedia;
+        }
+
+        public Pane getPane() {
+            return pane;
+        }
+    }
+
+
+    AzironHero() {
+    }
+
     AzironHero(Double attack, Double treatment, Double hitPoints, Double supplyHealth, Double currentExperience,
-               int levelHero, List<Double> listOfRequiredExperience,List<Double> listOfDamage,List<Double> listOfTreatment, List<Double> listOfSupplyHealth,
+               int levelHero, List<Double> listOfRequiredExperience, List<Double> listOfDamage,
+               List<Double> listOfTreatment, List<Double> listOfSupplyHealth,
                List<Skill> collectionOfSkills,
                //Outer:
                ImageView imageView, List<Media> listOfAttackVoices, List<Media> listOfTreatmentVoices) {
@@ -49,6 +90,10 @@ public class AzironHero {
         this.listOfTreatmentVoices = listOfTreatmentVoices;
     }
 
+
+    AzironHero(Presentation presentation) {
+        this.presentation = presentation;
+    }
 
     abstract static class Skill {
         private ImageView pictureOfDescription;
@@ -84,4 +129,11 @@ public class AzironHero {
         }
     }
 
+    public Presentation getPresentation() {
+        return presentation;
+    }
+
+    public void setPresentation(Presentation presentation) {
+        this.presentation = presentation;
+    }
 }

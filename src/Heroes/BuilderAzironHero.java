@@ -1,6 +1,8 @@
 package Heroes;
 
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 
 import java.util.ArrayList;
@@ -10,7 +12,7 @@ import java.util.List;
 public class BuilderAzironHero {
 
     //Метод:
-    public AzironHero buildDevourer() {
+    public static AzironHero buildDevourer() {
         //Суперспособность 1:
         AzironHero.Skill skillFlameSnakes = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
@@ -57,6 +59,14 @@ public class BuilderAzironHero {
         List<Double> listOfTreatment = Arrays.asList(0.0, 20.0, 24.0, 29.0, 34.0, 42.0, 50.0, 59.0, 72.0, 86.0);
         //Картинка героя:
         ImageView sprite = new ImageView(); //Саня!
+        List<Media> mediaListOfPresentation = Arrays.asList(
+                new Media("src\\Sounds\\SoundDevourer\\DevGreetings-1.wav"),
+                new Media("src\\Sounds\\SoundDevourer\\DevGreetings-2.wav")
+        );
+        AzironHero.Presentation presentation = new AzironHero.Presentation(
+                new ImageView(new Image("@../Picture/Windows/DEV_Spotlight.jpg")),
+                mediaListOfPresentation, new Pane());
+
         //Возврат собранного героя:
         return new AzironHero(40.0, 100.0, 400.0, 400.0, 0.0, 1,
                 listOfRequiredExperience, listOfDamage, listOfTreatment, listOfSupplyHealth, listOfSkills, sprite,
@@ -64,41 +74,69 @@ public class BuilderAzironHero {
 
     }
 
-    public AzironHero buildLordVamp(){
-            //Суперспособность 1:
-            // Суперспособность 2:
-            //Суперспособность 3:
-            //Лист, в который ты потом положишь суперспособности:
-            List<AzironHero.Skill> listOfSkills = Arrays.asList();
-            //Лист перехода по опыту:
-            List<Double> listOfRequiredExperience = Arrays.asList(0.0, 250.0, 610.0, 1114.0, 1794.0, 2730.0, 3980.0, 5619.0, 7767.0, 10562.0, Double.MAX_VALUE);
+    public AzironHero buildLordVamp() {
+        //Суперспособность 1:
+        AzironHero.Skill skillCannibalism = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+            @Override
+            void run() {
 
-    //Лист переходов со здоровьем:
-    List<Double> listOfSupplyHealth = Arrays.asList(0.0, 60.0, 70.0, 90.0, 105.0, 120.0, 150.0, 180.0, 225.0, 250.0);
-    //Лист звуков с атакой:
-    List<Media> mediaListOfAttack = Arrays.asList(
-            new Media("src\\Sounds\\SoundLordVampire\\LVAttack-1.wav"),
-            new Media("src\\Sounds\\SoundLordVampire\\LVAttack-2.wav"),
-            new Media("src\\Sounds\\SoundLordVampire\\LVAttack-3.wav"),
-            new Media("src\\Sounds\\SoundLordVampire\\LVAttack-4.wav"));
-    //Лист звуков с лечением:
-    List<Media> mediaListOfTreatment = Arrays.asList(
-            new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-1.wav"),
-            new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-2.wav"),
-            new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-3.wav"),
-            new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-4.wav"));
-    //Лист урона
-    List<Double> listOfDamage = Arrays.asList(0.0, 10.0, 12.0, 13.0, 19.0, 21.0, 24.0, 30.0, 36.0, 41.0);
-    //Лист Лечения
-    List<Double> listOfTreatment = Arrays.asList(0.0, 15.0, 18.0, 22.0, 26.0, 31.0, 37.0, 45.0, 53.0, 65.0);
-    //Картинка героя:
-    ImageView sprite = new ImageView(); //Саня!
-    //Возврат собранного героя:
+            }
+        };
+        // Суперспособность 2:
+        AzironHero.Skill skillsDevilsBlades = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+            @Override
+            void run() {
+
+            }
+        };
+        //Суперспособность 3:
+        AzironHero.Skill skillReincarnation = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+            @Override
+            void run() {
+
+            }
+        };
+        //Лист, в который ты потом положишь суперспособности:
+        List<AzironHero.Skill> listOfSkills = Arrays.asList(skillCannibalism, skillsDevilsBlades, skillReincarnation);
+        //Лист перехода по опыту:
+        List<Double> listOfRequiredExperience = Arrays.asList(0.0, 250.0, 610.0, 1114.0, 1794.0, 2730.0, 3980.0, 5619.0, 7767.0, 10562.0, Double.MAX_VALUE);
+
+        //Лист переходов со здоровьем:
+        List<Double> listOfSupplyHealth = Arrays.asList(0.0, 60.0, 70.0, 90.0, 105.0, 120.0, 150.0, 180.0, 225.0, 250.0);
+        //Лист звуков с атакой:
+        List<Media> mediaListOfAttack = Arrays.asList(
+                new Media("src\\Sounds\\SoundLordVampire\\LVAttack-1.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVAttack-2.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVAttack-3.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVAttack-4.wav"));
+        //Лист звуков с лечением:
+        List<Media> mediaListOfTreatment = Arrays.asList(
+                new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-1.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-2.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-3.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVTreatment-4.wav"));
+        //Лист урона
+        List<Double> listOfDamage = Arrays.asList(0.0, 10.0, 12.0, 13.0, 19.0, 21.0, 24.0, 30.0, 36.0, 41.0);
+        //Лист Лечения
+        List<Double> listOfTreatment = Arrays.asList(0.0, 15.0, 18.0, 22.0, 26.0, 31.0, 37.0, 45.0, 53.0, 65.0);
+        //Картинка героя:
+        ImageView sprite = new ImageView(); //Саня!
+        List<Media> mediaListOfPresentation = Arrays.asList(
+                new Media("src\\Sounds\\SoundLordVampire\\LVGreetings-1.wav"),
+                new Media("src\\Sounds\\SoundLordVampire\\LVGreetings-2.wav")
+        );
+        AzironHero.Presentation presentation = new AzironHero.Presentation(
+                new ImageView(new Image("@../Picture/Windows/LV_Spotlight.jpg")),
+                mediaListOfPresentation, new Pane());
+        //Возврат собранного героя:
 
 
-    {
-        return new AzironHero();}
-    };
+        {
+            return new AzironHero();
+        }
+    }
+
+    ;
 
     public AzironHero buildOrcBasher() {
         //Суперспособность 1:
@@ -128,6 +166,13 @@ public class BuilderAzironHero {
         List<Double> listOfTreatment = Arrays.asList(0.0, 25.0, 30.0, 36.0, 43.0, 52.0, 62.0, 75.0, 89.0, 108.0);
         //Картинка героя:
         ImageView sprite = new ImageView(); //Саня!
+        List<Media> mediaListOfPresentation = Arrays.asList(
+                new Media("src\\Sounds\\SoundOrcBasher\\BhrGreetings-1.wav"),
+                new Media("src\\Sounds\\SoundOrcBasher\\BhrGreetings-2.wav")
+        );
+        AzironHero.Presentation presentation = new AzironHero.Presentation(
+                new ImageView(new Image("@../Picture/Windows/BHR_Spotlight.jpg")),
+                mediaListOfPresentation, new Pane());
         //Возврат собранного героя:
 
         return new AzironHero();

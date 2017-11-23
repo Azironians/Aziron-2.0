@@ -1,4 +1,4 @@
-package controller;
+package Controllers;
 
 import Main.Clock;
 import Main.Profile;
@@ -19,11 +19,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import javax.swing.Timer;
 import java.io.*;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 

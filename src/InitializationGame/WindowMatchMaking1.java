@@ -14,7 +14,7 @@ import javafx.util.Duration;
 import java.io.File;
 
 import static Match.Battle.turn;
-import static controller.ControllerChoiceHero.battle;
+import static Controllers.ControllerChoiceHero.battle;
 
 
 public class WindowMatchMaking1 {
