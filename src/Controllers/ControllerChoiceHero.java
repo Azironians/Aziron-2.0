@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -35,9 +36,14 @@ import static Main.BuildStage.*;
 
 public class ControllerChoiceHero implements Initializable, Controller {
     private SceneMover sceneMover = new SceneMover();
+    public static AzironHero currentHero;
+
     public static AzironHero devourer = BuilderAzironHero.buildDevourer();
+    public static AzironHero lordVamp = BuilderAzironHero.buildLordVamp();
+    public static AzironHero orgBasher = BuilderAzironHero.buildOrcBasher();
 
-
+    @FXML
+    private AnchorPane anchorPane;
     @FXML
     private ImageView btnOffLeft;
     @FXML
@@ -61,7 +67,8 @@ public class ControllerChoiceHero implements Initializable, Controller {
     @FXML
     private ImageView btnOnChoiceHero;
 
-    private List<Presentation> presentations = Arrays.asList(devourer.getPresentation())
+    private List<AzironHero> heroes = Arrays.asList(devourer, lordVamp, orgBasher);
+
 
     private void ok() {
         if (profileController == 1) {
@@ -272,23 +279,11 @@ public class ControllerChoiceHero implements Initializable, Controller {
         btnOffChoiceHero.setVisible(true);
         btnOnChoiceHero.setVisible(false);
     });
-     btnOffBack.addEventHandler(MouseEvent.MOUSE_ENTERED,mouseEvent ->
 
-    {
-        btnOffBack.setVisible(false);
-        btnOnBack.setVisible(true);
-    });
-        btnOnBack.addEventHandler(MouseEvent.MOUSE_EXITED,mouseEvent ->
-
-    {
-        btnOffBack.setVisible(true);
-        btnOnBack.setVisible(false);
-    });
 
         btnOnChoiceHero.setOnMouseClicked(event ->
 
-    ok());
-        btnOnBack.setOnMouseClicked(event ->
+    ok())
 
     {
         try {
@@ -298,27 +293,6 @@ public class ControllerChoiceHero implements Initializable, Controller {
         }
         azironStage.show();
     });
-
-        switch(favouriteHero)
-
-    {
-        case "Любимый герой: Пожиратель":
-            currentBackground.setImage(spotLightDev.getImage());
-            spotLightDev.setOpacity(1);
-            break;
-        case "Любимый герой: Лорд Вампир":
-            currentBackground.setImage(spotLightLV.getImage());
-            spotLightLV.setOpacity(1);
-            break;
-        case "Любимый герой: Орк-Оглушитель":
-            currentBackground.setImage(spotLightBHR.getImage());
-            spotLightBHR.setOpacity(1);
-            break;
-        default:
-            currentBackground.setImage(spotLightDev.getImage());
-            spotLightDev.setOpacity(1);
-            break;
-    }
 
 
     //Фон:
@@ -405,7 +379,19 @@ public class ControllerChoiceHero implements Initializable, Controller {
 
     @Override
     public void appearance() {
-
+        switch (favouriteHero) {
+            case "Любимый герой: Пожиратель":
+                currentHero = devourer;
+                break;
+            case "Любимый герой: Лорд Вампир":
+                currentHero = lordVamp;
+                break;
+            case "Любимый герой: Орк-Оглушитель":
+                currentHero = orgBasher;
+                break;
+            default:
+                currentHero = devourer;
+        }
     }
 
     /////////////////////////////////////////////////////////////////////////////////////
@@ -430,13 +416,31 @@ public class ControllerChoiceHero implements Initializable, Controller {
         btnOnLeft.setVisible(false);
     }
 
+    public void buttonOnRightExited() {
+        btnOffRight.setVisible(true);
+        btnOnRight.setVisible(false);
+
+    }
+
+    public void buttonOffRightEntered() {
+        btnOffRight.setVisible(true);
+        btnOnRight.setVisible(false);
+    }
+
     public void buttonOnBackClicked() {
         sceneMover.moveToScene("../fxmlFiles/WindowProfile.fxml");
 
     }
 
-    public void buttonOnLeftClicked() {
+    public void buttonOnBackExited() {
+        btnOnBack.setVisible(false);
+        btnOffBack.setVisible(true);
 
+    }
+
+    public void buttonOffBackEntered() {
+        btnOffBack.setVisible(false);
+        btnOnBack.setVisible(true);
     }
 
 

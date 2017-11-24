@@ -21,6 +21,8 @@ public class AzironHero {
     private List<Double> listOfTreatment;
     private List<Skill> collectionOfSkills; //Коллекция суперспособностей
 
+
+
     //Outer:
     private ImageView imageView; //Картинка героя
     private List<Media> listOfAttackVoices;
@@ -135,5 +137,9 @@ public class AzironHero {
 
     public void setPresentation(Presentation presentation) {
         this.presentation = presentation;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
     }
 }

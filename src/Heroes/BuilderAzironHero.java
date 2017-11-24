@@ -74,7 +74,7 @@ public class BuilderAzironHero {
 
     }
 
-    public AzironHero buildLordVamp() {
+    public static AzironHero buildLordVamp() {
         //Суперспособность 1:
         AzironHero.Skill skillCannibalism = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
@@ -138,7 +138,7 @@ public class BuilderAzironHero {
 
     ;
 
-    public AzironHero buildOrcBasher() {
+    public static AzironHero buildOrcBasher() {
         //Суперспособность 1:
         //Суперспособность 2:
         //Суперспособность 3:
