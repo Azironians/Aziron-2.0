@@ -39,9 +39,13 @@ public class AzironHero {
             backGround.setFitWidth(1280);
             backGround.setFitHeight(720);
             pane.getChildren().add(backGround);
+            pane.setVisible(false);
+            pane.setOpacity(0);
             this.backGround = backGround;
             this.listOfPresentationMedia = listOfPresentationMedia;
             this.pane = pane;
+
+
         }
 
         public void showPresentation() {

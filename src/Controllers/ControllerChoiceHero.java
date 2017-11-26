@@ -68,6 +68,7 @@ public class ControllerChoiceHero implements Initializable, Controller {
     private ImageView btnOnChoiceHero;
 
     private List<AzironHero> heroes = Arrays.asList(devourer, lordVamp, orgBasher);
+    private int pointer;
 
 
     private void ok() {
@@ -154,60 +155,11 @@ public class ControllerChoiceHero implements Initializable, Controller {
         }
     }
 
-    private void left() {
-        if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
-            if (Math.random() > 0.5) playSound(SDev1);
-            else playSound(SDev2);
-            FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightBHR);
-            fadeTransition.setFromValue(1);
-            fadeTransition.setToValue(0);
-            fadeTransition.setCycleCount(1);
-            spotLightDev.setOpacity(0);
-            currentBackground.setImage(spotLightDev.getImage());
-            FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightDev);
-            fadeTransition2.setFromValue(0);
-            fadeTransition2.setToValue(1);
-            fadeTransition2.setCycleCount(1);
-            fadeTransition2.play();
-            fadeTransition.play();
-        } else {
-            if (currentBackground.getImage().equals(spotLightLV.getImage())) {
-                if (Math.random() > 0.5) playSound(SOB1);
-                else playSound(SOB2);
-                FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightLV);
-                fadeTransition.setFromValue(1);
-                fadeTransition.setToValue(0);
-                fadeTransition.setCycleCount(1);
-                spotLightBHR.setOpacity(0);
-                currentBackground.setImage(spotLightBHR.getImage());
-                FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightBHR);
-                fadeTransition2.setFromValue(0);
-                fadeTransition2.setToValue(1);
-                fadeTransition2.setCycleCount(1);
-                fadeTransition2.play();
-                fadeTransition.play();
-            } else {
-                if (currentBackground.getImage().equals(spotLightDev.getImage())) {
-                    if (Math.random() > 0.5) playSound(SLV1);
-                    else playSound(SLV2);
-                    FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
-                    fadeTransition.setFromValue(1);
-                    fadeTransition.setToValue(0);
-                    fadeTransition.setCycleCount(1);
-                    spotLightLV.setOpacity(0);
-                    currentBackground.setImage(spotLightLV.getImage());
-                    FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightLV);
-                    fadeTransition2.setFromValue(0);
-                    fadeTransition2.setToValue(1);
-                    fadeTransition2.setCycleCount(1);
-                    fadeTransition2.play();
-                    fadeTransition.play();
-                }
-            }
-        }
+    public void buttonOnleftClikced() {
+
     }
 
-    private void right() {
+    public void right() {
         if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
             if (Math.random() > 0.5) playSound(SLV1);
             else playSound(SLV2);
@@ -379,19 +331,13 @@ public class ControllerChoiceHero implements Initializable, Controller {
 
     @Override
     public void appearance() {
-        switch (favouriteHero) {
-            case "Любимый герой: Пожиратель":
-                currentHero = devourer;
-                break;
-            case "Любимый герой: Лорд Вампир":
-                currentHero = lordVamp;
-                break;
-            case "Любимый герой: Орк-Оглушитель":
-                currentHero = orgBasher;
-                break;
-            default:
-                currentHero = devourer;
-        }
+            for(AzironHero azironHero: heroes){
+                anchorPane.getChildren().add(azironHero.getPresentation().getPane());
+            }
+
+            currentHero.getPresentation().getPane().setVisible(true);
+            currentHero.getPresentation().getPane().setOpacity(100);
+            pointer = heroes.indexOf(currentHero);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////

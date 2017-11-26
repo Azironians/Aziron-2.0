@@ -23,6 +23,7 @@
                   <Image url="@../Picture/Triggers/Button_Left_Moused.png" />
                </image>
             </ImageView>
+            <Button fx:id="buttonMoveToWindowBonusChoice" layoutX="21.0" layoutY="8.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="359.0" text="Редактировать заклинания"/>
             <ImageView fx:id="btnOnRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnRightExited">
                <image>
                   <Image url="@../Picture/Triggers/Button_Right_Moused.png" />

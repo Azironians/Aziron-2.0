@@ -1,5 +1,6 @@
 package Controllers;
 
+import Interface.SceneMover;
 import Main.Clock;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,12 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-import static Controllers.ControllerChoiceHero.devourer;
-import static Controllers.ControllerChoiceHero.lordVamp;
-import static Controllers.ControllerChoiceHero.orgBasher;
+import static Controllers.ControllerChoiceHero.*;
 import static Main.BuildStage.*;
 
-public class ControllerProfile implements Initializable {
+public class ControllerProfile implements Initializable, Controller {
     @FXML
     AnchorPane anchorPane;
     @FXML
@@ -64,7 +63,8 @@ public class ControllerProfile implements Initializable {
     private Text textWinsLV;
     @FXML
     private Text textWinsOrcBasher;
-
+    @FXML
+    private Pane paneHeroes;
     @FXML
     private ImageView buttonOffCloseStatistics;
     @FXML
@@ -79,32 +79,9 @@ public class ControllerProfile implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Инициализация окна:
-        Clock.launchTimer(time).start();
-        textPlayer.setText("Игрок " + profileController);
-        textProfileName.setText(profile.getName());
-        List<Integer> listWinsOfHeroes = Arrays.asList(
-                profile.getWinForDevourer(),
-                profile.getWinForLV(),
-                profile.getWinForOrcBacher()
-        );
 
-        ImageView currentImage = new ImageView();
-//        currentImage.setFitHeight();
-//        currentImage.setFitWidth();
-        if (max(listWinsOfHeroes).equals(profile.getWinForDevourer()) && profile.getWinForDevourer() != 0) {
-            textFavouriteHero.setText("Любимый герой: Пожиратель");
-            currentImage.setImage(devourer.getImageView().getImage());
-        }
-        if (max(listWinsOfHeroes).equals(profile.getWinForLV()) && profile.getWinForLV() != 0) {
-            textFavouriteHero.setText("Любимый герой: Лорд Вампир");
-            currentImage.setImage(lordVamp.getImageView().getImage());
-        }
-        if (max(listWinsOfHeroes).equals(profile.getWinForOrcBacher()) && profile.getWinForOrcBacher() != 0) {
-            textFavouriteHero.setText("Любимый герой: Орк-Оглушитель");
-            currentImage.setImage(orgBasher.getImageView().getImage());
-        }
-        favouriteHero = textFavouriteHero.getText();
-        anchorPane.getChildren().add(currentImage);
+
+
 
         //Статистика профиля:
         textRank.setText("Ранг: " + profile.getRank().toString());
@@ -246,5 +223,45 @@ public class ControllerProfile implements Initializable {
             }
         }
         return maxValue;
+    }
+
+    @Override
+    public SceneMover getSceneMover() {
+        return null;
+    }
+
+    @Override
+    public void appearance() {
+        Clock.launchTimer(time).start();
+        textPlayer.setText("Игрок " + profileController);
+        textProfileName.setText(profile.getName());
+    }
+    private void setFavouriteHero() {
+        List<Integer> listWinsOfHeroes = Arrays.asList(
+                profile.getWinForDevourer(),
+                profile.getWinForLV(),
+                profile.getWinForOrcBacher()
+        );
+
+        ImageView currentImage = new ImageView();
+        currentImage.setFitHeight(146.0);
+        currentImage.setFitWidth(297.0);
+
+        if (max(listWinsOfHeroes).equals(profile.getWinForDevourer()) && profile.getWinForDevourer() != 0) {
+            textFavouriteHero.setText("Любимый герой: Пожиратель");
+            currentImage.setImage(devourer.getImageView().getImage());
+            currentHero = devourer;
+        }
+        if (max(listWinsOfHeroes).equals(profile.getWinForLV()) && profile.getWinForLV() != 0) {
+            textFavouriteHero.setText("Любимый герой: Лорд Вампир");
+            currentImage.setImage(lordVamp.getImageView().getImage());
+            currentHero = lordVamp;
+        }
+        if (max(listWinsOfHeroes).equals(profile.getWinForOrcBacher()) && profile.getWinForOrcBacher() != 0) {
+            textFavouriteHero.setText("Любимый герой: Орк-Оглушитель");
+            currentImage.setImage(orgBasher.getImageView().getImage());
+            currentHero = orgBasher;
+        }
+        paneHeroes.getChildren().add(currentImage);
     }
 }
