@@ -43,7 +43,7 @@ public class ControllerChoiceHero implements Initializable, Controller {
     public static AzironHero orgBasher = BuilderAzironHero.buildOrcBasher();
 
     @FXML
-    private AnchorPane anchorPane;
+    private Pane paneHeroes;
     @FXML
     private ImageView btnOffLeft;
     @FXML
@@ -155,74 +155,22 @@ public class ControllerChoiceHero implements Initializable, Controller {
         }
     }
 
-    public void buttonOnleftClikced() {
-
+    public void buttonOnLeftClicked() {
+        heroes.get(pointer).getPresentation().getPane().setVisible(false);
+        heroes.get(--pointer).getPresentation().getPane().setVisible(true);
     }
 
-    public void right() {
-        if (currentBackground.getImage().equals(spotLightBHR.getImage())) {
-            if (Math.random() > 0.5) playSound(SLV1);
-            else playSound(SLV2);
-            FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightBHR);
-            fadeTransition.setFromValue(1);
-            fadeTransition.setToValue(0);
-            fadeTransition.setCycleCount(1);
-            spotLightLV.setOpacity(0);
-            currentBackground.setImage(spotLightLV.getImage());
-            FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightLV);
-            fadeTransition2.setFromValue(0);
-            fadeTransition2.setToValue(1);
-            fadeTransition2.setCycleCount(1);
-            fadeTransition2.play();
-            fadeTransition.play();
-        } else {
-            if (currentBackground.getImage().equals(spotLightLV.getImage())) {
-                if (Math.random() > 0.5) playSound(SDev1);
-                else playSound(SDev2);
-                FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightLV);
-                fadeTransition.setFromValue(1);
-                fadeTransition.setToValue(0);
-                fadeTransition.setCycleCount(1);
-                spotLightDev.setOpacity(0);
-                currentBackground.setImage(spotLightDev.getImage());
-                FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightDev);
-                fadeTransition2.setFromValue(0);
-                fadeTransition2.setToValue(1);
-                fadeTransition2.setCycleCount(1);
-                fadeTransition2.play();
-                fadeTransition.play();
-            } else {
-                if (currentBackground.getImage().equals(spotLightDev.getImage())) {
-                    if (Math.random() > 0.5) playSound(SOB1);
-                    else playSound(SOB2);
-                    FadeTransition fadeTransition = new FadeTransition(Duration.millis(500), spotLightDev);
-                    fadeTransition.setFromValue(1);
-                    fadeTransition.setToValue(0);
-                    fadeTransition.setCycleCount(1);
-                    spotLightBHR.setOpacity(0);
-                    currentBackground.setImage(spotLightBHR.getImage());
-                    FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(500), spotLightBHR);
-                    fadeTransition2.setFromValue(0);
-                    fadeTransition2.setToValue(1);
-                    fadeTransition2.setCycleCount(1);
-                    fadeTransition2.play();
-                    fadeTransition.play();
-                }
-            }
-        }
+    public void buttonOnRightClicked() {
+        heroes.get(pointer).getPresentation().getPane().setVisible(false);
+        heroes.get(++pointer).getPresentation().getPane().setVisible(true);
     }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         appearance();
     }
-//        System.out.println(favouriteHero);
-//        spotLightLV.setVisible(true);
-//        spotLightLV.setOpacity(0);
-//        spotLightBHR.setVisible(true);
-//        spotLightBHR.setOpacity(0);
-//        spotLightDev.setVisible(true);
-//        spotLightDev.setOpacity(0);
+
 
     //Выбор героя:
         btnOnChoiceHero.addEventHandler(MouseEvent.MOUSE_EXITED,mouseEvent ->
@@ -331,16 +279,23 @@ public class ControllerChoiceHero implements Initializable, Controller {
 
     @Override
     public void appearance() {
-            for(AzironHero azironHero: heroes){
-                anchorPane.getChildren().add(azironHero.getPresentation().getPane());
-            }
+        for (AzironHero azironHero : heroes) {
+            paneHeroes.getChildren().add(azironHero.getPresentation().getPane());
+        }
 
-            currentHero.getPresentation().getPane().setVisible(true);
-            currentHero.getPresentation().getPane().setOpacity(100);
-            pointer = heroes.indexOf(currentHero);
+        currentHero.getPresentation().getPane().setVisible(true);
+        currentHero.getPresentation().getPane().setOpacity(100);
+        pointer = heroes.indexOf(currentHero);
     }
 
     /////////////////////////////////////////////////////////////////////////////////////
+
+
+
+    public void buttonMoveToWindowBonusChoiceClicked() {
+        sceneMover.moveToScene("../fxmlFiles/WindowChoiceBonus.fxml");
+        sceneMover.transferObject("../fxmlFiles/WindowChoiceHero.fxml");
+    }
 
     public void buttonOffChoiceHeroEntered() {
         btnOffChoiceHero.setVisible(false);

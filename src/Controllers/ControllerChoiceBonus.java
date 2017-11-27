@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static Interface.SceneMover.transferredObject;
+
 public class ControllerChoiceBonus implements Initializable, Controller{
     SceneMover sceneMover = new SceneMover();
 
@@ -27,6 +29,7 @@ public class ControllerChoiceBonus implements Initializable, Controller{
     }
 
     public void back(){
-        sceneMover.moveToScene("");
+        sceneMover.moveToScene((String) transferredObject);
+
     }
 }

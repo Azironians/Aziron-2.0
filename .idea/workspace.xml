@@ -8,9 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7aedce16-3a76-47fc-95f1-a46b265add45" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/ControllerChoiceBonus.java" afterPath="$PROJECT_DIR$/src/Controllers/ControllerChoiceBonus.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/ControllerChoiceHero.java" afterPath="$PROJECT_DIR$/src/Controllers/ControllerChoiceHero.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controllers/ControllerProfile.java" afterPath="$PROJECT_DIR$/src/Controllers/ControllerProfile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Heroes/AzironHero.java" afterPath="$PROJECT_DIR$/src/Heroes/AzironHero.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Interface/SceneMover.java" afterPath="$PROJECT_DIR$/src/Interface/SceneMover.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml" afterPath="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,12 +34,12 @@
     <favorites_list name="AzironConsole" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="WindowChoiceHero.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="102">
+              <caret line="17" column="146" lean-forward="false" selection-start-line="17" selection-start-column="146" selection-end-line="17" selection-end-column="146" />
               <folding />
             </state>
           </provider>
@@ -50,7 +51,7 @@
       <file leaf-file-name="ControllerProfile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerProfile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
+            <state relative-caret-position="748">
               <caret line="262" column="36" lean-forward="false" selection-start-line="262" selection-start-column="36" selection-end-line="262" selection-end-column="36" />
               <folding />
             </state>
@@ -60,8 +61,8 @@
       <file leaf-file-name="ControllerChoiceHero.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerChoiceHero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="759">
-              <caret line="157" column="32" lean-forward="false" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
+            <state relative-caret-position="255">
+              <caret line="295" column="33" lean-forward="true" selection-start-line="295" selection-start-column="33" selection-end-line="295" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,21 +70,47 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ControllerChoiceBonus.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WindowProfile.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ControllerChoiceBonus.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerChoiceBonus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="459">
+              <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WindowChoiceBonus.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SceneMover.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Interface/SceneMover.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+              <folding>
+                <element signature="e#382#383#0" expanded="true" />
+                <element signature="e#419#420#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WindowChoiceBonus.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="153">
+              <caret line="9" column="143" lean-forward="false" selection-start-line="9" selection-start-column="143" selection-end-line="9" selection-end-column="143" />
               <folding />
             </state>
           </provider>
@@ -183,15 +210,15 @@
         <option value="$PROJECT_DIR$/src/Heroes/HeroLordVamp.java" />
         <option value="$PROJECT_DIR$/src/controller/ControllerChoiceHero.java" />
         <option value="$PROJECT_DIR$/src/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/src/Interface/SceneMover.java" />
         <option value="$PROJECT_DIR$/src/Heroes/BuilderAzironHero.java" />
-        <option value="$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml" />
-        <option value="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml" />
-        <option value="$PROJECT_DIR$/src/Controllers/ControllerChoiceBonus.java" />
         <option value="$PROJECT_DIR$/src/Controllers/ControllerProfile.java" />
         <option value="$PROJECT_DIR$/src/Heroes/AzironHero.java" />
-        <option value="$PROJECT_DIR$/src/Controllers/ControllerChoiceHero.java" />
+        <option value="$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml" />
         <option value="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml" />
+        <option value="$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml" />
+        <option value="$PROJECT_DIR$/src/Interface/SceneMover.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/ControllerChoiceHero.java" />
+        <option value="$PROJECT_DIR$/src/Controllers/ControllerChoiceBonus.java" />
       </list>
     </option>
   </component>
@@ -241,7 +268,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -275,6 +302,12 @@
             </path>
             <path>
               <item name="Aziron-2.0" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Aziron-2.0" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Aziron-2.0" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -282,7 +315,7 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -622,14 +655,8 @@
       <workItem from="1511536219992" duration="3329000" />
       <workItem from="1511539681504" duration="1793000" />
       <workItem from="1511621875220" duration="606000" />
-      <workItem from="1511677506066" duration="4391000" />
-    </task>
-    <task id="LOCAL-00001" summary="AzironConsoleTest">
-      <created>1492629017977</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1492629017977</updated>
+      <workItem from="1511677506066" duration="4548000" />
+      <workItem from="1511795490563" duration="3857000" />
     </task>
     <task id="LOCAL-00002" summary="AzironConsoleTest">
       <created>1492629364754</created>
@@ -967,11 +994,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511540615966</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="26 число + есть вопросы по поводу FXML">
+      <created>1511682754955</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1511682754956</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92329000" />
+    <option name="totallyTimeSpent" value="96343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -993,8 +1027,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272933" sideWeight="0.5064447" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2878942" sideWeight="0.47916666" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243243" sideWeight="0.4935553" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2878942" sideWeight="0.47916666" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1004,8 +1038,8 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32545045" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29322916" sideWeight="0.5037037" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32545045" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1083,7 +1117,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="работают уровни" />
     <MESSAGE value="способности" />
     <MESSAGE value="способности V2" />
     <MESSAGE value="почти рабочая сборка)" />
@@ -1108,7 +1141,8 @@
     <MESSAGE value="Hero+" />
     <MESSAGE value="Appdate" />
     <MESSAGE value="Apdate za 24 4islo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Apdate za 24 4islo" />
+    <MESSAGE value="26 число + есть вопросы по поводу FXML" />
+    <option name="LAST_COMMIT_MESSAGE" value="26 число + есть вопросы по поводу FXML" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1353,13 +1387,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Interface/SceneMover.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="18" column="28" lean-forward="true" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1368,25 +1395,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowMenu.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowInitialization.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Heroes/BuilderAzironHero.java">
@@ -1407,66 +1434,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1056">
           <caret line="48" column="23" lean-forward="false" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="21" column="27" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="29" />
-          <folding>
-            <marker date="1511539419256" expanded="true" signature="601:7012" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="615:6998" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="729:849" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="746:830" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="950:1009" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="970:995" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="1179:1304" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="1196:1285" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="1460:1586" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="1477:1567" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="1750:1871" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="1767:1852" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2026:2152" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2043:2133" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2323:2448" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2340:2429" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2597:2719" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2614:2700" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2898:2978" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="2914:2964" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3168:3248" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3184:3234" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3435:3515" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3451:3501" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3599:6642" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3619:6628" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3774:3910" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="3797:3885" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4087:4191" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4109:4171" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4373:4477" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4395:4457" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4655:4759" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4677:4739" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4942:5046" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="4964:5026" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="5246:5350" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="5268:5330" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="5545:5649" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="5567:5629" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="5855:5959" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="5877:5939" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="6121:6284" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="6144:6259" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="6445:6607" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="6468:6582" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="6805:6885" ph="..." />
-            <marker date="1511539419256" expanded="true" signature="6821:6871" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1509,29 +1476,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowProfile.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerProfile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
+        <state relative-caret-position="748">
           <caret line="262" column="36" lean-forward="false" selection-start-line="262" selection-start-column="36" selection-end-line="262" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowChoiceHero.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="17" column="146" lean-forward="false" selection-start-line="17" selection-start-column="146" selection-end-line="17" selection-end-column="146" />
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        <state relative-caret-position="153">
+          <caret line="9" column="143" lean-forward="false" selection-start-line="9" selection-start-column="143" selection-end-line="9" selection-end-column="143" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Interface/SceneMover.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+          <folding>
+            <element signature="e#382#383#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerChoiceHero.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="157" column="32" lean-forward="false" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
+        <state relative-caret-position="255">
+          <caret line="295" column="33" lean-forward="true" selection-start-line="295" selection-start-column="33" selection-end-line="295" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1540,19 +1540,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controllers/ControllerChoiceBonus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="31" column="1" lean-forward="false" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/fxmlFiles/WindowChoiceBonus.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="459">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>

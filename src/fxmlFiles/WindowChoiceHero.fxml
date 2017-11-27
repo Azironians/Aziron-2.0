@@ -15,7 +15,15 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ControllerChoiceHero">
    <children>
-      <ImageView fx:id="currentBackground" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="buttonMoveToWindowBonusChoice" layoutX="880.0" layoutY="510.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="359.0" text="Редактировать заклинания" onMouseClicked="#buttonMoveToWindowBonusChoiceClicked"/>
+      <Pane fx:id="paneHeroes" layoutX="525.0" layoutY="202.0" prefHeight="246.0" prefWidth="229.0">
+         <children>
+
+
+
+
+         </children>
+      </Pane>
       <Pane fx:id="paneControls" layoutX="340.0" layoutY="210.0">
          <children>
             <ImageView fx:id="btnOnLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnLeftExited">
@@ -23,7 +31,7 @@
                   <Image url="@../Picture/Triggers/Button_Left_Moused.png" />
                </image>
             </ImageView>
-            <Button fx:id="buttonMoveToWindowBonusChoice" layoutX="21.0" layoutY="8.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="359.0" text="Редактировать заклинания"/>
+
             <ImageView fx:id="btnOnRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnRightExited">
                <image>
                   <Image url="@../Picture/Triggers/Button_Right_Moused.png" />

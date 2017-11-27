@@ -11,6 +11,10 @@ import java.io.IOException;
 import static Main.BuildStage.azironStage;
 
 public class SceneMover {
+    public static Object transferredObject = new Object();
+    public void transferObject(Object o){
+        transferredObject = o;
+    }
     public void moveToScene(String pathOfScene){
         try {
             azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource(pathOfScene)), 1280, 720));
