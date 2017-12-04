@@ -1,6 +1,5 @@
 package Match;
 
-import Main.AzironGame;
 import javafx.animation.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +24,6 @@ import java.util.TimerTask;
 import static InitializationGame.WindowMatchMaking1.launch;
 import static Main.BuildStage.*;
 import static Match.winnerScene.winInfoUpdate;
-import static Controllers.ControllerChoiceHero.*;
 
 
 public class Battle {

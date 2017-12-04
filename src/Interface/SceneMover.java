@@ -1,5 +1,6 @@
 package Interface;
 
+import Main.AGame;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
@@ -11,19 +12,9 @@ import java.io.IOException;
 import static Main.BuildStage.azironStage;
 
 public class SceneMover {
-    public static Object transferredObject = new Object();
-    public void transferObject(Object o){
-        transferredObject = o;
-    }
-    public void moveToScene(String pathOfScene){
-        try {
-            azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource(pathOfScene)), 1280, 720));
-            Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-            ImageCursor imageCursor = new ImageCursor(cursor);
-            azironStage.getScene().setCursor(imageCursor);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        azironStage.show();
+
+    public static void moveToScene(String nameOfWindow) {
+        Scene scene = AGame.getAGame().getMapOfWindows().get(nameOfWindow).getScene();
+        AGame.getAGame().getStage().setScene(scene);
     }
 }

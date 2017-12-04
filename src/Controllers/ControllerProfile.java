@@ -1,7 +1,9 @@
 package Controllers;
 
+import BonusDirectory.Deck;
 import Interface.SceneMover;
 import Main.Clock;
+import Main.Profile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -76,192 +78,107 @@ public class ControllerProfile implements Initializable, Controller {
     @FXML
     private Text time;
 
+    private Deck defaultPrimaryDeck;
+
+    private Profile currentProfile = new Profile();
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //Инициализация окна:
-
-
-
-
-        //Статистика профиля:
-        textRank.setText("Ранг: " + profile.getRank().toString());
-        textRating.setText("Рейтинг: " + profile.getMMR().toString());
-        textWins.setText("Побед: " + profile.getWin().toString());
-        textLoses.setText("Поражений: " + profile.getLose().toString());
-        textWinsDevourer.setText("Побед за Пожирателя: " + profile.getWinForDevourer().toString());
-        textWinsLV.setText("Побед за Лорда Вампа: " + profile.getWinForLV().toString());
-        textWinsOrcBasher.setText("Побед за Орка-Оглушителя: " + profile.getWinForOrcBacher().toString());
-
-
-        //Фон:
-        background.setOnMouseMoved(event -> {
-            buttonOffLogOut.setVisible(true);
-            buttonOnLogOut.setVisible(false);
-
-            buttonOffShowStatistics.setVisible(true);
-            buttonOnShowStatistics.setVisible(false);
-
-            buttonOffChoiceHeroes.setVisible(true);
-            buttonOnChoiceHeroes.setVisible(false);
-        });
-
-
-        // Кнопка "Выйти":
-        buttonOffLogOut.setOnMouseMoved(event -> {
-            buttonOffLogOut.setVisible(false);
-            buttonOnLogOut.setVisible(true);
-            buttonOnShowStatistics.setVisible(false);
-            buttonOffShowStatistics.setVisible(true);
-        });
-
-        buttonOnLogOut.setOnMouseClicked(event -> {
-            try {
-                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
-                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                ImageCursor imageCursor = new ImageCursor(cursor);
-                azironStage.getScene().setCursor(imageCursor);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            profileController--;
-            profile.setName();
-            azironStage.show();
-        });
-
-
-        //Кнопка "Статистика профиля":
-        buttonOffShowStatistics.setOnMouseMoved(event -> {
-            buttonOffShowStatistics.setVisible(false);
-            buttonOnLogOut.setVisible(false);
-            buttonOnShowStatistics.setVisible(true);
-            buttonOffLogOut.setVisible(true);
-        });
-
-        buttonOnShowStatistics.setOnMouseClicked(event -> {
-            paneStatistics.setVisible(true);
-            background.setDisable(true);
-            buttonOnShowStatistics.setVisible(false);
-            buttonOffShowStatistics.setVisible(false);
-            buttonOnChoiceHeroes.setVisible(false);
-            buttonOffChoiceHeroes.setVisible(false);
-            buttonOnLogOut.setVisible(false);
-            buttonOffLogOut.setVisible(false);
-
-        });
-
-        buttonOffCloseStatistics.setOnMouseMoved(event -> {
-            buttonOffCloseStatistics.setVisible(false);
-            buttonOnCloseStatistics.setVisible(true);
-        });
-        buttonOnCloseStatistics.setOnMouseClicked(event -> {
-            paneStatistics.setVisible(false);
-            buttonOffLogOut.setVisible(true);
-            buttonOffChoiceHeroes.setVisible(true);
-            buttonOffShowStatistics.setVisible(true);
-        });
-
-        panelStatistics.setOnMouseMoved(event -> {
-            buttonOffCloseStatistics.setVisible(true);
-            buttonOnCloseStatistics.setVisible(false);
-        });
-
-
-        //Кнопка "перейти к выбору героя":
-        buttonOffChoiceHeroes.setOnMouseMoved(event -> {
-            buttonOffChoiceHeroes.setVisible(false);
-            buttonOnChoiceHeroes.setVisible(true);
-        });
-
-        buttonOnChoiceHeroes.setOnMouseClicked(event -> {
-            try {
-                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowChoiceHero.fxml")), 1280, 720));
-                Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                ImageCursor imageCursor = new ImageCursor(cursor);
-                azironStage.getScene().setCursor(imageCursor);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            azironStage.show();
-        });
-        btn.setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) {
-                try {
-                    azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowChoiceHero.fxml")), 1280, 720));
-                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                    ImageCursor imageCursor = new ImageCursor(cursor);
-                    azironStage.getScene().setCursor(imageCursor);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                azironStage.show();
-            }
-            if (event.getCode() == KeyCode.ESCAPE) {
-                try {
-                    azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
-                    Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
-                    ImageCursor imageCursor = new ImageCursor(cursor);
-                    azironStage.getScene().setCursor(imageCursor);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                profileController--;
-                profile.setName();
-                azironStage.show();
-            }
-        });
+        appearance();
+        initStatistics();
     }
 
-    private Integer max(List<Integer> list) {
-        Integer maxValue = 0;
-        for (Integer win : list) {
-            if (maxValue < win) {
-                maxValue = win;
-            }
-        }
-        return maxValue;
-    }
+    public void buttonSetOnKeyPressed() {
+        SceneMover.moveToScene("windowChoiceHero"); // if (event.getCode() == KeyCode.ENTER) {
 
-    @Override
-    public SceneMover getSceneMover() {
-        return null;
+        SceneMover.moveToScene("windowAuthorization"); // if (event.getCode() == KeyCode.ESCAPE) {
     }
 
     @Override
     public void appearance() {
         Clock.launchTimer(time).start();
         textPlayer.setText("Игрок " + profileController);
-        textProfileName.setText(profile.getName());
+        textProfileName.setText(currentProfile.getName());
     }
-    private void setFavouriteHero() {
-        List<Integer> listWinsOfHeroes = Arrays.asList(
-                profile.getWinForDevourer(),
-                profile.getWinForLV(),
-                profile.getWinForOrcBacher()
-        );
 
-        ImageView currentImage = new ImageView();
-        currentImage.setFitHeight(146.0);
-        currentImage.setFitWidth(297.0);
+    private void initStatistics() {
+        textRank.setText("Ранг: " + currentProfile.getRank().toString());
+        textRating.setText("Рейтинг: " + currentProfile.getMMR().toString());
+        textWins.setText("Побед: " + currentProfile.getWin().toString());
+        textLoses.setText("Поражений: " + currentProfile.getLose().toString());
+        textWinsDevourer.setText("Побед за Пожирателя: " + currentProfile.getWinForDevourer().toString());
+        textWinsLV.setText("Побед за Лорда Вампа: " + currentProfile.getWinForLV().toString());
+        textWinsOrcBasher.setText("Побед за Орка-Оглушителя: " + currentProfile.getWinForOrcBacher().toString());
 
-        if (max(listWinsOfHeroes).equals(profile.getWinForDevourer()) && profile.getWinForDevourer() != 0) {
-            textFavouriteHero.setText("Любимый герой: Пожиратель");
-            currentImage.setImage(devourer.getImageView().getImage());
-            currentHero = devourer;
-        }
-        if (max(listWinsOfHeroes).equals(profile.getWinForLV()) && profile.getWinForLV() != 0) {
-            textFavouriteHero.setText("Любимый герой: Лорд Вампир");
-            currentImage.setImage(lordVamp.getImageView().getImage());
-            currentHero = lordVamp;
-        }
-        if (max(listWinsOfHeroes).equals(profile.getWinForOrcBacher()) && profile.getWinForOrcBacher() != 0) {
-            textFavouriteHero.setText("Любимый герой: Орк-Оглушитель");
-            currentImage.setImage(orgBasher.getImageView().getImage());
-            currentHero = orgBasher;
-        }
-        paneHeroes.getChildren().add(currentImage);
     }
+
+    //Style & Interface
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void buttonOffShowStatisticsEntered() {
+        buttonOnShowStatistics.setVisible(true);
+        buttonOffShowStatistics.setVisible(false);
+    }
+    public void buttonOnShowStatisticsExited() {
+        buttonOnShowStatistics.setVisible(false);
+        buttonOffShowStatistics.setVisible(true);
+    }
+
+    public void buttonOffLogOutEntered(){
+        buttonOnLogOut.setVisible(true);
+        buttonOffLogOut.setVisible(false);
+
+    }
+    public void buttonOnLogOutExited(){
+        buttonOnLogOut.setVisible(false);
+        buttonOffLogOut.setVisible(true);
+    }
+
+    public void buttonOffChoiceHeroesEntered() {
+        buttonOnChoiceHeroes.setVisible(true);
+        buttonOffChoiceHeroes.setVisible(false);
+    }
+
+    public void buttonOnChoiceHeroesExited() {
+        buttonOnChoiceHeroes.setVisible(false);
+        buttonOffChoiceHeroes.setVisible(true);
+    }
+
+    public void buttonOnChoiceHeroesClicked() {
+        SceneMover.moveToScene("windowChoiceHero");
+    }
+
+    public void buttinOnLogOutClicked() {
+        SceneMover.moveToScene("windowAuthorization");
+    }
+
+    public void buttonShowStatisticsClicked() {
+        paneStatistics.setVisible(true);
+        background.setDisable(true);
+        buttonOnShowStatistics.setVisible(false);
+        buttonOffShowStatistics.setVisible(false);
+        buttonOnChoiceHeroes.setVisible(false);
+        buttonOffChoiceHeroes.setVisible(false);
+        buttonOnLogOut.setVisible(false);
+        buttonOffLogOut.setVisible(false);
+    }
+
+    public void buttonOnCloseStatisticsClicked() {
+        paneStatistics.setVisible(false);
+        buttonOffLogOut.setVisible(true);
+        buttonOffChoiceHeroes.setVisible(true);
+        buttonOffShowStatistics.setVisible(true);
+    }
+
+    public void buttonOffCloseStatisticEntered() {
+        buttonOnCloseStatistics.setVisible(true);
+        buttonOffCloseStatistics.setVisible(false);
+    }
+
+    public void buttonOnCloseStatisticsExited() {
+        buttonOffCloseStatistics.setVisible(true);
+        buttonOnCloseStatistics.setVisible(false);
+    }
+
 }

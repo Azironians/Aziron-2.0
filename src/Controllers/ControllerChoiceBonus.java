@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
 import static Interface.SceneMover.transferredObject;
 
 public class ControllerChoiceBonus implements Initializable, Controller{
-    SceneMover sceneMover = new SceneMover();
+   String lastWindow = "windowChoiceBonus";
 
 
     @Override
@@ -18,10 +18,7 @@ public class ControllerChoiceBonus implements Initializable, Controller{
         //загрузка бонусов
     }
 
-    @Override
-    public SceneMover getSceneMover() {
-        return null;
-    }
+
 
     @Override
     public void appearance() {
@@ -29,7 +26,6 @@ public class ControllerChoiceBonus implements Initializable, Controller{
     }
 
     public void back(){
-        sceneMover.moveToScene((String) transferredObject);
-
+        SceneMover.moveToScene(lastWindow);
     }
 }

@@ -9,33 +9,33 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class BuilderAzironHero {
+public class BuilderAHero {
 
     //Метод:
-    public static AzironHero buildDevourer() {
+    public static AHero buildDevourer() {
         //Суперспособность 1:
-        AzironHero.Skill skillFlameSnakes = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+        AHero.Skill skillFlameSnakes = new AHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
             void run() {
 
             }
         };
         //Суперспособность 2:
-        AzironHero.Skill skillRegeneration = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+        AHero.Skill skillRegeneration = new AHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
             void run() {
 
             }
         };
         //Суперспособность 3:
-        AzironHero.Skill skillSplit = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+        AHero.Skill skillSplit = new AHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
             void run() {
 
             }
         };
         //Лист, в который ты потом положишь суперспособности:
-        List<AzironHero.Skill> listOfSkills = Arrays.asList(skillFlameSnakes, skillRegeneration, skillSplit);
+        List<AHero.Skill> listOfSkills = Arrays.asList(skillFlameSnakes, skillRegeneration, skillSplit);
         //Лист перехода по опыту:
         List<Double> listOfRequiredExperience = Arrays.asList(0.0, 200.0, 488.0, 894.0, 1446.0, 2193.0, 3193.0, 4513.0,
                 6229.0, 8465.0, Double.MAX_VALUE);
@@ -63,41 +63,41 @@ public class BuilderAzironHero {
                 new Media("src\\Sounds\\SoundDevourer\\DevGreetings-1.wav"),
                 new Media("src\\Sounds\\SoundDevourer\\DevGreetings-2.wav")
         );
-        AzironHero.Presentation presentation = new AzironHero.Presentation(
+        AHero.Presentation presentation = new AHero.Presentation(
                 new ImageView(new Image("@../Picture/Windows/DEV_Spotlight.jpg")),
                 mediaListOfPresentation, new Pane());
 
         //Возврат собранного героя:
-        return new AzironHero(40.0, 100.0, 400.0, 400.0, 0.0, 1,
+        return new AHero(40.0, 100.0, 400.0, 400.0, 0.0, 1,
                 listOfRequiredExperience, listOfDamage, listOfTreatment, listOfSupplyHealth, listOfSkills, sprite,
                 mediaListOfAttack, mediaListOfTreatment);
 
     }
 
-    public static AzironHero buildLordVamp() {
+    public static AHero buildLordVamp() {
         //Суперспособность 1:
-        AzironHero.Skill skillCannibalism = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+        AHero.Skill skillCannibalism = new AHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
             void run() {
 
             }
         };
         // Суперспособность 2:
-        AzironHero.Skill skillsDevilsBlades = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+        AHero.Skill skillsDevilsBlades = new AHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
             void run() {
 
             }
         };
         //Суперспособность 3:
-        AzironHero.Skill skillReincarnation = new AzironHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
+        AHero.Skill skillReincarnation = new AHero.Skill(new ImageView(), new ImageView(), new ArrayList<>(), new Media("")) {
             @Override
             void run() {
 
             }
         };
         //Лист, в который ты потом положишь суперспособности:
-        List<AzironHero.Skill> listOfSkills = Arrays.asList(skillCannibalism, skillsDevilsBlades, skillReincarnation);
+        List<AHero.Skill> listOfSkills = Arrays.asList(skillCannibalism, skillsDevilsBlades, skillReincarnation);
         //Лист перехода по опыту:
         List<Double> listOfRequiredExperience = Arrays.asList(0.0, 250.0, 610.0, 1114.0, 1794.0, 2730.0, 3980.0, 5619.0, 7767.0, 10562.0, Double.MAX_VALUE);
 
@@ -125,25 +125,25 @@ public class BuilderAzironHero {
                 new Media("src\\Sounds\\SoundLordVampire\\LVGreetings-1.wav"),
                 new Media("src\\Sounds\\SoundLordVampire\\LVGreetings-2.wav")
         );
-        AzironHero.Presentation presentation = new AzironHero.Presentation(
+        AHero.Presentation presentation = new AHero.Presentation(
                 new ImageView(new Image("@../Picture/Windows/LV_Spotlight.jpg")),
                 mediaListOfPresentation, new Pane());
         //Возврат собранного героя:
 
 
         {
-            return new AzironHero();
+            return new AHero();
         }
     }
 
     ;
 
-    public static AzironHero buildOrcBasher() {
+    public static AHero buildOrcBasher() {
         //Суперспособность 1:
         //Суперспособность 2:
         //Суперспособность 3:
         //Лист, в который ты потом положишь суперспособности:
-        List<AzironHero.Skill> listOfSkills = Arrays.asList();
+        List<AHero.Skill> listOfSkills = Arrays.asList();
         //Лист перехода по опыту:
         List<Double> listOfRequiredExperience = Arrays.asList(0.0, 150.0, 366.0, 667.0, 1083.0, 1641.0, 2381.0, 3371.0, 4667.0, 6357.0, Double.MAX_VALUE);
         //Лист переходов со здоровьем:
@@ -170,11 +170,11 @@ public class BuilderAzironHero {
                 new Media("src\\Sounds\\SoundOrcBasher\\BhrGreetings-1.wav"),
                 new Media("src\\Sounds\\SoundOrcBasher\\BhrGreetings-2.wav")
         );
-        AzironHero.Presentation presentation = new AzironHero.Presentation(
+        AHero.Presentation presentation = new AHero.Presentation(
                 new ImageView(new Image("@../Picture/Windows/BHR_Spotlight.jpg")),
                 mediaListOfPresentation, new Pane());
         //Возврат собранного героя:
 
-        return new AzironHero();
+        return new AHero();
     }
 };

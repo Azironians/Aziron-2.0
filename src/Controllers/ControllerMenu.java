@@ -1,6 +1,5 @@
 package Controllers;
 
-import Main.AzironGame;
 import Main.Clock;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
@@ -66,7 +65,7 @@ public class ControllerMenu implements Initializable {
         fadeTransition.setToValue(1);
         fadeTransition.play();
         try {
-            Parent rootAutorization = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml"));
+            Parent rootAutorization = FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAuthorization.fxml"));
             Scene sceneAutorize = new Scene(rootAutorization, 1280, 720);
             //1. Фон:
             windowMenu.setOnMouseMoved(event -> {

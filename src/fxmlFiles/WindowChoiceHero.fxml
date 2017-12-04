@@ -26,13 +26,13 @@
       </Pane>
       <Pane fx:id="paneControls" layoutX="340.0" layoutY="210.0">
          <children>
-            <ImageView fx:id="btnOnLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnLeftExited">
+            <ImageView fx:id="btnOnLeft" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnLeftExited" onMouseClicked="#buttonOnLeftClicked">
                <image>
                   <Image url="@../Picture/Triggers/Button_Left_Moused.png" />
                </image>
             </ImageView>
 
-            <ImageView fx:id="btnOnRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnRightExited">
+            <ImageView fx:id="btnOnRight" fitHeight="150.0" fitWidth="200.0" layoutX="479.0" pickOnBounds="true" preserveRatio="true" visible="false" onMouseExited="#buttonOnRightExited" onMouseClicked="#buttonOnRightClicked">
                <image>
                   <Image url="@../Picture/Triggers/Button_Right_Moused.png" />
                </image>

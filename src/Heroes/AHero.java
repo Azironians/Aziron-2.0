@@ -1,12 +1,13 @@
 package Heroes;
 
+import BonusDirectory.Bonus;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 
 import java.util.List;
 
-public class AzironHero {
+public class AHero {
 
     //Inner:
     private Double attack; //Атака
@@ -22,7 +23,6 @@ public class AzironHero {
     private List<Skill> collectionOfSkills; //Коллекция суперспособностей
 
 
-
     //Outer:
     private ImageView imageView; //Картинка героя
     private List<Media> listOfAttackVoices;
@@ -33,6 +33,7 @@ public class AzironHero {
         private final ImageView backGround;
         private final List<Media> listOfPresentationMedia;
         private Pane pane;
+        private List<Bonus> currentCollection;
 
 
         public Presentation(ImageView backGround, List<Media> listOfPresentationMedia, Pane pane) {
@@ -44,8 +45,6 @@ public class AzironHero {
             this.backGround = backGround;
             this.listOfPresentationMedia = listOfPresentationMedia;
             this.pane = pane;
-
-
         }
 
         public void showPresentation() {
@@ -64,21 +63,29 @@ public class AzironHero {
             return listOfPresentationMedia;
         }
 
+        public List<Bonus> getCurentCollection() {
+            return currentCollection;
+        }
+
+        public void setCurentCollection(List<Bonus> curentCollection) {
+            this.currentCollection = curentCollection;
+        }
+
         public Pane getPane() {
             return pane;
         }
     }
 
 
-    AzironHero() {
+    AHero() {
     }
 
-    AzironHero(Double attack, Double treatment, Double hitPoints, Double supplyHealth, Double currentExperience,
-               int levelHero, List<Double> listOfRequiredExperience, List<Double> listOfDamage,
-               List<Double> listOfTreatment, List<Double> listOfSupplyHealth,
-               List<Skill> collectionOfSkills,
-               //Outer:
-               ImageView imageView, List<Media> listOfAttackVoices, List<Media> listOfTreatmentVoices) {
+    AHero(Double attack, Double treatment, Double hitPoints, Double supplyHealth, Double currentExperience,
+          int levelHero, List<Double> listOfRequiredExperience, List<Double> listOfDamage,
+          List<Double> listOfTreatment, List<Double> listOfSupplyHealth,
+          List<Skill> collectionOfSkills,
+          //Outer:
+          ImageView imageView, List<Media> listOfAttackVoices, List<Media> listOfTreatmentVoices) {
 
         this.attack = attack;
         this.treatment = treatment;
@@ -97,7 +104,7 @@ public class AzironHero {
     }
 
 
-    AzironHero(Presentation presentation) {
+    AHero(Presentation presentation) {
         this.presentation = presentation;
     }
 

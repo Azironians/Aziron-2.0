@@ -22,6 +22,7 @@ public class Profile {
     private Integer winForOrcBacher;
     private Player player;
     private List<Bonus> collection = new ArrayList<>();
+    public Profile () {};
 
     public Profile(String name) {
         this.name = name;

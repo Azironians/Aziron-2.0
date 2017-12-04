@@ -108,7 +108,7 @@ public class ControllerTotalMatch implements Initializable {
         profileController = 0;
         btnPlayAgain.setOnMouseClicked(event -> {
             try {
-                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAutorization.fxml")), 1280, 720));
+                azironStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../fxmlFiles/WindowAuthorization.fxml")), 1280, 720));
                 Image cursor = new Image("file:src\\Picture\\Mouse\\Mouse.png");
                 ImageCursor imageCursor = new ImageCursor(cursor);
                 azironStage.getScene().setCursor(imageCursor);
